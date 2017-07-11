@@ -1,35 +1,24 @@
 {
   "name": "petminder",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kfanning19/PetMinder.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kfanning19/PetMinder/issues"
-  },
-  "homepage": "https://github.com/kfanning19/PetMinder#readme",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "axios": "^0.16.2",
-    "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
-    "connect-flash": "^0.1.1",
-    "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
-    "express-handlebars": "^3.0.0",
-    "express-session": "^1.15.3",
-    "mysql": "^2.13.0",
-    "nodemailer": "^4.0.1",
+    "moment": "^2.18.1",
+    "morgan": "^1.8.2",
     "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
-    "sequelize": "^4.2.1"
+    "pg": "^6.4.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.10",
+    "sequelize": "^4.3.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
