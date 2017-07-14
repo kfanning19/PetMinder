@@ -51,6 +51,10 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1, 15]
             }
+        },
+        website:{
+            type: DataTypes.STRING,
+            allowNull: true
         }
     }, {
         classMethods: {
