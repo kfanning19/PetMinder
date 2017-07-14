@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Pet = sequelize.define("Pet", {
         name: {
-type: DataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1, 140]
@@ -14,24 +14,30 @@ type: DataTypes.STRING,
                 len: [1, 140]
             }
         },
-        breed:{
-        	type: DataTypes.STRING,
-        	defaultValue: "mutt" 
+        breed: {
+            type: DataTypes.STRING,
+            defaultValue: "mutt"
         }
         dob: {
             type: DataTypes.DATE,
             allowNull: false
         },
-        favorite_toy:{
-        	type: DataTypes.STRING,
-        	allowNull:false, 
-        	validate:{
-        		len:[1, 140]
-        	}
+        favorite_toy: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 140]
+            }
         },
-        image:{
-        	type:DataTypes.STRING, 
-        	defaultValue: photo.png
+        image: {
+            type: DataTypes.STRING,
+            defaultValue: photo.png
+        }
+    }, {
+        classMethods:{
+            associate: fuction(models){
+                Pet.belongsToMany(models.User, {through: 'UserPets', foreignKey: 'UserId'})
+            })
         }
     });
     return Pet;

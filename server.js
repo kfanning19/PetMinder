@@ -39,9 +39,6 @@ app.use(express.static(process.cwd() + "/public"));
 // session.
 setupPassport(app);
 
-// Set Handlebars
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
 
 //Routes
 require("./routes/html-routes.js")(app);
