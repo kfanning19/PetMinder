@@ -6,9 +6,11 @@ var userProfile = React.createClass({
   render: function() {
 
   	return (
-      <div className="main-container">
-        <div className="container">
+    <div className="main-container">
+      <div className="container">
         <div class="row">
+
+         <h1>User Profile</h1>
 
         <div class="row">
         <div class="col s12 m7">
@@ -20,23 +22,18 @@ var userProfile = React.createClass({
             <div class="card-content">
               <p>Name</p>
               <p>Email</p>
-              <p>Photo</p>
+              <p>Phone</p>
             </div>
          
           </div>
         </div>
       </div>
-
-      <div class="row">
+   
       <a class="waves-effect waves-light btn-large">Add Pet</a>
 
-      </div>
-      </div>
-      </div>
-
-
-
-
-    
+	  </div>
+     </div>
+    </div>
+ 
 
  module.exports = userProfile;  

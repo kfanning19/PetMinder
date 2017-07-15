@@ -9,6 +9,9 @@ var addPet = React.createClass({
     <div className="main-container">
     <div className="container">
     <div class="row">
+
+    <h1>Health</h1>
+
         <form class="col l5">
           <div class="row">
             <div class="input-field col s6">
@@ -19,10 +22,10 @@ var addPet = React.createClass({
         </form>
 
       <div class="row">
-        <div class="col s12 m6">
+        <div class="col s8 m5">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title">Illnesses and allergies</span>
+              <span class="card-title">Disease and/or allergy</span>
               <p>Kennel Cough</p>
             </div>
           </div>
@@ -30,17 +33,19 @@ var addPet = React.createClass({
       </div>  
       
       <div class="row">
-        <div class="col s12 m6">
+        <div class="col s8 m5">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title">Illnesses and allergies</span>
+              <span class="card-title">Disease and/or allergy</span>
               <p>Diarrhea</p>
             </div>
           </div>
         </div>
       </div> 
 
-       <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+      <div class="row">
+      <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+      </div>
 
        <div class="col l7">
        <ul class="collection with-header">
@@ -55,5 +60,6 @@ var addPet = React.createClass({
   </div>
   </div>
   </div>
+
 
 module.exports = addPet;        

@@ -6,14 +6,16 @@ var medications = React.createClass({
   render: function() {
 
     return (
-    <div className="main-container">
+     <div className="main-container">
         <div className="container">
         <div class="row">
+      
+      <h1>Health</h1>
       
         <div class="col s6 m3">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title">Card Title</span>
+              <span class="card-title">Active Medication</span>
               <p>Frontline Plus Flea & Tick Treatment. Apply every 30 days.</p>
             </div>
 
