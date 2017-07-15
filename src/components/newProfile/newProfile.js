@@ -8,18 +8,18 @@ var UserProfile = React.createClass({
   	return (
     <div className="main-container">
       <div className="container">
-        <div class="row">
+        <div className="row">
 
          <h1>User Profile</h1>
 
-        <div class="row">
-        <div class="col s12 m7">
-          <div class="card">
-            <div class="card-image">
+        <div className="row">
+        <div className="col s12 m7">
+          <div className="card">
+            <div className="card-image">
               <img src="images/sample-1.jpg"/>
-              <span class="card-title">Owner</span>
+              <span className="card-title">Owner</span>
             </div>
-            <div class="card-content">
+            <div className="card-content">
               <p>Name</p>
               <p>Email</p>
               <p>Phone</p>
@@ -29,7 +29,7 @@ var UserProfile = React.createClass({
         </div>
       </div>
    
-      <a class="waves-effect waves-light btn-large">Add Pet</a>
+      <a className="waves-effect waves-light btn-large">Add Pet</a>
 
 	  </div>
      </div>
