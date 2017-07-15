@@ -1,7 +1,7 @@
 var React = require("react");
 var Link = require("react-router").Link;
 
-var userProfile = React.createClass({
+var UserProfile = React.createClass({
 
   render: function() {
 
@@ -36,4 +36,5 @@ var userProfile = React.createClass({
     </div>
  
 
- module.exports = userProfile;  
+ module.exports = UserProfile;  
+
