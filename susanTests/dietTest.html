@@ -38,9 +38,18 @@
                 </div>
 
                  <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <input id="diet_serving" type="text" class="validate">
                         <label for="diet_serving">Serving</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select>
+                              <option value="" disabled selected></option>
+                              <option value="meal">Meal</option>
+                              <option value="treat">Treat</option>
+                        </select>
+                        <label>Meal or Treat?</label>
                     </div>
                 </div>
 
@@ -53,11 +62,12 @@
 
                  <div class="row">
                     <div class="input-field col s12">
-                        <input id="diet_stored" type="number" class="validate">
+                        <input id="diet_stored" type="text" class="validate">
                         <label for="diet_stored">Stored Where?</label>
                     </div>
                 </div>
-
+                
+                <span class="waves-effect waves-light btn">Submit</a></span>
             </form>
 <!--         </div>
     </div>
@@ -94,6 +104,14 @@
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+
+    <script>
+
+      $(document).ready(function() {
+        $('select').material_select();
+      });
+      
+    </script>
     
 </body>
 </html>
