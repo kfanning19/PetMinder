@@ -37,7 +37,15 @@ module.exports = function(sequelize, DataTypes) {
         classMethods:{
             associate: fuction(models){
                 Pet.belongsToMany(models.User, {through: 'UserPets', foreignKey: 'UserId'})
-            })
+                Pet.hasMany(models.Activity, {onDelete: "cascade"})
+                Pet.hasMany(models.Food, {onDelete: "cascade"})
+                Pet.hasMany(models.Health, {onDelete: "cascade"})
+                Pet.hasMany(models.Illness, {onDelete: "cascade"})
+                Pet.hasMany(models.Medications, {onDelete: "cascade"})
+                Pet.hasMany(models.Messages, {onDelete: "cascade"})
+                Pet.hasMany(models.Professional, {onDelete: "cascade"})
+                Pet.hasMany(models.Weight, {onDelete: "cascade"})
+            }
         }
     });
     return Pet;

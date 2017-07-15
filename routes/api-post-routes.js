@@ -5,7 +5,7 @@ var transporter = nodemailer.createTransport({
     service: "gmail",
     host: "smtp.gmail.com"
     auth: {
-        user: 'philopet@gmail.com',
+        user: 'philopetapp@gmail.com',
         pass: 'weLovePets0117'
     }
 });
@@ -174,7 +174,7 @@ module.exports = function(app) {
                                 var mailOptions = {
                                     to: data.email,
                                     subject: data.PetName + " has been shared with you!",
-                                    text: "Hi, " + data.Inviter + " has shared a pet with you on PhiloPet! To see this pet profile, go to philopet.com to create an account. Once completed, just click on the Add Pet button on your profile page. At the top of the form, fill in the spot that says 'Add by Code' with the following code: " + data.invite_string + ", then click submit and it will be added for you!"
+                                    text: "Hi, " + data.Inviter + " has shared a pet with you on PhiloPet! To see this pet profile, go to philopet.com to create an account. Once completed, just click on the Add Pet button on your profile page. At the top of the form, fill in the spot that says 'Add by Code' with the following code: " + data.invite_string + ", then click submit and it will be added for you! Note: the code is particular to this email address. It will not work with a different address."
                                     html: "<p>Hi, " + data.Inviter + " has shared a pet with you on PhiloPet! To see this pet profile, go to philopet.com to create an account. Once completed, just click on the Add Pet button on your profile page. At the top of the form, fill in the spot that says 'Add by Code' with the following code: " + data.invite_string + ", then click submit and it will be added for you!</p>"
                                 }; smtpTransport.sendMail(mailOptions, function(error, response) {
                                         if (error) {
