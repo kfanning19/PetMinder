@@ -10,8 +10,12 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <!-- Include in CSS font-family: 'Raleway', sans-serif; -->
 	<!--     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:600" rel="stylesheet"> -->    
+    <link href="https://fonts.googleapis.com/css?family=Raleway:600" rel="stylesheet"> --> 
+        <!-- Custom CSS -->
+    <link href="/assets/css/style.css" rel="stylesheet"> 
+      {{!-- jQuery --}}
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		{{!--Materialize JavaScript  --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 
 </head>
@@ -46,21 +50,8 @@
 		</div>
 	</nav>
 
-	<style>
-
-		nav {
-			height: 50px;
-		}
-		/*To Do -- Center Icon and Logo vertically.  Enbiggen icon.*/
-		
-	</style>
-
-	<script>
-	  // Initialize collapse button
-	  $(".button-collapse").sideNav();
-	  // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-	  $('.collapsible').collapsible();
-	</script>
+	{{body}}
 
 </body>
+<script src="/assets/js/app.js"></script>
 </html>
