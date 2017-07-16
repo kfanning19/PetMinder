@@ -16,7 +16,7 @@ module.exports= function(app){
         app.get("/profile/pet/:id", function(req, res) {
             models.Pet.findById({
                 where: { id: req.params.id },
-                include: [models.Activity, models.Food, models.Health, models.Illness, models.Medications, models.Messages, models.Professional, models.Weight, models.User]
+                include: [models.Activity, models.Diet, models.Health, models.Illness, models.Medications, models.Messages, models.Professional, models.Weight, models.User]
             }).then(function(data) {
                 res.json(data)
             })
@@ -51,11 +51,11 @@ module.exports= function(app){
                 res.json(data);
             })
         });
-        // get Pet Food
-        app.get("/profile/pet/food/:id", function(req, res) {
+        // get Pet Diet
+        app.get("/profile/pet/Diet/:id", function(req, res) {
             models.Pet.findById({
                 where: { id: req.params.id },
-                include: [models.Food]
+                include: [models.Diet]
             }).then(function(data) {
                 res.json(data);
             })

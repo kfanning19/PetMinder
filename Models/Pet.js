@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         breed: {
             type: DataTypes.STRING,
-            defaultValue: "mutt"
+            defaultValue: "N/A"
         }
         dob: {
             type: DataTypes.DATE,

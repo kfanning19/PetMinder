@@ -21,7 +21,7 @@ module.exports= function(app){
                 });
         });
         // update Food
-        app.put("/update/Food/:id", function(req, res) {
+        app.put("/update/food/:id", function(req, res) {
             models.Food.update({ req.body }, {where:{id: req.params.id}}).then((data)=> {
                     res.json(data);
                 });
