@@ -1,0 +1,40 @@
+	<div class="container" id="greeting-page">
+		<div class="row header">
+			<div class="col s12 center-align" id="title">
+				<a id="greeting-link" class="smooth"></a>
+			    <h1 id="landing-header">PhiloPet</h1>
+			</div>
+		</div>
+		<div class="row" id="sign-in">
+			<div class="col s10 offset-s1 col m6 offset-m3">
+				<form action="/login" method="post">
+					<div class="row">
+						<h4 class="center-align">For the love of your pets.</h4>
+						<br><br><br>
+						<div class="input-field col s12">
+						     <input id="existing-email" name="username" type="text" class="validate" required>
+						    <label for="email">Email</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+						    <input id="existing-password" name="password" type="password" class="validate" required>
+						    <label for="password">Password</label>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12 center-align">
+					    <button class="waves-effect waves-meeshteal btn" type="submit" id="user-login"> SUBMIT </button>
+					</div>
+				</form>
+			</div>
+			<div class="col s12 center-align">
+			    <span class="flow-text">
+			      		<a href="#">Forgot Password?</a> | <a href="#" id="sign-up-link">Create a New Account</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
