@@ -3,7 +3,7 @@ module.exports= function(app){
 	        
             // -----------GET ROUTES----------------
             // get User profile with basic pet information
-        app.get("/profile/user/:id", function(req, res) {
+        app.get("/api/profile/user/:id", function(req, res) {
             models.User.findById({
                 where: { id: req.params.id },
                 include: models.Pet
@@ -13,7 +13,7 @@ module.exports= function(app){
         })
 
         // get Pet profile
-        app.get("/profile/pet/:id", function(req, res) {
+        app.get("/api/profile/pet/:id", function(req, res) {
             models.Pet.findById({
                 where: { id: req.params.id },
                 include: [models.Activity, models.Diet, models.Health, models.Illness, models.Medications, models.Messages, models.Professional, models.Weight, models.User]
@@ -23,7 +23,7 @@ module.exports= function(app){
         });
 
         //get Pet Activity Tab
-        app.get("/profile/pet/activity/:id", function(req, res) {
+        app.get("/api/profile/pet/activity/:id", function(req, res) {
             models.Pet.findById({
                 where: { id: req.params.id },
                 include: [models.User, models.Activity]
@@ -33,7 +33,7 @@ module.exports= function(app){
         });
 
         //get Pet Health information
-        app.get("/profile/pet/health/:id", function(req, res) {
+        app.get("/api/profile/pet/health/:id", function(req, res) {
             models.Pet.findById({
                 where: { id: req.params.id },
                 include: [models.User, models.Health, models.Medications, models.Illness, models.Weight]
@@ -43,7 +43,7 @@ module.exports= function(app){
         });
 
         // get Pet Contacts
-        app.get("/profile/pet/contacts/:id", function(req, res) {
+        app.get("/api/profile/pet/contacts/:id", function(req, res) {
             models.Pet.findById({
                 where: { id: req.params.id },
                 include: [models.Professional]
@@ -52,7 +52,7 @@ module.exports= function(app){
             })
         });
         // get Pet Diet
-        app.get("/profile/pet/Diet/:id", function(req, res) {
+        app.get("/api/profile/pet/Diet/:id", function(req, res) {
             models.Pet.findById({
                 where: { id: req.params.id },
                 include: [models.Diet]
@@ -61,7 +61,7 @@ module.exports= function(app){
             })
         });
         // get Pet Settings 
-        app.get("/profile/pet/settings/:id", function(req, res) {
+        app.get("/api/profile/pet/settings/:id", function(req, res) {
             models.Pet.findById({
                 where: { id: req.params.id },
                 include: models.User

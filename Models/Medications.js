@@ -1,32 +1,36 @@
 module.exports = function(sequelize, DataTypes) {
     var Medications = sequelize.define("Medications", {
         name: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len[1, 140]
             }
         },
         dosage: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len[1, 140]
             }
         },
         frequency: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len[1, 140]
             }
         },
         start: {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
             allowNull: true
         },
         stop: {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
+            allowNull: true
+        },
+        last_dose:{
+            type: DataTypes.DATE,
             allowNull: true
         },
         purpose: {
