@@ -17,12 +17,91 @@
   </head>
 
   <body>
-    <footer class="page-footer">
-      <div class="footer-copyright">
-        <div class="container"> © 2017 PhiloPet <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-        </div>
+
+
+
+
+    <div class="container" id="greeting-page">
+    <div class="row header">
+      <div class="col s12 center-align" id="title">
+        <a id="greeting-link" class="smooth"></a>
+          <h1 id="landing-header">PhiloPet</h1>
       </div>
-    </footer>
+    </div>
+    <div class="row" id="sign-in">
+      <div class="col s10 offset-s1 col m6 offset-m3">
+        <form action="/login" method="post">
+          <div class="row">
+            <h4 class="center-align">For the love of your pets.</h4>
+            <br><br><br>
+            <div class="input-field col s12">
+                 <input id="existing-email" name="username" type="text" class="validate" required>
+                <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+                <input id="existing-password" name="password" type="password" class="validate" required>
+                <label for="password">Password</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 center-align">
+              <button class="waves-effect waves-meeshteal btn" type="submit" id="user-login"> SUBMIT </button>
+          </div>
+        </form>
+      </div>
+      <div class="col s12 center-align">
+          <span class="flow-text">
+                <a href="#">Forgot Password?</a> | <a href="#" id="sign-up-link">Create a New Account</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  
+    <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+
+    <style>
+      body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+     
+  </style>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
     
