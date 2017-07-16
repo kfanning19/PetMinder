@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>PhiloPet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <!-- Include in CSS font-family: 'Raleway', sans-serif; -->
+	<!--     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:600" rel="stylesheet"> -->    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+</head>
+
+<body>
+	<nav>
+		<div class="row">
+			<div class="nav-wrapper">
+				<div class="col s4">
+				   	<a href="#" data-activates="slide-out" class="button-collapse show-on-large left"><i class="material-icons">view_headline</i></a>
+				   	<ul id="slide-out" class="side-nav">
+			    		<li>
+			      			<div class="userView">
+								<!-- Customized view for user in side nav -->
+								{{#if user}}
+			        				<img class="cirle" src="{{}}">
+			        				<span class="black-text name">{{user.name}}</span>
+			        			{{/if}}
+			      			</div>
+			    		</li>
+			    		<li><a href="/">User Profile</a></li>
+			    		<li><a href="/">About Us</a></li>
+			    		<li><a href="/">Frequently Asked Questions</a></li>
+			    		<li><a href="/">Logout</a></li>
+		  			</ul>
+				</div>
+
+				<div class="col s7 right-align">
+		  			<a href="/index" class="brand-logo">PhiloPet</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<style>
+
+		nav {
+			height: 50px;
+		}
+		/*To Do -- Center Icon and Logo vertically.  Enbiggen icon.*/
+		
+	</style>
+
+	<script>
+	  // Initialize collapse button
+	  $(".button-collapse").sideNav();
+	  // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+	  $('.collapsible').collapsible();
+	</script>
+
+</body>
+</html>
