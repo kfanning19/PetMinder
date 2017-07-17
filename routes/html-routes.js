@@ -1,5 +1,6 @@
 var models = require("../Models");
 module.exports = function(app) {
+    // Login Page
     app.get("/", function(req, res) {
         res.render("login");
     });
@@ -31,6 +32,13 @@ module.exports = function(app) {
     app.get("/about", function(req, res){
         res.render("about");
     });
-
+    // Forgot Password
+    app.get("/forgot-password", function(req, res){
+        res.render("forgot");
+    });
+    // Sign Up
+    app.get("/signup", function(req, res){
+        res.render("signUp");
+    })    
 
 };
