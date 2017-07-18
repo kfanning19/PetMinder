@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
         end: {
             type: DataTypes.DATE,
             allowNull: true
-        }
+        },
         allergy: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
@@ -26,16 +26,13 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.TEXT,
             allowNull: false
         }
-    }, {
-        classMethods: {
-            associate: function(models) {
-                Illness.belongsTo(models.Pet, {
-                    foreignKey: {
-                        allowNull: false
-                    }
-                });
-            }
-        }
     });
+    Illness.associate = function(models) {
+        Illness.belongsTo(models.Pet, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    }
     return Illness;
 };

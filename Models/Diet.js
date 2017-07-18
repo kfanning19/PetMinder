@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1, 140]
             }
-        }
+        },
         treat: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
@@ -25,16 +25,13 @@ module.exports = function(sequelize, DataTypes) {
         store: {
             type: DataTypes.STRING
         }
-    }, {
-        classMethods: {
-            associate: function(models) {
-                Food.belongsTo(models.Pet, {
-                    foreignKey: {
-                        allowNull: false
-                    }
-                });
-            }
-        }
     });
+    Diet.associate = function(models) {
+        Diet.belongsTo(models.Pet, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    }
     return Diet;
 };

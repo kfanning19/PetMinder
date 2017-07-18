@@ -4,21 +4,21 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len[1, 140]
+                len: [1, 140]
             }
         },
         dosage: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len[1, 140]
+                len: [1, 140]
             }
         },
         frequency: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len[1, 140]
+                len: [1, 140]
             }
         },
         start: {
@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.DATE,
             allowNull: true
         },
-        last_dose:{
+        last_dose: {
             type: DataTypes.DATE,
             allowNull: true
         },
@@ -47,16 +47,13 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: true
 
         }
-    }, {
-        classMethods: {
-            associate: function(models) {
-                Medications.belongsTo(models.Pet, {
-                    foreignKey: {
-                        allowNull: false
-                    }
-                });
-            }
-        }
     });
+    Medications.associate = function(models) {
+        Medications.belongsTo(models.Pet, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    }
     return Medications;
 };

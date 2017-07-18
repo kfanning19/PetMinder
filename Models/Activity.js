@@ -11,21 +11,13 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.DATE,
             allowNull: false
         }
-    }, {
-        classMethods: {
-            associate: function(models) {
-                Activity.belongsTo(models.Pet, {
-                    foreignKey: {
-                        allowNull: false
-                    }
-                });
-                Activity.belongsTo(models.User, {
-                    foreignKey: {
-                        allowNull: false
-                    }
-                });
-            }
-        }
     });
+    Activity.associate = function(models) {
+        Activity.belongsTo(models.Pet, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    }
     return Activity;
 };

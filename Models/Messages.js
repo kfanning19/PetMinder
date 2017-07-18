@@ -14,16 +14,13 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.TEXT,
             allowNull: false
         }
-    }, {
-        classMethods: {
-            associate: function(models) {
+    });
+    Messages.associate = function(models) {
                 Messages.belongsTo(models.Pet, {
                     foreignKey: {
                         allowNull: false
                     }
                 });
             }
-        }
-    });
     return Messages;
 };

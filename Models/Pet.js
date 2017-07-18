@@ -17,9 +17,9 @@ module.exports = function(sequelize, DataTypes) {
         breed: {
             type: DataTypes.STRING,
             defaultValue: "N/A"
-        }
+        },
         dob: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             allowNull: false
         },
         favorite_toy: {
@@ -31,22 +31,20 @@ module.exports = function(sequelize, DataTypes) {
         },
         image: {
             type: DataTypes.STRING,
-            defaultValue: photo.png
-        }
-    }, {
-        classMethods:{
-            associate: fuction(models){
-                Pet.belongsToMany(models.User, {through: 'UserPets', foreignKey: 'UserId'})
-                Pet.hasMany(models.Activity, {onDelete: "cascade"})
-                Pet.hasMany(models.Food, {onDelete: "cascade"})
-                Pet.hasMany(models.Health, {onDelete: "cascade"})
-                Pet.hasMany(models.Illness, {onDelete: "cascade"})
-                Pet.hasMany(models.Medications, {onDelete: "cascade"})
-                Pet.hasMany(models.Messages, {onDelete: "cascade"})
-                Pet.hasMany(models.Professional, {onDelete: "cascade"})
-                Pet.hasMany(models.Weight, {onDelete: "cascade"})
-            }
+            defaultValue: "photo.png"
         }
     });
+    Pet.associate = function(models) {
+        Pet.belongsToMany(models.User, { through: 'UserPets', foreignKey: 'petId',
+  constraints: false })
+        Pet.hasMany(models.Activity, {constraints: false });
+        Pet.hasMany(models.Diet, { onDelete: "cascade" });
+        Pet.hasMany(models.Health, { onDelete: "cascade" });
+        Pet.hasMany(models.Illness, { onDelete: "cascade" });
+        Pet.hasMany(models.Medications, { onDelete: "cascade" });
+        Pet.hasMany(models.Messages, { onDelete: "cascade" });
+        Pet.hasMany(models.Professional, { onDelete: "cascade" });
+        Pet.hasMany(models.Weight, { onDelete: "cascade" });
+    }
     return Pet;
 };

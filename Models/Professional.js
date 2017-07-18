@@ -52,20 +52,17 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1, 15]
             }
         },
-        website:{
+        website: {
             type: DataTypes.STRING,
             allowNull: true
         }
-    }, {
-        classMethods: {
-            associate: function(models) {
-                Professional.belongsTo(models.Pet, {
-                    foreignKey: {
-                        allowNull: false
-                    }
-                });
-            }
-        }
     });
+    Professional.associate = function(models) {
+        Professional.belongsTo(models.Pet, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    }
     return Professional;
 };

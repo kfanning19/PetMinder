@@ -1,26 +1,24 @@
-module.exports = function(sequelize, DataTypes){
-	var Weight = sequelize.define("Weight", {
-		weight:{
-			type: DataTypes.STRING,
-			allowNull: false,
-			validate:{
-				len:[1, 140]
-			}
-		},
-		date:{
-			type: DataTypes.DATE,
-			defaultValue: Date.Now
-		}
-	}, {
-        classMethods: {
-            associate: function(models) {
-                Weight.belongsTo(models.Pet, {
-                    foreignKey: {
-                        allowNull: false
-                    }
-                });
+module.exports = function(sequelize, DataTypes) {
+    var Weight = sequelize.define("Weight", {
+        weight: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 140]
             }
+        },
+        date: {
+            type: DataTypes.DATE,
+            defaultValue: Date.Now
         }
     });
-	return Weight;
+    Weight.associate = function(models) {
+        Weight.belongsTo(models.Pet, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    }
+
+    return Weight;
 };

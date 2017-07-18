@@ -1,54 +1,38 @@
+var models= require("./Models");
 var express = require("express");
-var app = express();
-var PORT = process.env.PORT || 8080;
-
-// *** Dependencies
-// =============================================================
 var bodyParser = require("body-parser");
-var setupPassport = require('./authentication/passport.js');
-var session = require('express-session');
-var cookieParser = require('cookie-parser');
-var exphbs = require("express-handlebars");
-var flash=require("connect-flash");
+var methodOverride = require("method-override");
 
-// Requiring our models for syncing
-var db = require("./models");
+var port = process.env.PORT || 3000;
 
-// Sets up the Express app to handle data parsing
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-
-
-
-//Setting up login session
-app.use(cookieParser())
-app.use(session({ secret: 'bunnyrabbits', resave: false, saveUninitialized: false }))
-app.use(flash());
+var app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(process.cwd() + "/public"));
-//Note: Above should do same as:  app.use(express.static("./public")); process.cwd() reads current directory
 
+app.use(bodyParser.urlencoded({ extended: false }));
 
-// Routes =============================================================
+// Override with POST having ?_method=DELETE
+app.use(methodOverride("_method"));
 
+// Set Handlebars.
+var exphbs = require("express-handlebars");
 
-// Initialize Passport and restore authentication state, if any, from the
-// session.
-setupPassport(app);
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
+var testing = require("./db.js");
+// Routes
+require("./routes/api-delete-routes.js");
+require("./routes/api-get-routes.js");
+require("./routes/api-post-routes.js");
+require("./routes/api-put-routes.js");
+require("./routes/html-routes.js");
 
-//Routes
-require("./routes/html-routes.js")(app);
-require("./routes/api-post-routes.js")(app);
-require("./routes/api-put-routes.js")(app);
-require("./routes/api-get-routes.js")(app);
-require("./routes/api-delete-routes.js")(app);
-// Syncing our sequelize models and then starting our express app
-db.sequelize.sync({ force: false }).then(function() {
-    app.listen(PORT, function() {
-        console.log(`Server running on localhost:${PORT}`);
-    });
+//Connect to Sequelize and begin server listening
+models.sequelize.sync({force: true}).then(function(){
+	app.listen(port, function(){
+		console.log('Server successfully connected on PORT %s', port);
+		testing();
+	});
 });
