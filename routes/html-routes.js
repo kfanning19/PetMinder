@@ -4,6 +4,10 @@ module.exports = function(app) {
     app.get("/", function(req, res) {
         res.render("login");
     });
+        // Add a pet Page
+    app.get("/add-pet", function(req, res) {
+        res.render("addPet");
+    });
     // get User profile with basic pet information
     app.get("/profile/user/:id", function(req, res) {
         models.User.findById({

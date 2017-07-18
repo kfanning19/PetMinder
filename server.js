@@ -22,6 +22,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 var testing = require("./db.js");
+var testjoin = require("./db2.js");
 // Routes
 require("./routes/api-delete-routes.js");
 require("./routes/api-get-routes.js");
@@ -34,5 +35,6 @@ models.sequelize.sync({force: true}).then(function(){
 	app.listen(port, function(){
 		console.log('Server successfully connected on PORT %s', port);
 		testing();
+		testjoin();
 	});
 });

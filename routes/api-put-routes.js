@@ -76,39 +76,39 @@ module.exports = function(app) {
         });
     });
     // update forgotten password
-    // app.put("/update/forgot-password", function(req, res) {
+    app.put("/update/forgot-password", function(req, res) {
 
-    //     models.User.findOne({ where: { email: req.body.email } }).then((user) => {
-    //         var random = randomstring.generate();
-    //         var generateHash = function(password) {
-    //             return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
-    //         };
-    //         var newPassword = generateHash(random);
+        models.User.findOne({ where: { email: req.body.email } }).then((user) => {
+            var random = randomstring.generate();
+            var generateHash = function(password) {
+                return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+            };
+            var newPassword = generateHash(random);
 
-    //         if (user) {
-    //             user.update({ "password": newPassword }).then((data) => {
-    //                 var mailOptions = {
-    //                     to: req.body.email,
-    //                     subject: "Updated password",
-    //                     text: "You said that you forgot your password, so we have temporarily changed it for you. Your temporary passsword is: " + random + ". Please sign in using this password. You can update the password to something you will remember on your profile page."
-    //                     html: "<body><p>You said that you forgot your password, so we have temporarily changed it for you. Your temporary passsword is: " + random + ". Please sign in using this password. You can update the password to something you will remember on your profile page.</p></body>"
-    //                 };
-    //                 smtpTransport.sendMail(mailOptions, function(error, response) {
-    //                     if (error) {
-    //                         console.log(error);
-    //                         res.send("error");
-    //                     } else {
-    //                         console.log("Message sent to: " + data.email);
-    //                         var sendObject = { status: "sent" };
-    //                         console.log("sendObject: ", sendObject)
-    //                         res.send(sendObject);
+            if (user) {
+                user.update({ "password": newPassword }).then((data) => {
+                    var mailOptions = {
+                        to: req.body.email,
+                        subject: "Updated password",
+                        text: "You said that you forgot your password, so we have temporarily changed it for you. Your temporary passsword is " + random + ". Please sign in using this password. You can update the password to something you will remember on your profile page.",
+                        html: "<body><p>You said that you forgot your password, so we have temporarily changed it for you. Your temporary passsword is " + random + ". Please sign in using this password. You can update the password to something you will remember on your profile page.</p></body>"
+                    };
+                    smtpTransport.sendMail(mailOptions, function(error, response) {
+                        if (error) {
+                            console.log(error);
+                            res.send("error");
+                        } else {
+                            console.log("Message sent to: " + data.email);
+                            var sendObject = { status: "sent" };
+                            console.log("sendObject: ", sendObject)
+                            res.send(sendObject);
 
 
-    //                     }
-    //                 })
-    //             })
+                        }
+                    })
+                })
 
-    //         }
-    //     })
-    // });
+            }
+        })
+    });
 }

@@ -14,17 +14,6 @@ module.exports = function() {
         password: password,
         phone: "1232341234",
         image: "https://ichef.bbci.co.uk/images/ic/480x270/p049tgdb.jpg",
-    }).then((user) => {
-        return models.Pet.create({
-            name: "Cooper",
-            animal_type: "dog",
-            breed: "Chinook",
-            dob: "2014-09-24",
-            favorite_toy: "rope",
-            image: "https://vetstreet.brightspotcdn.com/dims4/default/b90e614/2147483647/thumbnail/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2Ff8%2Fd9ad10c79311e09b940050568d6ceb%2Ffile%2FChinook-5-645km071411.jpg"
-        }).then((pet)=>{
-            user.addPet(pet).then((data)=>{})
-        });
     });
     models.User.create({
         first_name: "Susan",
@@ -42,14 +31,14 @@ module.exports = function() {
         phone: "1232341234",
         image: "https://static.pexels.com/photos/50577/hedgehog-animal-baby-cute-50577.jpeg"
     });
-    // models.Pet.create({
-    //     name: "Cooper",
-    //     animal_type: "dog",
-    //     breed: "Chinook",
-    //     dob: "2014-09-24",
-    //     favorite_toy: "rope",
-    //     image: "https://vetstreet.brightspotcdn.com/dims4/default/b90e614/2147483647/thumbnail/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2Ff8%2Fd9ad10c79311e09b940050568d6ceb%2Ffile%2FChinook-5-645km071411.jpg"
-    // });
+    models.Pet.create({
+        name: "Cooper",
+        animal_type: "dog",
+        breed: "Chinook",
+        dob: "2014-09-24",
+        favorite_toy: "rope",
+        image: "https://vetstreet.brightspotcdn.com/dims4/default/b90e614/2147483647/thumbnail/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2Ff8%2Fd9ad10c79311e09b940050568d6ceb%2Ffile%2FChinook-5-645km071411.jpg"
+    });
     models.Pet.create({
         name: "Riley",
         animal_type: "dog",
@@ -132,7 +121,10 @@ module.exports = function() {
         date: "2017-07-09 12:34:12",
         PetId: 5
     });
-    models.Pet.findOne({ where: { id: 1 } }).then((pet) => {
-        pet.addUsers()
-    })
+
+    models.User.find({where: {id:1}}).then((user)=>{
+        models.Pet.find({where:{id:1}}).then((pet)=>{
+            user.setPets([pet]);
+        });
+    });
 }

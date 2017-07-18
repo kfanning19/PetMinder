@@ -86,45 +86,45 @@ module.exports = function(app) {
             });
     });
     // add new Owner
-    // app.post("/add/owner/:email/:id/:name/:first/:last", function(req, res) {
-    //     models.User.findOne({
-    //         where: { email: req.params.email }
-    //     }).then((newOwner) => {
-    //         if (newOwner) {
-    //             models.User.addPet(req.params.id).then((data) => res.json(data))
-    //         } else {
-    //             var random = randomstring.generate();
+    app.post("/add/owner/:email/:id/:name/:first/:last", function(req, res) {
+        models.User.findOne({
+            where: { email: req.params.email }
+        }).then((newOwner) => {
+            if (newOwner) {
+                models.newOwner.addPet(req.params.id).then((data) => res.json(data))
+            } else {
+                var random = randomstring.generate();
 
-    //             models.Caretaker.create({
-    //                 invite_string: random,
-    //                 email: req.params.email,
-    //                 petID: req.params.id,
-    //                 petName: req.params.name,
-    //                 inviter: req.params.first + " " + req.params.last
-    //             }).then((data) => {
-    //                 var mailOptions = {
-    //                     to: data.email,
-    //                     subject: data.PetName + " has been shared with you!",
-    //                     text: "Hi, " + data.Inviter + " has shared a pet with you on PhiloPet! To see this pet profile, go to philopet.com to create an account. Once completed, just click on the Add Pet button on your profile page. At the top of the form, fill in the spot that says 'Add by Code' with the following code: " + data.invite_string + ", then click submit and add it quickly! Note: the code is particular to this email address. It will not work with a different address."
-    //                     html: "<body><p>Hi, " + data.Inviter + " has shared a pet with you on PhiloPet! To see this pet profile, go to philopet.com to create an account. Once completed, just click on the Add Pet button on your profile page. At the top of the form, fill in the spot that says 'Add by Code' with the following code: " + data.invite_string + ", then click submit and receive it quickly!</p></body>"
-    //                 };
-    //                 smtpTransport.sendMail(mailOptions, function(error, response) {
-    //                     if (error) {
-    //                         console.log(error);
-    //                         res.send("error");
-    //                     } else {
-    //                         console.log("Message sent to: " + data.email);
-    //                         var sendObject = { status: "sent" };
-    //                         console.log("sendObject: ", sendObject)
-    //                         res.send(sendObject);
+                models.Caretaker.create({
+                    invite_string: random,
+                    email: req.params.email,
+                    petID: req.params.id,
+                    petName: req.params.name,
+                    inviter: req.params.first + " " + req.params.last
+                }).then((data) => {
+                    var mailOptions = {
+                        to: data.email,
+                        subject: data.PetName + " has been shared with you!",
+                        text: "Hi, " + data.Inviter + " has shared a pet with you on PhiloPet! To see this pet profile, go to philopet.com to create an account. Once completed, just click on the Add Pet button on your profile page. At the top of the form, fill in the spot that says 'Add by Code' with the following code: " + data.invite_string + ", then click submit and add it quickly! Note: the code is particular to this email address. It will not work with a different address.",
+                        html: "<body><p>Hi, " + data.Inviter + " has shared a pet with you on PhiloPet! To see this pet profile, go to philopet.com to create an account. Once completed, just click on the Add Pet button on your profile page. At the top of the form, fill in the spot that says 'Add by Code' with the following code: " + data.invite_string + ", then click submit and receive it quickly!</p></body>"
+                    };
+                    smtpTransport.sendMail(mailOptions, function(error, response) {
+                        if (error) {
+                            console.log(error);
+                            res.send("error");
+                        } else {
+                            console.log("Message sent to: " + data.email);
+                            var sendObject = { status: "sent" };
+                            console.log("sendObject: ", sendObject)
+                            res.send(sendObject);
 
 
-    //                     }
-    //                 });
-    //             });
-    //         };
-    //     })
-    // });
+                        }
+                    });
+                });
+            };
+        })
+    });
     // add new Owner by String
     app.post("/api/owner/:ownerId/:email/pet/:petID", (req, res) => {
         models.Caretaker.findOne({ where: { email: req.params.email, petID: req.params.petID } }).then((results) => {
