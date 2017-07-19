@@ -39,8 +39,12 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
     User.associate = function(models) {
-        User.belongsToMany(models.Pet, { through: 'UserPets', foreignKey: 'userId',
-  constraints: false });
+        User.belongsToMany(models.Pet, {
+            through: {
+                model: models.UserPets, 
+                unique:false},
+            foreignKey: 'userId'
+        });
     }
     return User;
 };

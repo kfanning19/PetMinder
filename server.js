@@ -34,7 +34,7 @@ require("./routes/html-routes.js");
 models.sequelize.sync({force: true}).then(function(){
 	app.listen(port, function(){
 		console.log('Server successfully connected on PORT %s', port);
-		testing();
-		testjoin();
+		testing().then(testjoin);
+		// testjoin();
 	});
 });

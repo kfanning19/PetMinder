@@ -35,9 +35,14 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
     Pet.associate = function(models) {
-        Pet.belongsToMany(models.User, { through: 'UserPets', foreignKey: 'petId',
-  constraints: false })
-        Pet.hasMany(models.Activity, {constraints: false });
+        Pet.belongsToMany(models.User, {
+            through: {
+                model: models.UserPets,
+                unique: false
+            },
+            foreignKey: 'petId'
+        });
+        Pet.hasMany(models.Activity, { onDelete: "cascade" });
         Pet.hasMany(models.Diet, { onDelete: "cascade" });
         Pet.hasMany(models.Health, { onDelete: "cascade" });
         Pet.hasMany(models.Illness, { onDelete: "cascade" });
