@@ -9,7 +9,7 @@ module.exports = function(app) {
         res.sendFile(__dirname + "/views/addPet.html");
     });
     // get User profile with basic pet information
-    app.get("/profile/user/:id", function(req, res) {
+    app.get("/profile/", function(req, res) {
       res.sendFile(__dirname + "/views/userProfile.html")  
     })
 
