@@ -1,39 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Profile</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <!-- Linking to CSS -->
+    <link rel="stylesheet" type="text/css" href="../public/assets/css/style.css">
+</head>
 <body>
 	<div class="container">
 		<br>
 		<div class="row">
 			<div class="col s4">
-					<img src="http://i.imgur.com/fRlgNEE.jpg" alt="Temporary Profile Image">
+					<span id="owner-image"></span>
 			</div>
 			<div class="col s8">
-				<h2>Susan Heiniger</h2>
-				<h3>Owner and lover to pets everywhere</h3>
-				<a class="waves-effect waves-light btn-large"><i class="material-icons left">mode_edit</i>Add a Pet</a>
+				<h2><span id="owner-name"></span></h2>
+				<p><span id="owner-contact-info"></span></p>
+				<a class="waves-effect waves-light btn-large"><i class="material-icons left" href="/addPet">mode_edit</i>Add a Pet</a>
 			</div>
 		</div>
 
 		<div class="divider"></div>
 		<br>
-
-		<div class="row">
-			<div class="col s4">
-				<a href="https://www.w3schools.com">
-					<div class="card horizontal">
-						<div class="card-image">
-							<img src="http://i.imgur.com/zOlVHPK.jpg">
-						</div>
-						<div class="card-stacked">
-							<div class="card-content">
-								<p>Pet name here.</p>
-								<p>Pet DOB here.</p>
-								<p>Pet's favorite toy here.</p>
-							</div>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<div class="col s4">
+		<div id="display-pets"></div>
 				<a href="https://www.w3schools.com">
 					<div class="card horizontal">
 						<div class="card-image">
@@ -50,21 +43,14 @@
 				</a>
 			</div>
 
-			<div class="col s4">
-				<a href="https://www.w3schools.com">
-					<div class="card horizontal">
-						<div class="card-image">
-							<img src="http://i.imgur.com/WomyThW.jpg">
-						</div>
-						<div class="card-stacked">
-							<div class="card-content">
-								<p>Pet name here.</p>
-								<p>Pet DOB here.</p>
-								<p>Pet's favorite toy here.</p>
-							</div>
-						</div>
-					</div>
-				</a>
-			</div>
-		</div>
-	</div>
+			
+
+</body>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+<!-- Custom JavaScript -->
+<script type="text/javascript" src="../public/assets/js/app.js"></script>
+
+</html>
