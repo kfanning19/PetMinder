@@ -2,6 +2,9 @@ var models= require("./Models");
 var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
+var session = require("express-session");
+// Requiring passport as we've configured it
+var passport = require("./config/passport");
 
 var port = process.env.PORT || 3000;
 
@@ -14,6 +17,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Override with POST having ?_method=DELETE
 app.use(methodOverride("_method"));
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: "animals are awesome", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 var testing = require("./db.js");
 var testjoin = require("./db2.js");
