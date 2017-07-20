@@ -11,22 +11,20 @@ var transporter = nodemailer.createTransport({
     }
 });
 
-module.exports = function(app) {
+module.exports = function(app, passport) {
     // ------------POST Routes-------------------
     // Login
-    app.post("/api/login", passport.authenticate("local"), function(req, res) {
-        // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
-        // So we're sending the user back the route to the members page because the redirect will happen on the front end
-        // They won't get this or even be able to access this page if they aren't authed
-        res.json("/user/profile");
-    });
+    app.post("/api/login", passport.authenticate("signin", {
+        successRedirect: '/user/profile',
+        failureRedirect: '/',
+        failureFlash: true
+    }));
     // create New User
-    app.post("/create/user/", function(req, res) {
-        models.User.create(req.body).then(
-            function(newUser) {
-                res.json(newUser);
-            });
-    });
+    app.post("/create/user/", passport.authenticate("signup", {
+        successRedirect: '/user/profile',
+        failureRedirect: '/',
+        failureFlash: true
+    }));
     // create new Pet
     app.post("/create/pet/", function(req, res) {
         models.Pet.create(req.body).then(
@@ -98,7 +96,7 @@ module.exports = function(app) {
             where: { email: req.params.email }
         }).then((newOwner) => {
             if (newOwner) {
-                models.newOwner.addPet(req.params.id).then((data) => res.json(data))
+               return newOwner.addPet(req.params.id).then((data) => {res.json(data)})
             } else {
                 var random = randomstring.generate();
 
@@ -137,7 +135,7 @@ module.exports = function(app) {
         models.Caretaker.findOne({ where: { email: req.params.email, petID: req.params.petID } }).then((results) => {
             if (results) {
                 models.User.findById({ where: { id: req.params.ownerId } }).then((foundUser) => {
-                    models.User.addPet(req.params.petId).then((data) => {
+                    foundUser.addPet(req.params.petId).then((data) => {
                         res.json(data);
                     })
                 })

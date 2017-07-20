@@ -1,3 +1,4 @@
+var passport = require('passport');
 var models = require("../Models");
 module.exports = function(app) {
 
@@ -14,8 +15,7 @@ module.exports = function(app) {
                 res.json(data)
             })
         }
-    })
-
+    });
     // get Pet profile
     app.get("/api/profile/pet/:id", function(req, res) {
         models.Pet.findById({
@@ -27,20 +27,39 @@ module.exports = function(app) {
     });
 
     //get Pet Activity Tab
-    app.get("/api/profile/pet/activity/:id", function(req, res) {
-        models.Pet.findById({
-            where: { id: req.params.id },
-            include: [models.User, models.Activity]
+    app.get("/api/profile/pet/activity/:petId", function(req, res) {
+        models.Activity.findAll({
+            where: { petId: req.params.petId },
+            include: [models.Pet],
         }).then(function(data) {
             res.json(data)
         })
     });
 
     //get Pet Health information
-    app.get("/api/profile/pet/health/:id", function(req, res) {
-        models.Pet.findById({
-            where: { id: req.params.id },
-            include: [models.User, models.Health, models.Illness, models.Weight]
+    app.get("/api/profile/pet/health/:petId", function(req, res) {
+        models.Health.findAll({
+            where: { petId: req.params.petId },
+            include: [models.Pet]
+        }).then(function(data) {
+            res.json(data);
+        });
+    });
+
+    // get Weight Information
+    app.get("/api/profile/pet/weight/:petId", function(req, res) {
+        models.Weight.findAll({
+            where: { petId: req.params.petId },
+            include: [models.Pet]
+        }).then(function(data) {
+            res.json(data);
+        });
+    });   
+        // get Medications Information
+    app.get("/api/profile/pet/medications/:petId", function(req, res) {
+        models.Medications.findAll({
+            where: { petId: req.params.petId },
+            include: [models.Pet]
         }).then(function(data) {
             res.json(data);
         });
@@ -48,18 +67,18 @@ module.exports = function(app) {
 
     // get Pet Contacts
     app.get("/api/profile/pet/contacts/:id", function(req, res) {
-        models.Pet.findById({
-            where: { id: req.params.id },
-            include: [models.Professional]
+        models.Professional.findAll({
+            where: { petId: req.params.petId },
+            include: [models.Pet]
         }).then(function(data) {
             res.json(data);
         })
     });
     // get Pet Diet
     app.get("/api/profile/pet/Diet/:id", function(req, res) {
-        models.Pet.findById({
-            where: { id: req.params.id },
-            include: [models.Diet]
+        models.Diet.findAll({
+            where: { petId: req.params.petId },
+            include: [models.Pet]
         }).then(function(data) {
             res.json(data);
         })

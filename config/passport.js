@@ -1,5 +1,6 @@
 //load bcrypt
 var bCrypt = require('bcrypt-nodejs');
+var LocalStrategy = require("passport-local").Strategy;
 
 module.exports = function(passport, user) {
 
@@ -47,7 +48,7 @@ module.exports = function(passport, user) {
             User.findOne({ where: { email: email } }).then(function(user) {
 
                 if (user) {
-                    return done(null, false, { message: 'That email is already taken' });
+                    return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
                 } else {
                     var userPassword = generateHash(password);
                     var data = {
@@ -108,12 +109,12 @@ module.exports = function(passport, user) {
             User.findOne({ where: { email: email } }).then(function(user) {
 
                 if (!user) {
-                    return done(null, false, { message: 'Email does not exist' });
+                    return done(null, false, req.flash('loginMessage', 'No user found.'));
                 }
 
                 if (!isValidPassword(user.password, password)) {
 
-                    return done(null, false, { message: 'Incorrect password.' });
+                    return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
 
                 }
 
@@ -125,7 +126,7 @@ module.exports = function(passport, user) {
 
                 console.log("Error:", err);
 
-                return done(null, false, { message: 'Something went wrong with your Signin' });
+                return done(null, false, req.flash('loginMessage', 'Oops! Something went wrong'));
 
 
             });

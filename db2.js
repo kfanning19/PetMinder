@@ -8,7 +8,14 @@ module.exports=function(){
 
         models.Pet.findById(1).then((pet)=>{
             console.log(pet)
-            user.addPet([pet]).then((data)=>{console.log(data)});
+            user.addPet([pet]).then((data)=>{
+                models.User.findOne({
+                    where:{ id: 1},
+                    include: models.Pet
+                }).then((checking)=>{
+                    console.log(checking)
+                });
+            });
         });
     });
 }
