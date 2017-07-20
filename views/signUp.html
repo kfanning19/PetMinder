@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>PhiloPet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <!-- Include in CSS font-family: 'Raleway', sans-serif; -->
+	<!--     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:600" rel="stylesheet"> -->    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+</head>
+
+<body>
+     
+     <div class="container" id="signup_container_1">
+        <div class="row">
+            <h4>Sign up!</h4>
+        </div> 
+    </div>
+        
+     <div class="container" id="signup_container_2">
+        <div class="row">
+            <form class="col s12">
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="signup_first" type="text" class="validate">
+                        <label for="signup_first">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="signup_last" type="text" class="validate">
+                        <label for="signup_last">Last Name</label>
+                    </div>
+                </div>
+
+                 <div class="row">
+                    <div class="input-field col s6">
+                        <input id="signup_email" type="email" class="validate">
+                        <label for="signup_email">Email Address</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="signup_phone" type="number" class="validate">
+                        <label for="signup_phone">Phone Number</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="signup_password" type="password" class="validate">
+                        <label for="signup_password">Password</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <input id="signup_passwordconfirm" type="password" class="validate">
+                        <label for="signup_passwordconfirm">Confirm Password</label>
+                    </div>
+                </div>
+
+				<div class="file-field input-field">
+					<div class="btn">
+						<span>File</span>
+						<input type="file">
+					</div>
+					<div class="file-path-wrapper">
+						<input class="file-path validate" type="text">
+					</div>
+				</div>
+
+
+
+                <a class="waves-effect waves-light btn">Submit</a>
+            </form>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+
+    <script>
+
+      $(document).ready(function() {
+        $('select').material_select();
+      });
+      
+    </script>
+    
+</body>
+</html>
