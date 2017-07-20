@@ -8,7 +8,7 @@ module.exports=function(){
 
         models.Pet.findById(1).then((pet)=>{
             console.log(pet)
-            user.addPet([pet]);
+            user.addPet([pet]).then((data)=>{console.log(data)});
         });
     });
 }

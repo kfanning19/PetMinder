@@ -1,25 +1,26 @@
+var path = require("path");
 var models = require("../Models");
 module.exports = function(app) {
     // Login Page
     app.get("/", function(req, res) {
-        res.sendFile(__dirname + "/views/index.html");
+        res.sendFile(path.join(__dirname, "../views/login.html"));;
     });
     // Add a pet Page
     app.get("/add-pet", function(req, res) {
-        res.sendFile(__dirname + "/views/addPet.html");
+        res.sendFile(path.join(__dirname, "../views/addPet.html"));;
     });
     // get User profile
     app.get("/user/profile", function(req, res) {
-      res.sendFile(__dirname + "/views/userProfile.html")  
+      res.sendFile(path.join(__dirname,  "../views/userProfile.html"))  
     })
 
     // get Pet profile
     app.get("/profile/pet/:id", function(req, res) {
-        res.sendFile(__dirname + "/views/petProfile.html")
+        res.sendFile(path.join(__dirname,  "../views/petProfile.html"));
     });
     // FAQ page
     app.get("/faq", function(req, res) {
-        res.sendFile(__dirname + "/views/faq.html")
+        res.sendFile(path.join(__dirname,  "../views/faq.html"));
     });
 
     //About page

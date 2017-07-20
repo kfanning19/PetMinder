@@ -15,20 +15,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Override with POST having ?_method=DELETE
 app.use(methodOverride("_method"));
 
-// Set Handlebars.
-var exphbs = require("express-handlebars");
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
 var testing = require("./db.js");
 var testjoin = require("./db2.js");
 // Routes
-require("./routes/api-delete-routes.js");
-require("./routes/api-get-routes.js");
-require("./routes/api-post-routes.js");
-require("./routes/api-put-routes.js");
-require("./routes/html-routes.js");
+// require("./routes/api-delete-routes.js")(app);
+// require("./routes/api-get-routes.js")(app);
+// require("./routes/api-post-routes.js")(app);
+// require("./routes/api-put-routes.js")(app);
+require("./routes/html-routes.js")(app);
 
 //Connect to Sequelize and begin server listening
 models.sequelize.sync({force: true}).then(function(){
