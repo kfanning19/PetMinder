@@ -8,8 +8,8 @@ module.exports = function(app) {
     app.get("/add-pet", function(req, res) {
         res.sendFile(__dirname + "/views/addPet.html");
     });
-    // get User profile with basic pet information
-    app.get("/profile/", function(req, res) {
+    // get User profile
+    app.get("/user/profile", function(req, res) {
       res.sendFile(__dirname + "/views/userProfile.html")  
     })
 
