@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>PhiloPet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:600" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <div class="container" id="contacts1">
+        <div class="row">
+
+  <!-- Modal Trigger -->
+            <button class="waves-effect waves-light btn modal-trigger" data-target="contactsModal">Add a Contact</button>
+        </div>
+
+  <!-- Modal Structure -->
+        <div id="contactsModal" class="modal">
+            <div class="modal-content">
+                <h4>Add a Contact</h4>
+
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="contact_name" type="text" class="validate">
+                                <label for="contact_name">Contact Name</label>
+                            </div>
+                        </div>  
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="contact_service" type="text" class="validate">
+                                <label for="contact_service">Service</label>
+                            </div>
+                        </div>     
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="contact_address" type="text" class="validate">
+                                <label for="contact_address">Address</label>
+                            </div>
+                        </div> 
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="contact_phone" type="number" class="validate">
+                                <label for="contact_phone">Phone Number</label>
+                            </div>
+                        </div> 
+
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="contact_URL" type="url" class="validate">
+                                <label for="contact_URL">Website</label>
+                            </div>
+                        </div> 
+
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" type="email" class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                        </div> 
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <a class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+            </div>
+        </div>
+    </div>
+
+<!-- Container for contact cards -->
+    <div class="container" id="contacts2">
+        <div class="row">
+            <div id="contact-cards"></div>
+        </div>
+    </div>
+
+    <style>
+        .modal { max-height: 90%;}
+        .modal-form-row { margin-bottom: 0px;}
+    </style>
+
+    <script>
+        $(document).ready(function(){
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal();
+        });
+    </script>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    
+</body>
+</html>
