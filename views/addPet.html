@@ -9,14 +9,14 @@
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
   <!-- Linking to CSS -->
-  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
     <body>
         <div class="container">
             <h1>Add a Pet</h1>
-            <h4>Was a pet shared with you before your account was created? Input the code emailed to you below to add them.</h4>
-            <p><em>Note: if someone has already created a profile for your pet, they can share it with you by going to the settings tab on the pet profile and adding your email via "share a pet". </em></p>
-            <div class="row">
+      <!--       <h4>Was a pet shared with you before your account was created? Input the code emailed to you below to add them.</h4>
+            <p><em>Note: if someone has already created a profile for your pet, they can share it with you by going to the settings tab on the pet profile and adding your email via "share a pet". </em></p> -->
+<!--             <div class="row">
                 <form class="col s12">
                     <div class="input-field col s12">
                         <input id="pet-code" type="text" name="pet-code" required>
@@ -28,60 +28,74 @@
                         </button>
                     </div>
                 </form>
-            </div>
+            </div> -->
             
             <div class="row">
-                <h4>Otherwise, fill out the form below!</h4>
-
+    <!--             <h4>Otherwise, fill out the form below!</h4> -->
                 <form class="col s12">
-                    <div class="input-field col s12">
-                        <input id="login_petName" type="text" name="login_petName" required>
-                        <label for="login_petName" class="active">Name</label>
-                    </div>
-
-                    <div class="input-field col s12">
-                        <input id="login_petType" type="text" name="login_petType" required>
-                        <label for="login_petType" class="active">Type of Animal</label>
-                    </div>
-
-                    <div class="input-field col s12">
-                        <input id="login_petBreed" type="text" name="login_petBreed">
-                        <label for="login_petBreed" class="active">Breed (if known)</label>
-                    </div>
-
-                    <div class="input-field col s12">
-                        <input id="login_petDOB" type="date" name="login_petDOB" class="datepicker">
-                        <label for="login_petDOB" class="active">Date of Birth (Pick your best guess if you aren't sure)</label>
-                    </div>
-
-                    <div class="input-field col s12">
-                        <input id="login_petToy" type="text" name="login_petToy" required>
-                        <label for="login_petToy" class="active">Favorite Toy(s)</label>
-                    </div>
-
-                    <div class="file-field input-field">
-                        <div class="btn">
-                            <span>File</span>
-                            <input type="file">
-                        </div>
-
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="checkbox" id="addPet_valCodeCheck" />
+                            <label for="addPet_valCodeCheck">If a pet was shared with you prior to sign up, check the box and enter validation code.</label>
                         </div>
                     </div>
 
-                    <button class="btn add-a-pet-btn waves-effect waves-light" type="submit" id="addPet_submit" name="action">Submit
-                    <i class="material-icons right">send</i></button>
+                    <div class="row">
+                    </div>
+
+                    <div class="input-field col s12">
+                        <input id="addPet_valCode" type="text" name="addPet_valCode">
+                        <label for="addPet_valCode" class="active">Validation Code</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <input id="addPet_petName" type="text" name="addPet_petName" required>
+                        <label for="addPet_petName" class="active">Name</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <input id="addPet_petType" type="text" name="addPet_petType" required>
+                        <label for="addPet_petType" class="active">Type of Animal</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <input id="addPet_petBreed" type="text" name="addPet_petBreed">
+                        <label for="addPet_petBreed" class="active">Breed (if known)</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <input id="addPet_petDOB" type="date" name="addPet_petDOB" class="datepicker">
+                        <label for="addPet_petDOB" class="active">Date of Birth (Pick your best guess if you aren't sure)</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <input id="addPet_petToy" type="text" name="addPet_petToy" required>
+                        <label for="addPet_petToy" class="active">Favorite Toy(s)</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>File</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+
+                    <div class="input-field col s12">
+                        <button class="btn add-a-pet-btn waves-effect waves-light" id="addPet_submit" type="submit" name="action">Submit
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
     </body>
-
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
     <!-- Custom JavaScript -->
     <script type="text/javascript" src="/assets/js/app.js"></script>
-    
 </html>
