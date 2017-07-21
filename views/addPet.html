@@ -11,67 +11,77 @@
   <!-- Linking to CSS -->
   <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
-<body>
-    <div class="container">
-        <h1>Add a Pet</h1>
-        <h4>Was a pet shared with you before your account was created? Input the code emailed to you below to add them.</h4>
-        <p><em>Note: if someone has already created a profile for your pet, they can share it with you by going to the settings tab on the pet profile and adding your email via "share a pet". </em></p>
-        <div class="row">
-            <form class="col s12">
-                <div class="input-field col s12">
-                    <input id="pet-code" type="text" name="pet-code" required>
-                    <label for="pet-code" class="active">Validation Code</label>
-                </div>
-                <div class="col s12">
-                    <button class="btn code-btn waves-effect waves-light" type="submit" name="action">Submit
-                        <i class="material-icons right">send</i>
-                    </button>
-                </div>
-            </form>
+    <body>
+        <div class="container">
+            <h1>Add a Pet</h1>
+            <h4>Was a pet shared with you before your account was created? Input the code emailed to you below to add them.</h4>
+            <p><em>Note: if someone has already created a profile for your pet, they can share it with you by going to the settings tab on the pet profile and adding your email via "share a pet". </em></p>
+            <div class="row">
+                <form class="col s12">
+                    <div class="input-field col s12">
+                        <input id="pet-code" type="text" name="pet-code" required>
+                        <label for="pet-code" class="active">Validation Code</label>
+                    </div>
+                    <div class="col s12">
+                        <button class="btn code-btn waves-effect waves-light" type="submit" name="action">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="row">
+                <h4>Otherwise, fill out the form below!</h4>
+
+                <form class="col s12">
+                    <div class="input-field col s12">
+                        <input id="login_petName" type="text" name="login_petName" required>
+                        <label for="login_petName" class="active">Name</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <input id="login_petType" type="text" name="login_petType" required>
+                        <label for="login_petType" class="active">Type of Animal</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <input id="login_petBreed" type="text" name="login_petBreed">
+                        <label for="login_petBreed" class="active">Breed (if known)</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <input id="login_petDOB" type="date" name="login_petDOB" class="datepicker">
+                        <label for="login_petDOB" class="active">Date of Birth (Pick your best guess if you aren't sure)</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <input id="login_petToy" type="text" name="login_petToy" required>
+                        <label for="login_petToy" class="active">Favorite Toy(s)</label>
+                    </div>
+
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input type="file">
+                        </div>
+
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div>
+
+                    <button class="btn add-a-pet-btn waves-effect waves-light" type="submit" id="addPet_submit" name="action">Submit
+                    <i class="material-icons right">send</i></button>
+                </form>
+            </div>
         </div>
-        <div class="row">
-            <h4>Otherwise, fill out the form below!</h4>
-            <form class="col s12">
-                <div class="input-field col s12">
-                    <input type="text" name="pet-name" required>
-                    <label for="pet-name" class="active">Name</label>
-                </div>
-                <div class="input-field col s12">
-                    <input type="text" name="pet-type" required>
-                    <label for="pet-type" class="active">Type of Animal</label>
-                </div>
-                <div class="input-field col s12">
-                    <input type="text" name="pet-breed">
-                    <label for="pet-breed" class="active">Breed (if known)</label>
-                </div>
-                <div class="input-field col s12">
-                    <input type="date" class="datepicker">
-                    <label for="pet-dob" class="active">Date of Birth (Pick your best guess if you aren't sure)</label>
-                </div>
-                <div class="input-field col s12">
-                    <input type="text" name="pet-toy" required>
-                    <label for="pet-toy" class="active">Favorite Toy(s)</label>
-                </div>
-                <!-- <div class="file-field input-field"> -->
-<!--                     <div class="btn">
-                        <span>File</span> -->
-                        <input type="file">
-                    <!-- </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text">
-                    </div> -->
-                </div>
-                <button class="btn add-a-pet-btn waves-effect waves-light" type="submit" name="action">Submit
-                    <i class="material-icons right">send</i>
-                </button>
-            </form>
-        </div>
-    </div>
-</body>
-<!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
-<!-- Custom JavaScript -->
-<script type="text/javascript" src="/assets/js/app.js"></script>
+    </body>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script type="text/javascript" src="/assets/js/app.js"></script>
+    
 </html>
