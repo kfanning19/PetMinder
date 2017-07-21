@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Activity = sequelize.define("Activity", {
         event: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
             validate: {
                 len: [1, 140]

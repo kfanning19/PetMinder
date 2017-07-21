@@ -10,7 +10,7 @@ var cookieParser = require('cookie-parser');
 
 // Requiring passport as we've configured it
 var passport = require("passport");
-require('./config/passport')(passport)
+require('./config/passport.js')(passport);
 
 var port = process.env.PORT || 3000;
 
@@ -38,7 +38,7 @@ var testjoin = require("./db2.js");
 // Routes
 require("./routes/api-delete-routes.js")(app);
 require("./routes/api-get-routes.js")(app);
-require("./routes/api-post-routes.js")(app);
+require("./routes/api-post-routes.js")(app, passport);
 require("./routes/api-put-routes.js")(app);
 require("./routes/html-routes.js")(app);
 

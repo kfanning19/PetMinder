@@ -1,4 +1,4 @@
-var models = require("../Models")
+var models = require("../Models");
 var randomstring = require("randomstring");
 var nodemailer = require("nodemailer");
 // create reusable transporter object using the default SMTP transport
@@ -14,7 +14,7 @@ var transporter = nodemailer.createTransport({
 module.exports = function(app, passport) {
     // ------------POST Routes-------------------
     // Login
-    app.post("/api/login", passport.authenticate("signin", {
+    app.post("/login", passport.authenticate("signin", {
         successRedirect: '/user/profile',
         failureRedirect: '/',
         failureFlash: true
