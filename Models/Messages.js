@@ -7,9 +7,9 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1, 140]
             }
         },
-        image: {
-            type: DataTypes.STRING,
-        },
+        // image: {
+        //     type: DataTypes.STRING,
+        // },
         contents: {
             type: DataTypes.TEXT,
             allowNull: false
