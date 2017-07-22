@@ -87,7 +87,8 @@ module.exports = function(app) {
             res.json(data);
         })
     });
-    // get Pet Settings 
+    // get Pet Settings
+    // TODO: Return Users associated with the given Pet ID
     app.get("/api/profile/pet/settings/:id", function(req, res) {
         models.Pet.findById({
             where: { id: req.params.id },

@@ -1,11 +1,11 @@
 module.exports = {
 
   // This is the entry point or start of our react applicaton
-  entry: "./src/App.js",
+  entry: "./src/index.js",
 
   // The plain compiled JavaScript will be output into this file
   output: {
-    filename: "public/bundle.js"
+    filename: "public/assets/js/bundle.js"
   },
 
   // This section desribes the transformations we will perform
@@ -16,7 +16,7 @@ module.exports = {
         test: /\.jsx?$/,
         // Webpack will only process files in our app folder. This avoids processing
         // node modules and server files unnecessarily
-        include: /app/,
+        include: /src/,
         loader: "babel",
         query: {
           // These are the specific transformations we'll be using.
