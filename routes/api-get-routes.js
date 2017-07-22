@@ -4,18 +4,18 @@ module.exports = function(app) {
     // -----------GET ROUTES----------------
     // get User profile with basic pet information
     app.get("/api/user/profile", function(req, res) {
-        if (!req.user) {
-            res.json({});
-        } else {
+        // if (!req.user) {
+        //     res.json({});
+        // } else {
 
-            models.User.findById({
-//                where: { id: req.user.id },
-                where: { id: 1 },
+                //TODO Retrieve user ID from passport//
+
+            models.User.findById(1,{
                 include: models.Pet
             }).then(function(data) {
                 res.json(data)
             })
-        }
+        // }
     });
     app.get("/logout", function(req, res) {
         req.logout();
