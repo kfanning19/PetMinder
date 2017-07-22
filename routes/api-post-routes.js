@@ -14,14 +14,14 @@ var transporter = nodemailer.createTransport({
 module.exports = function(app, passport) {
     // ------------POST Routes-------------------
     // Login
-    app.post("/login", passport.authenticate("signin", {
-        successRedirect: '/user/profile',
+    app.post("/login", passport.authenticate("local-signin", {
+        successRedirect: '/profile/user',
         failureRedirect: '/',
         failureFlash: true
     }));
     // create New User
-    app.post("/create/user/", passport.authenticate("signup", {
-        successRedirect: '/user/profile',
+    app.post("/create/user/", passport.authenticate("local-signup", {
+        successRedirect: '/profile/user',
         failureRedirect: '/',
         failureFlash: true
     }));
