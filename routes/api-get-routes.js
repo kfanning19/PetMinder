@@ -16,6 +16,10 @@ module.exports = function(app) {
             })
         }
     });
+    app.get("/logout", function(req, res) {
+        req.logout();
+        res.redirect("/");
+    });
     // get Pet profile
     app.get("/api/profile/pet/:id", function(req, res) {
         models.Pet.findById({

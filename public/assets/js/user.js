@@ -55,7 +55,7 @@ function loadDashboard(id) {
     $.get(`/api/profile/pet/${id}`).then(function(pet) {
         var dashboard = `<div id="dashboard" class="col s12">
 			                <div class="row">
-			                    <div class="sdcol s6">
+			                    <div class="col s6">
 			                        <div class="row">
 			                            <div class="col s12" id="pet-info">
 			                                <div class="card horizontal">
@@ -69,7 +69,7 @@ function loadDashboard(id) {
 	        											<p>I love ${pet.favorite_toy}</p>
 	        										</div>		
 	        									</div>
-	        								<div>
+	        								</div>
 			                            </div>
 			                        </div>
 			                        <div class="row">
