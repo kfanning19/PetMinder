@@ -32,6 +32,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash()); // use connect-flash for flash messages stored in session
 
+// Handlebars
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 var testing = require("./db.js");
 var testjoin = require("./db2.js");
