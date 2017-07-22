@@ -9,7 +9,8 @@ module.exports = function(app) {
         } else {
 
             models.User.findById({
-                where: { id: req.user.id },
+//                where: { id: req.user.id },
+                where: { id: 1 },
                 include: models.Pet
             }).then(function(data) {
                 res.json(data)
