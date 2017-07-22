@@ -34,7 +34,7 @@ module.exports = function(app) {
 
     // get Pet profile
     app.get("/profile/pet/:id", function(req, res) {
-        res.sendFile(path.join(__dirname, "../views/petProfile.html"));
+        res.render('PetProfile', { petId: req.params.id });
     });
     // FAQ page
     app.get("/faq", function(req, res) {
