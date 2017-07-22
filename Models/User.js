@@ -45,6 +45,7 @@ module.exports = function(sequelize, DataTypes) {
                 unique:false},
             foreignKey: 'userId'
         });
+        User.hasMany(models.Messages, { onDelete: "cascade" });
     }
     return User;
 };

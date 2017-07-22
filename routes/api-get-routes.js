@@ -1,4 +1,3 @@
-var passport = require('passport');
 var models = require("../Models");
 module.exports = function(app) {
 
@@ -8,13 +7,18 @@ module.exports = function(app) {
         if (!req.user) {
             res.json({});
         } else {
+
             models.User.findById({
-                where: { id: req.params.id },
+                where: { id: req.user.id },
                 include: models.Pet
             }).then(function(data) {
                 res.json(data)
             })
         }
+    });
+    app.get("/logout", function(req, res) {
+        req.logout();
+        res.redirect("/");
     });
     // get Pet profile
     app.get("/api/profile/pet/:id", function(req, res) {
@@ -54,8 +58,8 @@ module.exports = function(app) {
         }).then(function(data) {
             res.json(data);
         });
-    });   
-        // get Medications Information
+    });
+    // get Medications Information
     app.get("/api/profile/pet/medications/:petId", function(req, res) {
         models.Medications.findAll({
             where: { petId: req.params.petId },
