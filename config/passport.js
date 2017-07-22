@@ -1,19 +1,15 @@
 //load bcrypt
 var bCrypt = require('bcrypt-nodejs');
-var LocalStrategy = require("passport-local").Strategy;
 
 module.exports = function(passport, user) {
 
-    var User = User;
-
-
+    var User = user;
     var LocalStrategy = require('passport-local').Strategy;
 
 
     passport.serializeUser(function(user, done) {
         done(null, user.id);
     });
-
 
 
     // used to deserialize the user
@@ -23,14 +19,13 @@ module.exports = function(passport, user) {
                 done(null, user.get());
             } else {
                 done(user.errors, null);
-
             }
         });
 
     });
 
-    // User Sign Up Strategy
-    passport.use('signup', new LocalStrategy(
+    //LOCAL SIGNUP
+    passport.use('local-signup', new LocalStrategy(
 
         {
             usernameField: 'email',
@@ -58,9 +53,7 @@ module.exports = function(passport, user) {
                         password: userPassword,
                         phone: req.body.phone_p,
                         image: req.body.image
-
                     };
-
 
                     User.create(data).then(function(newUser, created) {
                         if (!newUser) {
@@ -69,26 +62,15 @@ module.exports = function(passport, user) {
 
                         if (newUser) {
                             return done(null, newUser);
-
                         }
-
-
                     });
                 }
-
-
             });
-
-
-
         }
-
-
-
     ));
 
-    //User Sign In Strategy
-    passport.use('signin', new LocalStrategy(
+    //LOCAL SIGNIN
+    passport.use('local-signin', new LocalStrategy(
 
         {
 
@@ -100,19 +82,23 @@ module.exports = function(passport, user) {
 
         function(req, email, password, done) {
 
-            var User = User;
+            var User = user;
 
             var isValidPassword = function(userpass, password) {
+
+                console.log("0");
                 return bCrypt.compareSync(password, userpass);
             }
 
             User.findOne({ where: { email: email } }).then(function(user) {
 
                 if (!user) {
+                    console.log("1");
                     return done(null, false, req.flash('loginMessage', 'No user found.'));
                 }
 
                 if (!isValidPassword(user.password, password)) {
+                    console.log("2");
 
                     return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
 
@@ -127,10 +113,8 @@ module.exports = function(passport, user) {
                 console.log("Error:", err);
 
                 return done(null, false, req.flash('loginMessage', 'Oops! Something went wrong'));
-
-
             });
-
         }
     ));
 }
+
