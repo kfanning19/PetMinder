@@ -1,6 +1,6 @@
 var path = require("path");
 // Passort
-var isLoggedIn = function(req, res, next) {
+var isLoggedIn = function (req, res, next) {
 
     // if user is authenticated in the session, carry on 
     if (req.isAuthenticated())
@@ -10,60 +10,48 @@ var isLoggedIn = function(req, res, next) {
     res.redirect('/');
 }
 var models = require("../Models");
-var models = require("../Models");
 module.exports = function(app) {
     // Login Page
     app.get("/", function(req, res) {
         if (req.user) {
-            res.redirect("/profile/user");
-        }else{
-            res.render("login");
+            res.redirect("/user/profile");
         }
-        
+        res.sendFile(path.join(__dirname, "../views/login.html"));;
     });
-    app.get('/logout', function(req, res){
+    app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/');
     });
+
     // Add a pet Page
-    app.get("/add-pet", function(req, res) {
-        res.render("addPet");
+    app.get("/add-pet", isLoggedIn, function(req, res) {
+        res.sendFile(path.join(__dirname, "../views/addPet.html"));;
     });
-    // get User profile with basic pet information
-    app.get("/profile/user", , isLoggedIn,function(req, res) {
-        models.User.findById({
-            where: { id: req.user.id },
-            include: models.Pet
-        }).then(function(data) {
-            res.render("userProfile", { user: data })
-        })
+    // get User profile
+    app.get("/user/profile", isLoggedIn, function(req, res) {
+        res.sendFile(path.join(__dirname, "../views/userProfile.html"))
     })
 
     // get Pet profile
-    app.get("/profile/pet/:id", isLoggedIn, function(req, res) {
-        models.Pet.findById({
-            where: { id: req.params.id },
-            include: [models.Activity, models.Diet, models.Health, models.Illness, models.Medications, models.Messages, models.Professional, models.Weight, models.User]
-        }).then(function(data) {
-            res.render("petProfile", { pet: data })
-        })
+    app.get("/profile/pet/:id", function(req, res) {
+        res.sendFile(path.join(__dirname, "../views/petProfile.html"));
     });
     // FAQ page
     app.get("/faq", function(req, res) {
-        res.render("faq");
+        res.sendFile(path.join(__dirname, "../views/faq.html"));
     });
 
     //About page
     app.get("/about", function(req, res) {
-        res.render("about");
+        res.sendFile(path.join(__dirname, "../views/about.html"));
     });
     // Forgot Password
     app.get("/forgot-password", function(req, res) {
-        res.render("forgot");
+        res.sendFile(path.join(__dirname, "../views/forgot.html"));
     });
     // Sign Up
     app.get("/signup", function(req, res) {
-        res.render("signUp");
+        res.sendFile(path.join(__dirname, "../views/signUp.html"));
     })
 
 };
