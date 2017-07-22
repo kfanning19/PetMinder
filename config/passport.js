@@ -47,11 +47,11 @@ module.exports = function(passport, user) {
                 } else {
                     var userPassword = generateHash(password);
                     var data = {
-                        first_name: req.body.firstname,
-                        last_name: req.body.lastname,
+                        first_name: req.body.first_name,
+                        last_name: req.body.last_name,
                         email: email,
                         password: userPassword,
-                        phone: req.body.phone_p,
+                        phone: req.body.phone,
                         image: req.body.image
                     };
 

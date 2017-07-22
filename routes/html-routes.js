@@ -30,7 +30,7 @@ module.exports = function(app) {
         res.render("addPet");
     });
     // get User profile with basic pet information
-    app.get("/profile/user", , isLoggedIn,function(req, res) {
+    app.get("/profile/user", isLoggedIn,function(req, res) {
         models.User.findById({
             where: { id: req.user.id },
             include: models.Pet

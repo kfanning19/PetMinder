@@ -20,13 +20,13 @@ module.exports = function(app, passport) {
         failureFlash: true
     }));
     // create New User
-    app.post("/create/user/", passport.authenticate("local-signup", {
+    app.post("/create/user", passport.authenticate("local-signup", {
         successRedirect: '/profile/user',
         failureRedirect: '/',
         failureFlash: true
     }));
     // create new Pet
-    app.post("/create/pet/", function(req, res) {
+    app.post("/create/pet", function(req, res) {
         models.Pet.create(req.body).then(
             (newPet) => {
                 res.json(newPet);
@@ -91,7 +91,7 @@ module.exports = function(app, passport) {
             });
     });
     // add new Owner
-    app.post("/add/owner/:email/:id/:name/:first/:last", function(req, res) {
+    app.post("/add/owner/:email/", function(req, res) {
         models.User.findOne({
             where: { email: req.params.email }
         }).then((newOwner) => {
