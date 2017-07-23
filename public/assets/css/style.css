@@ -1,6 +1,117 @@
+/*Login*/
+
+html, body {
+/*	font-family: 'Raleway', sans-serif;
+*/	font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+	background-color: #d0dfe4;
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+#title {
+	color: #2e0a05;
+	font-size: 150px;
+}
+
+#signin-box {
+
+	background-color: #ecc78d;
+	padding: 50px;
+	background-opacity: .7;
+	border-radius: 25px;
+	width: 1000px;
+}
+
+label {
+	color: #33575b;
+}
+
+.waves-effect.waves {
+      background-color: #33575b;
+    }
+
+a {
+    color: #33575b;
+    cursor: pointer;
+}
+
 nav {
     height: 50px;
 }
 
 
-/*To Do -- Center Icon and Logo vertically.  Enbiggen icon.*/
+.input-field label {
+  color: #33575b;
+}
+
+
+/* label focus color */
+ .input-field input:focus + label {
+   color: #33575b !important;
+ }
+ /* label underline focus color */
+ .row .input-field input:focus {
+   border-bottom: 1px #33575b !important;
+   box-shadow: 0 1px 0 0 #33575b !important;
+ }
+
+ /*About and FAQ*/
+
+body
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

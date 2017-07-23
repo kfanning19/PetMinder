@@ -28,7 +28,8 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../views/addPet.html"));;
     });
     // get User profile
-    app.get("/profile/user", isLoggedIn, function(req, res) {
+    //TODO re add isLoggedIn
+    app.get("/profile/user", function(req, res) {
         res.sendFile(path.join(__dirname, "../views/userProfile.html"))
     })
 

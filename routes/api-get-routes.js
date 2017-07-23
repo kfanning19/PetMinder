@@ -3,7 +3,9 @@ module.exports = function(app) {
 
     // -----------GET ROUTES----------------
     // get User profile with basic pet information
+
     app.get("/api/user/profile/:id", function(req, res) {
+
         // if (!req.user) {
         //     res.json({});
         // } else {
