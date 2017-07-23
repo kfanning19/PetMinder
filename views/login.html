@@ -18,15 +18,15 @@
 		<div class="container" id="greeting-page">
 			<div class="row header">
 				<div class="col s12 center-align" id="title">
-					<a id="greeting-link" class="smooth"></a>
-				    <h1 id="landing-header">PhiloPet</h1>
+				    <div id="landing-header">PhiloPet</div>
 				</div>
 			</div>
+		</div>
+		<div class="container" id="signin-box">
 			<div class="row" id="sign-in">
-				<div class="col s10 offset-s1 col m6 offset-m3">
+				<div class="col s8 offset-s1 col m6 offset-m3">
 					<form action="/login" method="post">
 						<div class="row">
-							<h4 class="center-align">For the love of your pets.</h4>
 							<br><br><br>
 							<div class="input-field col s12">
 							     <input id="existing-email" name="username" type="email" class="validate" required>
@@ -39,16 +39,16 @@
 							    <label for="password">Password</label>
 							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="input-field col s12 center-align">
-						    <button class="waves-effect waves-meeshteal btn" type="submit" id="login_submit"> SUBMIT </button>
+						<div class="row">
+							<div class="input-field col s12 center-align">
+							    <button class="waves-effect waves btn-large" type="submit" id="login_submit"> SUBMIT </button>
+							</div>
 						</div>
 					</form>
 				</div>
 				<div class="col s12 center-align">
 				    <span class="flow-text">
-				      		<a href="/forgot-password">Forgot Password?</a> | <a href="/signup" id="sign-up-link">New to PhiloPet? Sign up!</a>
+						<a href="/signup" id="sign-up-link">New to PhiloPet? Sign up!</a>
 					</span>
 				</div>
 			</div>
@@ -63,7 +63,6 @@
 	
 	<!-- Custom JavaScript -->
 	<script type="text/javascript" src="/assets/js/app.js"></script>
-
 	<script type="text/javascript" src="/assets/js/login.js"></script>
 
 </html>
