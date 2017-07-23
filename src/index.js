@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import MessageBoard from './MessageBoard'
+import MessageBoard from './components/PetProfile/MessageBoard'
 import registerServiceWorker from './registerServiceWorker';
 
 function initializeMessageBoard() {

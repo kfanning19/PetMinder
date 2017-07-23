@@ -1,6 +1,5 @@
 var React = require("react");
 var axios = require("axios");
-var Link = require("react-router").Link;
 
 // Render MessageBoard Component
 var MessageBoard = React.createClass({
@@ -23,45 +22,49 @@ var MessageBoard = React.createClass({
     console.log("CLICKED");
     var newMessage={
       contents: new_event, 
-      PetId: {this.props.petId}
+      PetId: this.props.petId
     };
-    axios.post('/add/Messages/', newMessage).then(function(){
-      var petId = {this.props.petId};
-      axios.get(`/api/profile/pet/messages/${petId}`).then(function(response) {
-        console.log("axios results", response);
+    axios.post('/add/Messages/', newMessage)
+      .then(function(){
+        var petId = this.props.petId;
+        axios.get(`/api/profile/pet/messages/${petId}`)
+          .then(function(response) {
+            console.log("axios results", response);
             var messages = response.data;
             this.setState({ 
               messages: messages 
             });
-        }.bind(this));
-      })
-    
+          }.bind(this));
+      });
   },
   componentWillMount() {
-    var petId = {this.props.petId};
-    axios.get(`/api/profile/pet/messages/${petId}`).then(function(response) {
-    console.log("axios results", response);
-    var pet = response.data;
-    this.setState({ 
-      event: pet.event,     
-      date: pet.date
-      });
-    }.bind(this));
-  },
-  handleDelete(id){
-    axios.delete(`/api/pet/message/${id}`).then(function(){
-      var petId = {this.props.petId}
-      axios.get(`/api/profile/pet/messages/${petId}`).then(function(response) {
+    var petId = this.props.petId;
+    axios.get(`/api/profile/pet/messages/${petId}`)
+      .then(function(response) {
         console.log("axios results", response);
         var pet = response.data;
         this.setState({ 
           event: pet.event,     
           date: pet.date
-          });
-        }.bind(this));
-        )}
-  }
-  renderMessages(){
+        });
+      }.bind(this));
+  },
+  handleDelete(id){
+    axios.delete(`/api/pet/message/${id}`)
+      .then(function() {
+        var petId = this.props.petId;
+        axios.get(`/api/profile/pet/messages/${petId}`)
+          .then(function(response) {
+            console.log("axios results", response);
+            var pet = response.data;
+            this.setState({ 
+              event: pet.event,     
+              date: pet.date
+            });
+          }.bind(this));
+      });
+  },
+  renderMessages() {
     if(!this.state.event){
       return <h2>No Messages</h2>
     }else{
@@ -79,7 +82,8 @@ var MessageBoard = React.createClass({
             </ul>
           </div>
         )
-    }.bind(this));
+      }.bind(this));
+    }
   },
   render: function() {
     return(

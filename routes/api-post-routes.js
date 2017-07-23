@@ -1,6 +1,8 @@
 var models = require("../Models");
 var randomstring = require("randomstring");
 var nodemailer = require("nodemailer");
+var bCrypt = require('bcrypt-nodejs');
+
 // create reusable transporter object using the default SMTP transport
 var transporter = nodemailer.createTransport({
     service: "gmail",
@@ -14,17 +16,39 @@ var transporter = nodemailer.createTransport({
 module.exports = function(app, passport) {
     // ------------POST Routes-------------------
     // Login
-    app.post("/login", passport.authenticate("local-signin", {
-        successRedirect: '/profile/user',
-        failureRedirect: '/',
-        failureFlash: true
-    }));
+    app.post("/login",
+        passport.authenticate("local", { failureRedirect: '/' }),
+        function(req, res) {
+            res.redirect('/');
+        });
+
     // create New User
-    app.post("/create/user", passport.authenticate("local-signup", {
-        successRedirect: '/profile/user',
-        failureRedirect: '/',
-        failureFlash: true
-    }));
+    app.post("/signup", function(req, res) {
+        var formData = req.body;
+        models.User.findOne({ where: { email: formData.email } })
+            .then(function(user) {
+                if (user) {
+                    // A User with this email already exists
+                    // TODO: Display appropriate error message
+                }
+                else {
+                    formData.password = generateHash(formData.password);
+                    models.User.create(formData)
+                        .then(function(newUser) {
+                            res.redirect("/");
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                            res.status(500);
+                        });
+                }
+            });
+
+        function generateHash(password) {
+            return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+        }
+    });
+
     // create new Pet
     app.post("/create/pet", function(req, res) {
         models.Pet.create(req.body).then(

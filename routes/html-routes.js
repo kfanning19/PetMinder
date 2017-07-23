@@ -1,4 +1,5 @@
 var path = require("path");
+
 // Passort
 var isLoggedIn = function (req, res, next) {
 
@@ -9,12 +10,14 @@ var isLoggedIn = function (req, res, next) {
     // if they aren't redirect them to the home page
     res.redirect('/');
 }
+
 var models = require("../Models");
+
 module.exports = function(app) {
     // Login Page
     app.get("/", function(req, res) {
         if (req.user) {
-            res.redirect("/user/profile");
+            res.redirect("/profile/user");
         }
         res.sendFile(path.join(__dirname, "../views/login.html"));;
     });
@@ -29,7 +32,7 @@ module.exports = function(app) {
     });
     // get User profile
     //TODO re add isLoggedIn
-    app.get("/profile/user", function(req, res) {
+    app.get("/profile/user", isLoggedIn, function(req, res) {
         res.sendFile(path.join(__dirname, "../views/userProfile.html"))
     })
 

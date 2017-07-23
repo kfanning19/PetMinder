@@ -4,19 +4,14 @@ module.exports = function(app) {
     // -----------GET ROUTES----------------
     // get User profile with basic pet information
 
-    app.get("/api/user/profile/:id", function(req, res) {
-
-        // if (!req.user) {
-        //     res.json({});
-        // } else {
-
-        models.User.findOne({
-            where: { id: req.params.id },
-            include: [models.Pet]
-        }).then(function(data) {
-            res.json(data)
+    app.get("/api/user/profile", function(req, res) {
+        models.User.findById(req.user.id, {
+            include: models.Pet
         })
-        // }
+        .then(function(data) {
+            console.log(data);
+            res.json(data);
+        });
     });
     app.get("/logout", function(req, res) {
         req.logout();
