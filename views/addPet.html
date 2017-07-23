@@ -33,59 +33,37 @@
             <div class="row">
     <!--             <h4>Otherwise, fill out the form below!</h4> -->
                 <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input type="checkbox" id="addPet_valCodeCheck" />
-                            <label for="addPet_valCodeCheck">If a pet was shared with you prior to sign up, check the box and enter validation code.</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
+                    <div class="input-field col s12">
+                        <input id="addPet-name" type="text" name="addPet-name" required>
+                        <label for="addPet-name" class="active">Name</label>
                     </div>
 
                     <div class="input-field col s12">
-                        <input id="addPet_valCode" type="text" name="addPet_valCode">
-                        <label for="addPet_valCode" class="active">Validation Code</label>
+                        <input id="addPet-type" type="text" name="addPet-type" required>
+                        <label for="addPet-type" class="active">Type of Animal</label>
                     </div>
 
                     <div class="input-field col s12">
-                        <input id="addPet_petName" type="text" name="addPet_petName" required>
-                        <label for="addPet_petName" class="active">Name</label>
+                        <input id="addPet-breed" type="text" name="addPet-breed">
+                        <label for="addPet-breed" class="active">Breed (if known)</label>
                     </div>
 
                     <div class="input-field col s12">
-                        <input id="addPet_petType" type="text" name="addPet_petType" required>
-                        <label for="addPet_petType" class="active">Type of Animal</label>
+                        <input id="addPet-DOB" type="date" name="addPet-DOB" class="datepicker">
+                        <label for="addPet-DOB" class="active">Date of Birth (Pick your best guess if you aren't sure)</label>
                     </div>
 
                     <div class="input-field col s12">
-                        <input id="addPet_petBreed" type="text" name="addPet_petBreed">
-                        <label for="addPet_petBreed" class="active">Breed (if known)</label>
+                        <input id="addPet-toy" type="text" name="addPet-toy" required>
+                        <label for="addPet-toy" class="active">Favorite Toy(s)</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="addPet-image" type="text" name="addPet-image" required>
+                        <label for="addPet-image" class="active">Link to an image of your pet</label>
                     </div>
 
                     <div class="input-field col s12">
-                        <input id="addPet_petDOB" type="date" name="addPet_petDOB" class="datepicker">
-                        <label for="addPet_petDOB" class="active">Date of Birth (Pick your best guess if you aren't sure)</label>
-                    </div>
-
-                    <div class="input-field col s12">
-                        <input id="addPet_petToy" type="text" name="addPet_petToy" required>
-                        <label for="addPet_petToy" class="active">Favorite Toy(s)</label>
-                    </div>
-
-                    <div class="input-field col s12">
-                        <div class="file-field input-field">
-                            <div class="btn">
-                                <span>File</span>
-                                <input type="file">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text">
-                            </div>
-                        </div>
-
-                    <div class="input-field col s12">
-                        <button class="btn add-a-pet-btn waves-effect waves-light" id="addPet_submit" type="submit" name="action">Submit
+                        <button class="btn add-a-pet-btn waves-effect waves-light" id="addPet-submit" type="submit" name="action">Submit
                         </button>
                     </div>
                 </form>

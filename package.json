@@ -23,7 +23,8 @@
     "randomstring": "^1.1.5",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "sequelize": "^4.3.1"
+    "sequelize": "^4.3.1",
+    "react-router": "^2.4.1"
   },
   "devDependencies": {
     "babel-core": "^6.3.13",

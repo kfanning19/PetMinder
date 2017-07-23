@@ -71,7 +71,11 @@ module.exports = function(app, passport) {
 
     // add Message
     app.post("/add/Messages/", function(req, res) {
-        models.Messages.create(req.body).then(
+        models.Messages.create({
+            contents: req.body.contents,
+            PetId: req.body.PetId,
+            UserId: req.user.id
+        }).then(
             (newMess) => {
                 res.json(newMess);
             });

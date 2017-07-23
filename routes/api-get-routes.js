@@ -7,11 +7,11 @@ module.exports = function(app) {
         if (!req.user) {
             res.json({});
         } else {
-
             models.User.findById({
                 where: { id: req.user.id },
                 include: models.Pet
             }).then(function(data) {
+                console.log(data)
                 res.json(data)
             })
         }
@@ -87,14 +87,23 @@ module.exports = function(app) {
             res.json(data);
         })
     });
-    // get Pet Settings
-    // TODO: Return Users associated with the given Pet ID
-    app.get("/api/profile/pet/settings/:id", function(req, res) {
-        models.Pet.findById({
-            where: { id: req.params.id },
-            include: models.User
+    // get Pet Messages
+    app.get("/api/profile/pet/messages/:id", function(req, res) {
+        models.Diet.findAll({
+            where: { petId: req.params.petId },
+            include: [models.Pet, models.User]
         }).then(function(data) {
             res.json(data);
+        })
+    });
+    // get Pet Settings
+    app.get("/api/profile/pet/settings/:id", function(req, res) {
+        models.Pet.findById({
+            where: { id: req.params.id }
+        }).then(function(pet) {
+            pet.getUsers().then(owners => {
+                res.json(owners)
+            })
         });
     });
 }
