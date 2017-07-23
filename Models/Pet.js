@@ -44,12 +44,8 @@ module.exports = function(sequelize, DataTypes) {
         });
         Pet.hasMany(models.Activity, { onDelete: "cascade" });
         Pet.hasMany(models.Diet, { onDelete: "cascade" });
-        Pet.hasMany(models.Health, { onDelete: "cascade" });
-        Pet.hasMany(models.Illness, { onDelete: "cascade" });
-        Pet.hasMany(models.Medications, { onDelete: "cascade" });
         Pet.hasMany(models.Messages, { onDelete: "cascade" });
-        Pet.hasMany(models.Professional, { onDelete: "cascade" });
-        Pet.hasMany(models.Weight, { onDelete: "cascade" });
+        Pet.hasMany(models.Contacts, { onDelete: "cascade" });
     }
     return Pet;
 };

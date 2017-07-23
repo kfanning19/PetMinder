@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         date: {
             type: DataTypes.DATE,
-            allowNull: false
+            default: Date.Now
         }
     });
     Activity.associate = function(models) {

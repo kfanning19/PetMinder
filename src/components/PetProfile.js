@@ -4,8 +4,6 @@ var Link = require("react-router").Link;
 
 // Children
 var Activity = require('./PetProfile/Activity');
-var Contacts = require('./PetProfile/Contacts');
-var Diet = require('./PetProfile/Diet');
 var MessageBoard = require('./PetProfile/MessageBoard');
 
 // Render PetProfile Component

@@ -3,18 +3,18 @@ module.exports = function(app) {
 
     // -----------GET ROUTES----------------
     // get User profile with basic pet information
-    app.get("/api/user/profile", function(req, res) {
-        if (!req.user) {
-            res.json({});
-        } else {
-            models.User.findById({
-                where: { id: req.user.id },
-                include: models.Pet
-            }).then(function(data) {
-                console.log(data)
-                res.json(data)
-            })
-        }
+    app.get("/api/user/profile/:id", function(req, res) {
+        // if (!req.user) {
+        //     res.json({});
+        // } else {
+
+        models.User.findOne({
+            where: { id: req.params.id },
+            include: [models.Pet]
+        }).then(function(data) {
+            res.json(data)
+        })
+        // }
     });
     app.get("/logout", function(req, res) {
         req.logout();
@@ -22,9 +22,9 @@ module.exports = function(app) {
     });
     // get Pet profile
     app.get("/api/profile/pet/:id", function(req, res) {
-        models.Pet.findById({
+        models.Pet.findOne({
             where: { id: req.params.id },
-            include: [models.Activity, models.Diet, models.Health, models.Illness, models.Medications, models.Messages, models.Professional, models.Weight, models.User]
+            include: [models.Activity, models.Diet, models.Messages, models.Contacts, models.User]
         }).then(function(data) {
             res.json(data)
         })
@@ -40,38 +40,9 @@ module.exports = function(app) {
         })
     });
 
-    //get Pet Health information
-    app.get("/api/profile/pet/health/:petId", function(req, res) {
-        models.Health.findAll({
-            where: { petId: req.params.petId },
-            include: [models.Pet]
-        }).then(function(data) {
-            res.json(data);
-        });
-    });
-
-    // get Weight Information
-    app.get("/api/profile/pet/weight/:petId", function(req, res) {
-        models.Weight.findAll({
-            where: { petId: req.params.petId },
-            include: [models.Pet]
-        }).then(function(data) {
-            res.json(data);
-        });
-    });
-    // get Medications Information
-    app.get("/api/profile/pet/medications/:petId", function(req, res) {
-        models.Medications.findAll({
-            where: { petId: req.params.petId },
-            include: [models.Pet]
-        }).then(function(data) {
-            res.json(data);
-        });
-    });
-
     // get Pet Contacts
     app.get("/api/profile/pet/contacts/:id", function(req, res) {
-        models.Professional.findAll({
+        models.Contacts.findAll({
             where: { petId: req.params.petId },
             include: [models.Pet]
         }).then(function(data) {
@@ -98,9 +69,7 @@ module.exports = function(app) {
     });
     // get Pet Settings
     app.get("/api/profile/pet/settings/:id", function(req, res) {
-        models.Pet.findById({
-            where: { id: req.params.id }
-        }).then(function(pet) {
+        models.Pet.findById(req.params.id).then(function(pet) {
             pet.getUsers().then(owners => {
                 res.json(owners)
             })

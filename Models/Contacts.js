@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Professional = sequelize.define("Professional", {
+    var Contacts = sequelize.define("Contacts", {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -57,12 +57,12 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: true
         }
     });
-    Professional.associate = function(models) {
-        Professional.belongsTo(models.Pet, {
+    Contacts.associate = function(models) {
+        Contacts.belongsTo(models.Pet, {
             foreignKey: {
                 allowNull: false
             }
         });
     }
-    return Professional;
+    return Contacts;
 };

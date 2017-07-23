@@ -32,49 +32,26 @@ module.exports = function(app) {
             res.json(data);
         });
     });
-    // update Food
-    app.put("/update/food/:id", function(req, res) {
-        models.Food.update(req.body, { where: { id: req.params.id } }).then((data) => {
+    // update Diet
+    app.put("/update/diet/:id", function(req, res) {
+        models.Diet.update(req.body, { where: { id: req.params.id } }).then((data) => {
             res.json(data);
         });
     });
-    // update Health
-    app.put("/update/Health/:id", function(req, res) {
-        models.Health.update(req.body, { where: { id: req.params.id } }).then((data) => {
-            res.json(data);
-        });
-    });
-    // update Illness
-    app.put("/update/Illness/:id", function(req, res) {
-        models.Illness.update(req.body, { where: { id: req.params.id } }).then((data) => {
-            res.json(data);
-        });
-    });
-    // update Medications
-    app.put("/update/Medication/:id", function(req, res) {
-        models.Medications.update(req.body, { where: { id: req.params.id } }).then((data) => {
-            res.json(data);
-        });
-    });
-
+=
     // update Message
-    app.put("/update/Messages/:id", function(req, res) {
+    app.put("/update/messages/:id", function(req, res) {
         models.Messages.update(req.body, { where: { id: req.params.id } }).then((data) => {
             res.json(data);
         });
     });
-    // update Professional
-    app.put("/update/Professional/:id", function(req, res) {
-        models.Professional.update(req.body, { where: { id: req.params.id } }).then((data) => {
+    // update Contacts
+    app.put("/update/contacts/:id", function(req, res) {
+        models.Contacts.update(req.body, { where: { id: req.params.id } }).then((data) => {
             res.json(data);
         });
     });
-    // update Weight
-    app.put("/update/Weight/:id", function(req, res) {
-        models.Weight.update(req.body, { where: { id: req.params.id } }).then((data) => {
-            res.json(data);
-        });
-    });
+
     // update forgotten password
     app.put("/update/forgot-password", function(req, res) {
 

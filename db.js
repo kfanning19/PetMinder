@@ -125,15 +125,4 @@ module.exports = function() {
     ];
     console.log(promises);
     return Promise.all(promises);
-    // models.User.findById(1).then((user)=>{
-    //     if(!user){console.log("no user")}
-    //         else{
-    //             console.log(user);
-    //         }
-
-    //     models.Pet.findById(1).then((pet)=>{
-    //         console.log(pet)
-    //         user.setPets([pet]);
-    //     });
-    // });
 }
