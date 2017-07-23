@@ -40,7 +40,7 @@ module.exports = function(app) {
     // get Pet Contacts
     app.get("/api/profile/pet/contacts/:id", function(req, res) {
         models.Contacts.findAll({
-            where: { petId: req.params.petId },
+            where: { PetId: req.params.id },
             include: [models.Pet]
         }).then(function(data) {
             res.json(data);
@@ -57,8 +57,8 @@ module.exports = function(app) {
     });
     // get Pet Messages
     app.get("/api/profile/pet/messages/:id", function(req, res) {
-        models.Diet.findAll({
-            where: { petId: req.params.petId },
+        models.Messages.findAll({
+            where: { petId: req.params.id },
             include: [models.Pet, models.User]
         }).then(function(data) {
             res.json(data);
