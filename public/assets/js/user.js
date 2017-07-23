@@ -2,6 +2,7 @@ $(function() {
     getUserInfo();
 
 // get the user info to display at the top of the screen
+<<<<<<< HEAD
 	function getUserInfo() {
 	    $.get("/api/user/profile").then((user) => {
 	        console.log(user)
@@ -25,6 +26,29 @@ $(function() {
         									<p>Birthday:${pet.dob}.</p>
         									<p>I love ${pet.favorite_toy}</p>
         								</div>
+=======
+function getUserInfo() {
+    $.get("/api/user/profile").then((user) => {
+        console.log(user)
+
+        $("#user-image").append(`<img src="${user.image}" alt="${user.first_name}" >`);
+        $("#user-name").append(`${user.name}`);
+        $("#user-contact-info").append(`Email: ${user.email}
+        								Phone: ${user.phone}`);
+        for (var i = 0; i < user.Pet.length; i++) {
+
+            var newCard = `<div class="col s6 m4"
+             					<div class="card horizontal">
+	        						<div class="card-image">
+	        							<img src="${user.Pet[i].image}">
+	        						</div>
+	        						<div class="card-stacked">
+	        							<div class="card-content">
+	        								<p>${user.Pet[i].name}</p>
+	        								<p>Birthday:${user.Pet[i].dob}.</p>
+	        								<p>I love ${user.Pet[i].favorite_toy}</p>
+	        							</div>
+>>>>>>> df265d250600905885dce40f72caa645f52a2ad2
 	        							<div class="card-action">
 	          								<button data-id=${pet.id} id="pet-button"class="waves-effect waves-light btn">Look at Me!</button>
 	        							</div>

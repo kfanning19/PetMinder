@@ -41,8 +41,9 @@ module.exports = function(sequelize, DataTypes) {
     User.associate = function(models) {
         User.belongsToMany(models.Pet, {
             through: {
-                model: models.UserPets, 
-                unique:false},
+                model: models.UserPets,
+                unique: false
+            },
             foreignKey: 'userId'
         });
         User.hasMany(models.Messages, { onDelete: "cascade" });

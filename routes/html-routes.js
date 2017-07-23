@@ -28,14 +28,18 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../views/addPet.html"));;
     });
     // get User profile
+<<<<<<< HEAD
     //TODO re add isLoggedIn
     app.get("/user/profile", function(req, res) {
+=======
+    app.get("/profile/user", isLoggedIn, function(req, res) {
+>>>>>>> df265d250600905885dce40f72caa645f52a2ad2
         res.sendFile(path.join(__dirname, "../views/userProfile.html"))
     })
 
     // get Pet profile
     app.get("/profile/pet/:id", function(req, res) {
-        res.sendFile(path.join(__dirname, "../views/petProfile.html"));
+        res.render('PetProfile', { petId: req.params.id });
     });
     // FAQ page
     app.get("/faq", function(req, res) {
