@@ -27,10 +27,17 @@ module.exports = function(app) {
     app.get("/add-pet", isLoggedIn, function(req, res) {
         res.sendFile(path.join(__dirname, "../views/addPet.html"));;
     });
+    
     // get User profile
+<<<<<<< Updated upstream
     //TODO re add isLoggedIn
     app.get("/profile/user", function(req, res) {
         res.sendFile(path.join(__dirname, "../views/userProfile.html"))
+=======
+    app.get("/profile/user", isLoggedIn, function(req, res) {
+        res.render('userProfile')
+        // res.sendFile(path.join(__dirname, "../views/userProfile.html"))
+>>>>>>> Stashed changes
     })
 
     // get Pet profile
