@@ -1,7 +1,6 @@
 var React = require("react");
 var axios = require("axios");
 var Link = require("react-router").Link;
-var moment= require("moment");
 
 // Render MessageBoard Component
 var MessageBoard = React.createClass({

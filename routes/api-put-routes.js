@@ -38,7 +38,6 @@ module.exports = function(app) {
             res.json(data);
         });
     });
-=
     // update Message
     app.put("/update/messages/:id", function(req, res) {
         models.Messages.update(req.body, { where: { id: req.params.id } }).then((data) => {
