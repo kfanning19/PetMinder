@@ -93,14 +93,14 @@ var MessageBoard = React.createClass({
             <div className="row">
               <div className="input-field inline col s8">
                 <input value={this.state.contents} onChange={this.handleChange} id="new_contents" type="textarea" className="materialize-textarea" required/>
-                <label for="new_contents">Post Message</label>
+                <label htmlFor="new_contents">Post Message</label>
               </div>
               <button className="btn waves-effect waves-light inline col s2" type="submit" name="action">Submit<i className="material-icons right">send</i>
               </button>
             </div>
           </form>
         </div>
-       {this.renderBoard()}
+       {this.renderMessages()}
      </div>
     )
   }
