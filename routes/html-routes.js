@@ -27,25 +27,14 @@ module.exports = function(app) {
     app.get("/add-pet", isLoggedIn, function(req, res) {
         res.sendFile(path.join(__dirname, "../views/addPet.html"));;
     });
-<<<<<<< HEAD
-    // get User profile with basic pet information
-    app.get("/profile/user", isLoggedIn,function(req, res) {
-        models.User.findById({
-            where: { id: req.user.id },
-            include: models.Pet
-        }).then(function(data) {
-            res.render("userProfile", { user: data })
-        })
-=======
     // get User profile
-    app.get("/user/profile", isLoggedIn, function(req, res) {
+    app.get("/profile/user", isLoggedIn, function(req, res) {
         res.sendFile(path.join(__dirname, "../views/userProfile.html"))
->>>>>>> 7b876aec42636bf840c4406bc9600d39917ec776
     })
 
     // get Pet profile
     app.get("/profile/pet/:id", function(req, res) {
-        res.sendFile(path.join(__dirname, "../views/petProfile.html"));
+        res.render('PetProfile', { petId: req.params.id });
     });
     // FAQ page
     app.get("/faq", function(req, res) {

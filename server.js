@@ -7,10 +7,11 @@ var session = require("express-session");
 var flash = require('connect-flash');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
+var exphbs  = require('express-handlebars');
 
 // Requiring passport as we've configured it
 var passport = require("passport");
-require('./config/passport.js')(passport);
+require('./config/passport.js')(passport, models.User);
 
 var port = process.env.PORT || 3000;
 
@@ -32,14 +33,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-<<<<<<< HEAD
-// Set Handlebars.
-var exphbs = require("express-handlebars");
-
+// Handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-=======
->>>>>>> 7b876aec42636bf840c4406bc9600d39917ec776
 
 var testing = require("./db.js");
 var testjoin = require("./db2.js");

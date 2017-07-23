@@ -9,80 +9,63 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <!-- Include in CSS font-family: 'Raleway', sans-serif; -->
-	<!--     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:600" rel="stylesheet"> -->    
+    <!--     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:600" rel="stylesheet"> -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-
 </head>
 
 <body>
-     
-     <div class="container" id="signup-container">
+    <div class="container" id="signup-container">
         <div class="row">
             <h4>Sign up!</h4>
-        </div> 
+        </div>
         <div class="row">
-            <form class="col s12">
-
+            <form class="col s12 signup-form">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="signup_first" type="text" class="validate">
+                        <input id="signup_first" type="text" class="validate" required>
                         <label for="signup_first">First Name</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="signup_last" type="text" class="validate">
+                        <input id="signup_last" type="text" class="validate" required>
                         <label for="signup_last">Last Name</label>
                     </div>
                 </div>
-
-                 <div class="row">
+                <div class="row">
                     <div class="input-field col s6">
-                        <input id="signup_email" type="email" class="validate">
+                        <input id="signup_email" type="email" class="validate" required>
                         <label for="signup_email">Email Address</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="signup_phone" type="number" class="validate">
+                        <input id="signup_phone" type="text" class="validate" required>
                         <label for="signup_phone">Phone Number</label>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="signup_password" type="password" class="validate">
+                        <input id="signup_password" type="password" class="validate" required>
                         <label for="signup_password">Password</label>
                     </div>
-
                     <div class="input-field col s6">
-                        <input id="signup_passwordconfirm" type="password" class="validate">
+                        <input id="signup_passwordconfirm" type="password" class="validate" required>
                         <label for="signup_passwordconfirm">Confirm Password</label>
                     </div>
                 </div>
-
-				<div class="file-field input-field">
-					<div class="btn">
-						<span>File</span>
-						<input type="file">
-					</div>
-					<div class="file-path-wrapper">
-						<input class="file-path validate" type="text">
-					</div>
-				</div>
-
-                <a class="waves-effect waves-light btn" id="signup_submit">Submit</a>
+                    <div class="input-field col s12">
+                        <input id="signup_image" type="text" class="validate" required>
+                        <label for="signup_image">Profile Image URL (optional)</label>
+                    </div>
+                <button class="waves-effect waves-light btn" id="signup_submit">Submit</button>
             </form>
         </div>
     </div>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
-
     <script>
-
-      $(document).ready(function() {
+    $(document).ready(function() {
         $('select').material_select();
-      });
-      
+    });
     </script>
-    
 </body>
+
 </html>

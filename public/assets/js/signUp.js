@@ -37,11 +37,10 @@ $(document).ready(function() {
     phone.val("");
   });
 
-  // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+  // loginUser does a post to our "api/login" route and if successful, redirects us the the user profile
   function signUpUser(first_name, last_name, email, password, phone, img) {
     $.post("/create/user", {
-      first_name: first_name,
-      last_name: last_name,
+      name: name,
       email: email,
       password: password,
       phone: phone,
