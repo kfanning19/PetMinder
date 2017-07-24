@@ -15,17 +15,16 @@ $(function() {
     			var pet = user.Pets[i];
 
         		var newCard = `<div class="col s6 m4">
-         						<div class="card horizontal">
-        							<div class="card-image">
-        								<img src="${pet.image}">
-        							</div>
-        							<div class="card-stacked">
-        								<div class="card-content">
-        									<p>${pet.name}</p>
-        									<p>Birthday:${pet.dob}.</p>
-        									<p>I love ${pet.favorite_toy}</p>
-        								</div>
-
+             						<div class="card horizontal">
+            							<div class="card-image">
+            								<img src="${pet.image}">
+            							</div>
+            							<div class="card-stacked">
+            								<div class="card-content">
+            									<p>${pet.name}</p>
+            									<p>Birthday:${pet.dob}.</p>
+            									<p>I love ${pet.favorite_toy}</p>
+            								</div>
 	        							</div>
 	        						</div>
 	        					</div>
