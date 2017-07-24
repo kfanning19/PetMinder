@@ -55,9 +55,13 @@ nav {
    box-shadow: 0 1px 0 0 #33575b !important;
  }
 
- /*About and FAQ*/
 
-body
+img {
+	height: 400px;
+	width: 400px;
+ /*About and FAQ*/
+}
+
 
 
 
