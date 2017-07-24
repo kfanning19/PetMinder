@@ -9,17 +9,17 @@ html, body {
 }
 
 #title {
-	color: #2e0a05;
+	color: #33575b;
 	font-size: 150px;
 }
 
 #signin-box {
 
-	background-color: #ecc78d;
-	padding: 50px;
-	background-opacity: .7;
+/*	background-color: #ecc78d;
+*/	padding: 50px;
 	border-radius: 25px;
 	width: 1000px;
+	background-color: rgba(236,199,141, .6);
 }
 
 label {
@@ -57,13 +57,19 @@ nav {
 
 
 img {
-	height: 400px;
-	width: 400px;
+	height: 300px;
+	width: 300px;
+
  /*About and FAQ*/
 }
 
+/*Navs in main*/
 
-
+nav, .page-footer, .footer-copyright, .page-footer .footer-copyright {
+	background-color: #ffda21;
+	color: #fffbe4;
+	box-shadow: none;
+}
 
 
 

@@ -49,13 +49,32 @@ module.exports = function(app, passport) {
         }
     });
 
+////////////////TODO  TEST create pet!////////////////////
+    // create new Pet
+    // app.post("/create/pet", function(req, res) {
+    //     models.Pet.create(req.body).then(
+    //         (newPet) => {
+    //             models.User.findOne({
+    //                 where: {id : req.user.id}
+    //             }).then((newOwner)) => {
+    //                 if (newOwner) {
+    //                     console.log(newOwner)
+    //                     return newOwner.addPet(newPet).then((data) => {res.json (data) })
+    //                 } else {
+    //                     res.send("Pet could not be added.") 
+    //             };
+    //         })
+    //     })
+    // });
+
     // create new Pet
     app.post("/create/pet", function(req, res) {
         models.Pet.create(req.body).then(
             (newPet) => {
                 res.json(newPet);
             });
-    });
+        });
+
 
     // add activity
     app.post("/add/activity/", function(req, res) {
