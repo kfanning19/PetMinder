@@ -129,6 +129,8 @@ module.exports = function() {
             city: "Greensborough",
             state: "NC",
             zipcode: "14290",
+            phone: "12342309333",
+            website: 'http://www.npr.org/',
             PetId: 1
         }),
         models.Contacts.create({
@@ -138,6 +140,8 @@ module.exports = function() {
             city: "Greensborough",
             state: "NC",
             zipcode: "14290",
+            phone: "12342309333",
+            website: 'http://www.npr.org/',
             PetId: 2
         }),
         models.Contacts.create({
@@ -147,6 +151,8 @@ module.exports = function() {
             city: "Chicago",
             state: "IL",
             zipcode: "60611",
+            phone: "18762349834",
+            website: 'http://www.npr.org/',
             PetId: 3
         }),
         models.Contacts.create({
@@ -156,6 +162,8 @@ module.exports = function() {
             city: "Greensborough",
             state: "NC",
             zipcode: "39284",
+            phone: "12994325678",
+            website: 'http://www.npr.org/',
             PetId: 1
         }),
         models.Contacts.create({
@@ -165,9 +173,35 @@ module.exports = function() {
             city: "Greensborough",
             state: "NC",
             zipcode: "39284",
+            phone: "12994325678",
+            website: 'http://www.npr.org/',
+            PetId: 2
+        }),
+        models.Messages.create({
+            contents: "Cooper got skunked again",
+            date: "2017-07-10 12:34:12",
+            UserId: 1,
+            PetId: 1
+        }),
+        models.Messages.create({
+            contents: "Riley decided to eat the couch again. Cooper helped.",
+            date: "2017-07-08 12:34:12",
+            UserId: 1,
+            PetId: 2
+        }),
+        models.Messages.create({
+            contents: "Cooper tricked Riley into leaving the couch again by pretending he actually wanted to play",
+            date: "2017-07-08 12:34:12",
+            UserId: 2,
+            PetId: 1
+        }),
+        models.Messages.create({
+            contents: "Riley decided to defend Cooper again. Both sweet and irritating.",
+            date: "2017-07-08 12:34:12",
+            UserId: 2,
             PetId: 2
         })
     ];
-    console.log(promises);
-    return Promise.all(promises);
+    // console.log(promises);
+    return Promise.all(promises).catch();
 }

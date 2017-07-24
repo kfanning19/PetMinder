@@ -4,6 +4,7 @@ module.exports = function(app) {
     // -----------GET ROUTES----------------
     // get User profile with basic pet information
 
+<<<<<<< HEAD
     app.get("/api/profile/user/:id", function(req, res) {
 
         // if (!req.user) {
@@ -15,8 +16,16 @@ module.exports = function(app) {
             include: [models.Pet]
         }).then(function(data) {
             res.json(data)
+=======
+    app.get("/api/user/profile", function(req, res) {
+        models.User.findById(req.user.id, {
+            include: models.Pet
+>>>>>>> master
         })
-        // }
+        .then(function(data) {
+            console.log(data);
+            res.json(data);
+        });
     });
     app.get("/logout", function(req, res) {
         req.logout();
@@ -45,7 +54,7 @@ module.exports = function(app) {
     // get Pet Contacts
     app.get("/api/profile/pet/contacts/:id", function(req, res) {
         models.Contacts.findAll({
-            where: { petId: req.params.petId },
+            where: { PetId: req.params.id },
             include: [models.Pet]
         }).then(function(data) {
             res.json(data);
@@ -62,8 +71,8 @@ module.exports = function(app) {
     });
     // get Pet Messages
     app.get("/api/profile/pet/messages/:id", function(req, res) {
-        models.Diet.findAll({
-            where: { petId: req.params.petId },
+        models.Messages.findAll({
+            where: { petId: req.params.id },
             include: [models.Pet, models.User]
         }).then(function(data) {
             res.json(data);

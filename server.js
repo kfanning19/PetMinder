@@ -28,10 +28,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Override with POST having ?_method=DELETE
 app.use(methodOverride("_method"));
 // We need to use sessions to keep track of our user's login status
-app.use(session({ secret: "animals are awesome", resave: true, saveUninitialized: true }));
+app.use(session({ secret: "animals are awesome", resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash()); // use connect-flash for flash messages stored in session
 
 // Handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));

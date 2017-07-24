@@ -21,30 +21,30 @@
             <h4>Sign up!</h4>
         </div>
         <div class="row">
-            <form class="col s12 signup-form">
+            <form action="/signup" method="post" class="col s12 signup-form">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="signup_first" type="text" class="validate" required>
+                        <input id="signup_first" name="first_name" type="text" class="validate" required>
                         <label for="signup_first">First Name</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="signup_last" type="text" class="validate" required>
+                        <input id="signup_last" name="last_name" type="text" class="validate" required>
                         <label for="signup_last">Last Name</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="signup_email" type="email" class="validate" required>
+                        <input id="signup_email" name="email" type="email" class="validate" required>
                         <label for="signup_email">Email Address</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="signup_phone" type="text" class="validate" required>
+                        <input id="signup_phone" name="phone" type="text" class="validate" required>
                         <label for="signup_phone">Phone Number</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="signup_password" type="password" class="validate" required>
+                        <input id="signup_password" name="password" type="password" class="validate" required>
                         <label for="signup_password">Password</label>
                     </div>
                     <div class="input-field col s6">
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                     <div class="input-field col s12">
-                        <input id="signup_image" type="text" class="validate" required>
+                        <input id="signup_image" name="image" type="text" class="validate" required>
                         <label for="signup_image">Profile Image URL (optional)</label>
                     </div>
                 <button class="waves-effect waves-light btn" id="signup_submit">Submit</button>

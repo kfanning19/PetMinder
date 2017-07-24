@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import MessageBoard from './MessageBoard'
-import registerServiceWorker from './registerServiceWorker';
+import MessageBoard from './components/PetProfile/MessageBoard'
 
-function initializeMessageBoard() {
-    ReactDOM.render(<MessageBoard petId={PHILOPETS.petId} />, document.getElementById('#message-board'));
-}
-registerServiceWorker();
+window.initializeMessageBoard = function() {
+    ReactDOM.render(<MessageBoard petId={PHILOPETS.petId} />, document.getElementById('message-board'));
+};
