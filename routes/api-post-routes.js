@@ -74,6 +74,9 @@ module.exports = function(app, passport) {
 
     // add Message
     app.post("/add/Messages/", function(req, res) {
+        console.log("contents", req.body.contents);
+        console.log('PetId', req.body.PetId)
+        console.log('UserId', req.user.id)
         models.Messages.create({
             contents: req.body.contents,
             PetId: req.body.PetId,

@@ -32,7 +32,9 @@ module.exports = function(app) {
     });
     // get User profile
     app.get("/profile/user", isLoggedIn, function(req, res) {
-        res.sendFile(path.join(__dirname, "../views/userProfile.html"))
+        // res.sendFile(path.join(__dirname, "../views/userProfile.html"))
+        console.log(req.user)
+        res.render('userProfile', {user: req.user.dataValues})
     })
 
     // get Pet profile

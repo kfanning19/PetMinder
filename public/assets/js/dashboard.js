@@ -8,6 +8,7 @@ $(function() {
                 $('.pet-name').append(pet.name);
                 $('.pet-birthday').append(pet.dob);
                 $('.pet-toy').append(pet.favorite_toy);
+                $('.pet-image').append(`<img src=${pet.image} />`);
             });
     }
 });
