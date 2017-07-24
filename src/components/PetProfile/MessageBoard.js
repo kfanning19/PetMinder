@@ -23,7 +23,7 @@ var MessageBoard = React.createClass({
     event.preventDefault();
     console.log("CLICKED");
     var newMessage={
-      contents: new_contents, 
+      contents: this.state.contents, 
       PetId: this.props.petId
     };
     axios.post('/add/Messages/', newMessage)
