@@ -19,7 +19,8 @@ module.exports = function(app) {
         if (req.user) {
             res.redirect("/profile/user");
         }
-        res.sendFile(path.join(__dirname, "../views/login.html"));;
+        // res.sendFile(path.join(__dirname, "../views/login.html"));;
+        res.render("login")
     });
     app.get('/logout', function(req, res) {
         req.logout();
@@ -28,12 +29,12 @@ module.exports = function(app) {
 
     // Add a pet Page
     app.get("/add-pet", isLoggedIn, function(req, res) {
-        res.sendFile(path.join(__dirname, "../views/addPet.html"));;
+        // res.sendFile(path.join(__dirname, "../views/addPet.html"));
+        res.render("addPet")
     });
     // get User profile
     app.get("/profile/user", isLoggedIn, function(req, res) {
         // res.sendFile(path.join(__dirname, "../views/userProfile.html"))
-        console.log(req.user)
         res.render('userProfile', {user: req.user.dataValues})
     })
 
@@ -56,7 +57,8 @@ module.exports = function(app) {
     });
     // Sign Up
     app.get("/signup", function(req, res) {
-        res.sendFile(path.join(__dirname, "../views/signUp.html"));
+        // res.sendFile(path.join(__dirname, "../views/signUp.html"));
+        res.render("signUp")
     })
 
 };

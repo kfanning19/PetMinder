@@ -65,7 +65,7 @@ module.exports = function(app, passport) {
                 }).then((newOwner) => {
                     if (newOwner) {
                         console.log(newOwner)
-                        return newOwner.addPet(newPet.id).then((data) => { res.json(data) })
+                        return newOwner.addPet(newPet.id).then((data) => { res.redirect('/profile/user') })
                     } else {
                         res.send("Could not add to your account")
                     };
