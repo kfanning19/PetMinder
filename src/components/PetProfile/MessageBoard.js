@@ -14,7 +14,6 @@ var MessageBoard = React.createClass({
   },
   handleChange: function(event) {
     console.log("TEXT CHANGED");
-    console.log
     var newState = {};
     newState[event.target.id] = event.target.value;
     this.setState(newState);
@@ -23,66 +22,67 @@ var MessageBoard = React.createClass({
   handleSubmit: function(event, new_contents) {
     event.preventDefault();
     console.log("CLICKED");
+    var petId = this.props.petId;
     var newMessage={
       contents: this.state.contents, 
-      PetId: this.props.petId
+      PetId: petId
     };
     axios.post('/add/Messages/', newMessage)
-      .then(function(){
-        var petId = this.props.petId;
+      .then(()=>{
+        
         axios.get(`/api/profile/pet/messages/${petId}`)
-          .then(function(response) {
+          .then((response)=> {
             console.log("axios results update", response);
             var messages = response.data
             this.setState({ 
               messages: messages,
               contents: '' 
             });
-          }.bind(this));
+          });
       });
 
   },
   componentWillMount() {
     var petId = this.props.petId;
     axios.get(`/api/profile/pet/messages/${petId}`)
-      .then(function(response) {
+      .then((response)=> {
         console.log("axios results", response);
         var messages = response.data;
         this.setState({ 
           messages: messages
         });
-      }.bind(this));
+      });
   },
   handleDelete(id){
     axios.delete(`/api/pet/message/${id}`)
-      .then(function() {
+      .then(()=> {
         var petId = this.props.petId;
         axios.get(`/api/profile/pet/messages/${petId}`)
-          .then(function(response) {
+          .then((response)=> {
             console.log("axios results", response);
             var messages = response.data;
             this.setState({ 
               messages: messages
             });
-          }.bind(this));
+          });
       });
   },
   renderMessages() {
     if(!this.state.messages){
       return <h2>No Messages</h2>
     }else{
-      return this.state.messages.map(function(message, index) {
+      return this.state.messages.map((message, index)=> {
         return (
           <div key={index}>
             <li className="collection-item avatar">
                 <img src={message.User.image} alt={message.User.first_name} className="circle"/>
                   <span className="title">{message.User.first_name}{message.User.last_name}</span>
-                    <p><em>{message.createdAt}</em></p>
+                    <p><em>{moment(message.createdAt).format("MM-DD-YYYY")}</em></p>
                     <p>{message.contents}</p>
               </li>
           </div>
         )
-      }.bind(this));
+      });
     }
   },
   render: function() {
