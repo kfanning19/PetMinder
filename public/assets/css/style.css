@@ -2,7 +2,7 @@
 
 html, body {
 /*	font-family: 'Raleway', sans-serif;
-*/	font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+*/	font-family:'Raleway', sans-serif;
 	background-color: #d0dfe4;
 	max-width: 100%;
 	overflow-x: hidden;
@@ -10,16 +10,16 @@ html, body {
 
 #title {
 	color: #33575b;
+	font-family: 'Ubuntu', sans-serif;
 	font-size: 150px;
 }
 
 #signin-box {
 
-/*	background-color: #ecc78d;
-*/	padding: 50px;
+	padding: 50px;
 	border-radius: 25px;
 	width: 1000px;
-	background-color: rgba(236,199,141, .6);
+	background-color: rgba(236,199,141, .7);
 }
 
 label {
@@ -66,18 +66,50 @@ img {
 /*Navs in main*/
 
 nav, .page-footer, .footer-copyright, .page-footer .footer-copyright {
-	background-color: #ffda21;
-	color: #fffbe4;
+	background-color: #33575b;
+	color: #33575b;
 	box-shadow: none;
 }
 
 
 
+/*footer*/
 
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
+footer.page-footer {
+	padding: 10px 30px 0px 30px;
+	margin-top: 30px;
+}
 
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
 
+  main {
+    flex: 1 0 auto;
+  }
 
+div.row {
+  margin: 0px;
+}
+
+a.brand-logo {
+  font-size: 50px;
+  padding-left: 0px;
+}
+
+@media only screen and (max-width: 600px) {
+
+  #title {
+    font-size: 75px;
+  }
 
 
 
