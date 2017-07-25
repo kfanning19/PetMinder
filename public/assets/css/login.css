@@ -1,5 +1,5 @@
 /*Login*/
-html {
+*/html {
    min-height: 100%;   
 }
 
@@ -16,14 +16,15 @@ html, body {
 #title {
 	color: #33575b;
 	font-family: 'Ubuntu', sans-serif;
-	font-size: 100px;
+	font-size: 7em;
 }
 
 #signin-box {
 
-	padding: 50px;
+	padding: 5%;
 	border-radius: 25px;
-	width: 1000px;
+	width: 80%;
+	height: 40%;
 /*	background-color: rgba(173, 106, 29, .7);
 */	background-color: #D0DFE4;
 }
@@ -46,10 +47,11 @@ nav {
 }
 
 
+
+/*greetings page*/
 .input-field label {
   color: #33575b;
 }
-
 
 /* label focus color */
  .input-field input:focus + label {
@@ -65,6 +67,6 @@ nav {
 
 @media only screen and (max-width: 600px) {
 
-  #title {
+  /*#title {
     font-size: 75px;
   }
