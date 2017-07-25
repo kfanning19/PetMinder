@@ -1,7 +1,7 @@
 var path = require("path");
 
 // Passort
-var isLoggedIn = function (req, res, next) {
+var isLoggedIn = function(req, res, next) {
 
     // if user is authenticated in the session, carry on 
     if (req.isAuthenticated())
@@ -18,9 +18,10 @@ module.exports = function(app) {
     app.get("/", function(req, res) {
         if (req.user) {
             res.redirect("/profile/user");
+        } else {
+            // res.sendFile(path.join(__dirname, "../views/login.html"));;
+            res.render("login")
         }
-        res.sendFile(path.join(__dirname, "../views/login.html"));;
-        // res.render("login")
     });
     app.get('/logout', function(req, res) {
         req.logout();
@@ -35,7 +36,7 @@ module.exports = function(app) {
     // get User profile
     app.get("/profile/user", isLoggedIn, function(req, res) {
         // res.sendFile(path.join(__dirname, "../views/userProfile.html"))
-        res.render('userProfile', {user: req.user.dataValues})
+        res.render('userProfile', { user: req.user.dataValues })
     })
 
     // get Pet profile
@@ -57,8 +58,8 @@ module.exports = function(app) {
     });
     // Sign Up
     app.get("/signup", function(req, res) {
-        // res.sendFile(path.join(__dirname, "../views/signUp.html"));
-        res.render("signUp")
+        res.sendFile(path.join(__dirname, "../views/signUp.html"));
+        // res.render("signUp")
     })
 
 };

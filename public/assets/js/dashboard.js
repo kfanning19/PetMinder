@@ -1,5 +1,5 @@
 $(function() {
-    loadPetInformation(1);
+    loadPetInformation(PHILOPETS.petId);
     initializeMessageBoard();
 
     function loadPetInformation(id) {

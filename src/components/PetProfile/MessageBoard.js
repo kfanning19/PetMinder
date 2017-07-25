@@ -53,20 +53,6 @@ var MessageBoard = React.createClass({
         });
       });
   },
-  handleDelete(id){
-    axios.delete(`/api/pet/message/${id}`)
-      .then(()=> {
-        var petId = this.props.petId;
-        axios.get(`/api/profile/pet/messages/${petId}`)
-          .then((response)=> {
-            console.log("axios results", response);
-            var messages = response.data;
-            this.setState({ 
-              messages: messages
-            });
-          });
-      });
-  },
   renderMessages() {
     if(!this.state.messages){
       return <h2>No Messages</h2>
@@ -92,7 +78,8 @@ var MessageBoard = React.createClass({
           <form className="col s12" onSubmit={this.handleSubmit}>
             <div className="row">
               <div className="input-field inline col s10">
-                <input value={this.state.contents} onChange={this.handleChange}  id="contents" type="text" required/>
+                <textarea rows="5" cols="50" value={this.state.contents} onChange={this.handleChange}  id="contents"></textarea>
+                <label htmlFor='contents'>Add a new Message</label>
               </div>
               <button className="btn waves-effect waves-light inline col s2" type="submit" name="action">Submit<i className="material-icons right">send</i>
               </button>

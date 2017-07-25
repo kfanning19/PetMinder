@@ -30,6 +30,9 @@ $(document).ready(function(){
 			favorite_toy: toy,
 			image: image
 		})
+		.then(()=>{
+			window.location.href='/'
+			})
 		// if it goes through, they will be redirected back to their profile page, if not it will show an error
 	}
 })
