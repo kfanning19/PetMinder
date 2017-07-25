@@ -52,20 +52,16 @@ module.exports = function(app, passport) {
 
     // create new Pet
     app.post("/create/pet", function(req, res) {
-        models.Pet.create({
-            name: req.body.name,
-            animal_type: req.body.animal_type,
-            breed: req.body.breed,
-            dob: req.body.dob,
-            favorite_toy: req.body.favorite_toy
-        }).then(
+        models.Pet.create(req.body).then(
             (newPet) => {
                 models.User.findOne({
                     where: { id: req.user.id }
                 }).then((newOwner) => {
                     if (newOwner) {
                         console.log(newOwner)
-                        return newOwner.addPet(newPet.id).then((data) => { res.redirect('/profile/user') })
+                        return newOwner.addPet(newPet.id).then((data) => { 
+                            res.redirect('/profile/user') 
+                        })
                     } else {
                         res.send("Could not add to your account")
                     };

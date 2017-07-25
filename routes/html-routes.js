@@ -19,8 +19,8 @@ module.exports = function(app) {
         if (req.user) {
             res.redirect("/profile/user");
         }
-        // res.sendFile(path.join(__dirname, "../views/login.html"));;
-        res.render("login")
+        res.sendFile(path.join(__dirname, "../views/login.html"));;
+        // res.render("login")
     });
     app.get('/logout', function(req, res) {
         req.logout();
