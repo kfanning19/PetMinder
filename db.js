@@ -179,25 +179,21 @@ module.exports = function() {
         }),
         models.Messages.create({
             contents: "Cooper got skunked again",
-            date: "2017-07-10 12:34:12",
             UserId: 1,
             PetId: 1
         }),
         models.Messages.create({
             contents: "Riley decided to eat the couch again. Cooper helped.",
-            date: "2017-07-08 12:34:12",
             UserId: 1,
             PetId: 2
         }),
         models.Messages.create({
             contents: "Cooper tricked Riley into leaving the couch again by pretending he actually wanted to play",
-            date: "2017-07-08 12:34:12",
             UserId: 2,
             PetId: 1
         }),
         models.Messages.create({
             contents: "Riley decided to defend Cooper again. Both sweet and irritating.",
-            date: "2017-07-08 12:34:12",
             UserId: 2,
             PetId: 2
         })

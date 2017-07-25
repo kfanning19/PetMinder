@@ -1,5 +1,6 @@
 var React = require("react");
 var axios = require("axios");
+var moment = require("moment")
 
 // Render MessageBoard Component
 var MessageBoard = React.createClass({
@@ -31,13 +32,15 @@ var MessageBoard = React.createClass({
         var petId = this.props.petId;
         axios.get(`/api/profile/pet/messages/${petId}`)
           .then(function(response) {
-            console.log("axios results", response);
+            console.log("axios results update", response);
             var messages = response.data
             this.setState({ 
-              messages: messages 
+              messages: messages,
+              contents: '' 
             });
           }.bind(this));
       });
+
   },
   componentWillMount() {
     var petId = this.props.petId;
@@ -71,14 +74,12 @@ var MessageBoard = React.createClass({
       return this.state.messages.map(function(message, index) {
         return (
           <div key={index}>
-            <ul className="collection">
-              <li className="collection-item avatar">
+            <li className="collection-item avatar">
                 <img src={message.User.image} alt={message.User.first_name} className="circle"/>
                   <span className="title">{message.User.first_name}{message.User.last_name}</span>
-                    <p><em>{message.date}</em></p>
+                    <p><em>{message.createdAt}</em></p>
                     <p>{message.contents}</p>
               </li>
-            </ul>
           </div>
         )
       }.bind(this));
@@ -98,7 +99,9 @@ var MessageBoard = React.createClass({
             </div>
           </form>
         </div>
-       {this.renderMessages()}
+        <ul className="collection">
+        {this.renderMessages()}
+       </ul>
      </div>
     )
   }

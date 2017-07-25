@@ -11,6 +11,9 @@ module.exports = function(app) {
         .then(function(data) {
             console.log(data);
             res.json(data);
+        }).catch((error) => {
+            console.log(error);
+            res.status(500);
         });
     });
     app.get("/logout", function(req, res) {
@@ -24,7 +27,10 @@ module.exports = function(app) {
             include: [models.Activity, models.Diet, models.Messages, models.Contacts, models.User]
         }).then(function(data) {
             res.json(data)
-        })
+        }).catch((error) => {
+            console.log(error);
+            res.status(500);
+        });
     });
 
     //get Pet Activity Tab
@@ -34,7 +40,10 @@ module.exports = function(app) {
             include: [models.Pet],
         }).then(function(data) {
             res.json(data)
-        })
+        }).catch((error) => {
+            console.log(error);
+            res.status(500);
+        });
     });
 
     // get Pet Contacts
@@ -44,7 +53,10 @@ module.exports = function(app) {
             include: [models.Pet]
         }).then(function(data) {
             res.json(data);
-        })
+        }).catch((error) => {
+            console.log(error);
+            res.status(500);
+        });
     });
     // get Pet Diet
     app.get("/api/profile/pet/Diet/:id", function(req, res) {
@@ -53,7 +65,10 @@ module.exports = function(app) {
             include: [models.Pet]
         }).then(function(data) {
             res.json(data);
-        })
+        }).catch((error) => {
+            console.log(error);
+            res.status(500);
+        });
     });
     // get Pet Messages
     app.get("/api/profile/pet/messages/:id", function(req, res) {
@@ -62,14 +77,21 @@ module.exports = function(app) {
             include: [models.Pet, models.User]
         }).then(function(data) {
             res.json(data);
-        })
+        }).catch((error) => {
+            console.log(error);
+            res.status(500);
+        });
     });
     // get Pet Settings
     app.get("/api/profile/pet/settings/:id", function(req, res) {
         models.Pet.findById(req.params.id).then(function(pet) {
             pet.getUsers().then(owners => {
+                // This is an array of users tied to that pet
                 res.json(owners)
             })
+        }).catch((error) => {
+            console.log(error);
+            res.status(500);
         });
     });
 }

@@ -3,10 +3,6 @@ module.exports = function(sequelize, DataTypes) {
         contents: {
             type: DataTypes.TEXT,
             allowNull: false
-        },
-        date: {
-            type: DataTypes.DATE,
-            default: Date.Now
         }
     });
     Messages.associate = function(models) {

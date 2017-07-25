@@ -30,8 +30,8 @@ module.exports = function(app, passport) {
                 if (user) {
                     // A User with this email already exists
                     // TODO: Display appropriate error message
-                }
-                else {
+                    res.send("Email address already exists")
+                } else {
                     formData.password = generateHash(formData.password);
                     models.User.create(formData)
                         .then(function(newUser) {
@@ -49,31 +49,32 @@ module.exports = function(app, passport) {
         }
     });
 
-////////////////TODO  TEST create pet!////////////////////
-    // create new Pet
-    // app.post("/create/pet", function(req, res) {
-    //     models.Pet.create(req.body).then(
-    //         (newPet) => {
-    //             models.User.findOne({
-    //                 where: {id : req.user.id}
-    //             }).then((newOwner)) => {
-    //                 if (newOwner) {
-    //                     console.log(newOwner)
-    //                     return newOwner.addPet(newPet).then((data) => {res.json (data) })
-    //                 } else {
-    //                     res.send("Pet could not be added.") 
-    //             };
-    //         })
-    //     })
-    // });
 
     // create new Pet
     app.post("/create/pet", function(req, res) {
-        models.Pet.create(req.body).then(
+        models.Pet.create({
+            name: req.body.name,
+            animal_type: req.body.animal_type,
+            breed: req.body.breed,
+            dob: req.body.dob,
+            favorite_toy: req.body.favorite_toy
+        }).then(
             (newPet) => {
-                res.json(newPet);
+                models.User.findOne({
+                    where: { id: req.user.id }
+                }).then((newOwner) => {
+                    if (newOwner) {
+                        console.log(newOwner)
+                        return newOwner.addPet(newPet.id).then((data) => { res.json(data) })
+                    } else {
+                        res.send("Could not add to your account")
+                    };
+                }).catch((error) => {
+                    console.log(error);
+                    res.status(500);
+                });
             });
-        });
+    });
 
 
     // add activity
@@ -81,13 +82,19 @@ module.exports = function(app, passport) {
         models.Activity.create(req.body).then(
             (newActivity) => {
                 res.json(newActivity);
-            });
+            }).catch((error) => {
+            console.log(error);
+            res.status(500);
+        });
     });
     // add Diet
     app.post("/add/Diet/", function(req, res) {
         models.Diet.create(req.body).then(
             (newDiet) => {
                 res.json(newDiet);
+            }).catch((error) => {
+            console.log(error);
+            res.status(500);
         });
     });
 
@@ -102,14 +109,20 @@ module.exports = function(app, passport) {
         }).then(
             (newMess) => {
                 res.json(newMess);
-            });
+            }).catch((error) => {
+            console.log(error);
+            res.status(500);
+        });
     });
     // add Professional
     app.post("/add/Professional/", function(req, res) {
         models.Professional.create(req.body).then(
             (newProf) => {
                 res.json(newProf);
-            });
+            }).catch((error) => {
+            console.log(error);
+            res.status(500);
+        });
     });
 
     // add new Owner
@@ -119,11 +132,13 @@ module.exports = function(app, passport) {
         }).then((newOwner) => {
             if (newOwner) {
                 console.log(newOwner)
-               return newOwner.addPet(req.params.id).then((data) => {res.json(data)})
-            }
-            else {
-                res.send("No User Found")// TOOO: Return an error message indicating the user was not found
+                return newOwner.addPet(req.params.id).then((data) => { res.json(data) })
+            } else {
+                res.send("No User Found") // TOOO: Return an error message indicating the user was not found
             };
-        })
+        }).catch((error) => {
+            console.log(error);
+            res.status(500);
+        });
     });
 }
