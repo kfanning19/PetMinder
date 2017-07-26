@@ -57,7 +57,7 @@ module.exports = function(app) {
         });
     });
     // Delete pet from user account
-    app.delete("/api/pet/:petId/", function(req, res) {
+    app.post("/api/pet/:petId/", function(req, res) {
         models.UserPets.destroy({
           where:{
             petId: req.params.petId,
