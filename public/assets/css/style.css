@@ -114,7 +114,32 @@ a.brand-logo {
 
 
 
+#background {
+  background-image: url(../public/assets/images/wallpaper.jpg);
+  width: 1215px;
+  position: absolute;
+  /*margin-left: -180px;*/
 
+}
+
+.card-panel {
+  position: absolute;
+  margin-left: 94px;
+  margin-top: 215px;
+    width: 670px;
+    height: 505px;
+    padding: 5px;
+
+}
+
+.row .col {
+  padding: -1px .75rem;
+}
+
+row-header{
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
 
 
 

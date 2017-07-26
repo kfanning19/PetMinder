@@ -52,28 +52,27 @@ module.exports = function(app, passport) {
 
     // create new Pet
     app.post("/create/pet", function(req, res) {
-        models.Pet.create({
-            name: req.body.name,
-            animal_type: req.body.animal_type,
-            breed: req.body.breed,
-            dob: req.body.dob,
-            favorite_toy: req.body.favorite_toy
-        }).then(
-            (newPet) => {
-                models.User.findOne({
+        models.Pet.create(req.body)
+        .then((newPet) => {
+            models.User
+                .findOne({
                     where: { id: req.user.id }
-                }).then((newOwner) => {
+                })
+                .then((newOwner) => {
                     if (newOwner) {
                         console.log(newOwner)
-                        return newOwner.addPet(newPet.id).then((data) => { res.json(data) })
+                        return newOwner.addPet(newPet.id).then((data) => {
+                            res.redirect('/')
+                        })
                     } else {
                         res.send("Could not add to your account")
                     };
-                }).catch((error) => {
+                })
+                .catch((error) => {
                     console.log(error);
                     res.status(500);
                 });
-            });
+        });
     });
 
 
