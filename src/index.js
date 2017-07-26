@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MessageBoard from './components/PetProfile/MessageBoard'
+import MessageBoard from './MessageBoard'
 
 
 window.initializeMessageBoard = function() {

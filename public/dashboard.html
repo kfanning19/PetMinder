@@ -17,19 +17,28 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <h3 class="center">My Food</h3>
+            <button class="waves-effect waves-light btn modal-trigger" data-target="dietModal">Add Food</button>
+            <h4>Meals</h4>
+            <div id="meals"></div>
+            <h4>Treats</h4>
+            <div id="treats"></div>
+        </div>
     </div>
     <div class="col s6">
         <div id="message-board"></div>
     </div>
 </div>
 <div class="row" id='contacts-container'>
+    <h3 class="center">Contacts</h3>
     <!-- Modal Trigger -->
     <button class="waves-effect waves-light btn modal-trigger" data-target="contactsModal">Add a Contact</button>
     <div class="row">
         <div id="contact-cards"></div>
     </div>
 </div>
-<!-- Modal Structure -->
+<!-- Contacts Modal -->
 <div id="contactsModal" class="modal">
     <div class="modal-content">
         <h4>Add a Contact</h4>
@@ -85,12 +94,57 @@
                         <label for="contact_URL">Website</label>
                     </div>
                 </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
             </form>
         </div>
     </div>
-    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-        <i class="material-icons right">send</i>
-    </button>
+</div>
+<!-- Diet Modal -->
+<div id="dietModal" class="modal">
+    <div class="modal-content">
+        <h4>Add a Contact</h4>
+        <div class="row">
+            <form class="col s12" id="diet-form">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="diet_brand" type="text" class="validate" required>
+                        <label for="diet_brand">Brand and/or Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="diet_serving" type="text" class="validate" required>
+                        <label for="diet_serving">Serving</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <select id="diet_treat" required>
+                            <option value="" disabled selected></option>
+                            <option value="false">Meal</option>
+                            <option value="true">Treat</option>
+                        </select>
+                        <label>Meal or Treat?</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="diet_location" type="text" class="validate">
+                        <label for="diet_location">Location Stored</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="diet_purchase_location" type="text" class="validate">
+                        <label for="diet_purchase_location">Location Purchased</label>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </form>
+        </div>
+    </div>
 </div>
 <script src="/assets/js/bundle.js"></script>
 <script src="/assets/js/dashboard.js"></script>

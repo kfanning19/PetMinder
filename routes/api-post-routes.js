@@ -99,8 +99,6 @@ module.exports = function(app, passport) {
 
     // add Message
     app.post("/add/Messages/", function(req, res) {
-        console.log('Body', req.body);
-        console.log('User', req.user);
         models.Messages.create({
             contents: req.body.contents,
             PetId: req.body.PetId,
@@ -113,9 +111,9 @@ module.exports = function(app, passport) {
             res.status(500);
         });
     });
-    // add Professional
-    app.post("/add/Professional/", function(req, res) {
-        models.Professional.create(req.body).then(
+    // add Contacts
+    app.post("/add/Contacts/", function(req, res) {
+        models.Contacts.create(req.body).then(
             (newProf) => {
                 res.json(newProf);
             }).catch((error) => {

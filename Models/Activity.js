@@ -8,8 +8,7 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         date: {
-            type: DataTypes.DATE,
-            default: Date.Now
+            type: DataTypes.DATE
         }
     });
     Activity.associate = function(models) {
