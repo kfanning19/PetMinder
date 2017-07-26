@@ -62,7 +62,7 @@ module.exports = function(app) {
     // get Pet Diet
     app.get("/api/profile/pet/Diet/:id", function(req, res) {
         models.Diet.findAll({
-            where: { petId: req.params.petId },
+            where: { PetId: req.params.id },
             include: [models.Pet]
         }).then(function(data) {
             res.json(data);

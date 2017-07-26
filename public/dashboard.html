@@ -19,9 +19,10 @@
         </div>
         <div class="row">
             <h3 class="center">My Food</h3>
-            <button class="waves-effect waves-light btn modal-trigger" data-target="dietModal">Add Food</button>
+            <button class="waves-effect waves-light btn modal-trigger light-blue darken-4" data-target="dietModal">Add Food</button>
             <h4>Meals</h4>
             <div id="meals"></div>
+            <br>
             <h4>Treats</h4>
             <div id="treats"></div>
         </div>
@@ -33,7 +34,7 @@
 <div class="row" id='contacts-container'>
     <h3 class="center">Contacts</h3>
     <!-- Modal Trigger -->
-    <button class="waves-effect waves-light btn modal-trigger" data-target="contactsModal">Add a Contact</button>
+    <button class="waves-effect waves-light btn modal-trigger cyan darken-4" data-target="contactsModal">Add a Contact</button>
     <div class="row">
         <div id="contact-cards"></div>
     </div>
@@ -104,7 +105,7 @@
 <!-- Diet Modal -->
 <div id="dietModal" class="modal">
     <div class="modal-content">
-        <h4>Add a Contact</h4>
+        <h4>Add Food</h4>
         <div class="row">
             <form class="col s12" id="diet-form">
                 <div class="row">
@@ -118,13 +119,16 @@
                         <input id="diet_serving" type="text" class="validate" required>
                         <label for="diet_serving">Serving</label>
                     </div>
-                    <div class="input-field col s6">
-                        <select id="diet_treat" required>
-                            <option value="" disabled selected></option>
-                            <option value="false">Meal</option>
-                            <option value="true">Treat</option>
-                        </select>
-                        <label>Meal or Treat?</label>
+                    <div class="col s6">
+                        <p>
+                            <input name="group1" type="radio" id="test1" />
+                            <label for="test1">Red</label>
+                        </p>
+                        <p>
+                            <input name="group1" type="radio" id="test2" />
+                            <label for="test2">Yellow</label>
+                        </p>
+                        <label for="diet">Meal or Treat?</label>
                     </div>
                 </div>
                 <div class="row">
@@ -146,5 +150,8 @@
         </div>
     </div>
 </div>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 <script src="/assets/js/bundle.js"></script>
+<script src='/assets/js/app.js'></script>
 <script src="/assets/js/dashboard.js"></script>

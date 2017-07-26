@@ -19,19 +19,19 @@ $(function() {
             .then((contactData) => {
                 console.log(contactData);
                 for (var i = 0; i < contactData.length; i++) {
-                    var contact = contactData.data[i]
+                    var contact = contactData[i]
                     var newContactCard = `<div class="col s12 m6">
-                          <div class="card indigo darken-4">
+                          <div class="card cyan darken-4">
                             <div class="card-content white-text">
                               <span class="card-title">${contact.service}</span>
                               <p>${contact.name}</p>
                               <p>${contact.address_1}</p>
                               <p>${contact.address_2}</p>
-                              <p>$contact.city}, ${contact.state} ${contact.zipcode}</p>
+                              <p>${contact.city}, ${contact.state} ${contact.zipcode}</p>
                               <p>${contact.phone}</p>
                             </div>
-                            <div class="card-action">
-                              <a href=${contact.website}>Website</a>
+                            <div class="card-action white-text">
+                              <a href="${contact.website}" target="_blank">Website</a>
                             </div>
                           </div>
                         </div>`
@@ -50,22 +50,23 @@ $(function() {
         var contactCity = $('#contact_city').val().trim();
         var contactState = $('#contact_state').val().trim();
         var contactZip = $('#contact_zip').val().trim();
+        var contactPhone = $('#contact_phone').val().trim();
         var contactWeb = $('#contact_URL').val().trim();
 
-        addContact(PHILOPETS.petId, contactName, contactService, contactAddress1, contactAddress2, contactCity, contactState, contactZip, contactWeb)
+        addContact(PHILOPETS.petId, contactName, contactService, contactAddress1, contactAddress2, contactCity, contactState, contactZip, contactPhone, contactWeb)
 
     });
 
-    function addContact(id, name, service, address_1, address_2, city, state, zipcode, website) {
+    function addContact(id, name, service, address_1, address_2, city, state, zipcode, phone, website) {
         $.post(`/add/Contacts/`, {
                 name: name,
-                service,
-                service,
+                service:service,
                 address_1: address_1,
                 address_2: address_2,
                 city: city,
                 state: state,
                 zipcode: zipcode,
+                phone: phone,
                 website: website,
                 PetId: id
             })
@@ -83,7 +84,7 @@ $(function() {
                 console.log(food)
 
                 for (var i = 0; i < food.length; i++) {
-                    var diet = food.data[i]
+                    var diet = food[i];
                     if (diet.treat === false) {
                         var mealCard = `<div class="col s12 m6">
                                           <div class="card blue-grey darken-1">
@@ -99,7 +100,7 @@ $(function() {
 
                     } else {
                         var treatCard = `<div class="col s12 m6">
-                                          <div class="card blue-grey darken-1">
+                                          <div class="card light-blue darken-4">
                                             <div class="card-content white-text">
                                               <span class="card-title">${diet.name}</span>
                                               <p>Serving Size: ${diet.serving}</p>
