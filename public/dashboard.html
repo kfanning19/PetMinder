@@ -11,51 +11,71 @@
                             <div class="card-content">
                                 <p class="pet-name"></p>
                                 <p>Birthday: <span class="pet-birthday"></span></p>
-                            <p>I love <span class="pet-toy"></span></p>
+                            <p>My favorite toy is <span class="pet-toy"></span></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div id="message-board"></div>
-        </div>
     </div>
     <div class="col s6">
-        <div id="calendar"></div>
+        <div id="message-board"></div>
     </div>
 </div>
-<div class="row">
+<div class="row" id='contacts-container'>
     <!-- Modal Trigger -->
     <button class="waves-effect waves-light btn modal-trigger" data-target="contactsModal">Add a Contact</button>
+    <div class="row">
+        <div id="contact-cards"></div>
+    </div>
 </div>
 <!-- Modal Structure -->
 <div id="contactsModal" class="modal">
     <div class="modal-content">
         <h4>Add a Contact</h4>
         <div class="row">
-            <form class="col s12">
+            <form class="col s12" id="contact-form">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="contact_name" type="text" class="validate">
+                        <input id="contact_name" type="text" class="validate" required />
                         <label for="contact_name">Contact Name</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="contact_service" type="text" class="validate">
+                        <input id="contact_service" type="text" class="validate" required />
                         <label for="contact_service">Service</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="contact_address" type="text" class="validate">
-                        <label for="contact_address">Address</label>
+                        <input id="contact_address1" type="text" class="validate" required/>
+                        <label for="contact_address1">Address Line 1</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="contact_phone" type="number" class="validate">
+                        <input id="contact_address2" type="text" class="validate" />
+                        <label for="contact_address2">Address Line 2</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s5">
+                        <input id="contact_city" type="text" class="validate" required />
+                        <label for="contact_city">City</label>
+                    </div>
+                    <div class="input-field col s5">
+                        <input id="contact_state" type="text" class="validate" required />
+                        <label for="contact_state">State</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input id="contact_zip" type="text" class="validate" required />
+                        <label for="contact_zip">Zipcode</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="contact_phone" type="text" class="validate" required />
                         <label for="contact_phone">Phone Number</label>
                     </div>
                 </div>
@@ -65,25 +85,12 @@
                         <label for="contact_URL">Website</label>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
-                        <label for="email">Email</label>
-                    </div>
-                </div>
             </form>
         </div>
     </div>
-    <div class="modal-footer">
-        <a class=" modal-action modal-close waves-effect waves-light btn">Submit</a>
-    </div>
-</div>
-<!-- Container for contact cards -->
-<div class="container" id="contacts2">
-    <div class="row">
-        <div id="contact-cards"></div>
-    </div>
-</div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+    </button>
 </div>
 <script src="/assets/js/bundle.js"></script>
 <script src="/assets/js/dashboard.js"></script>

@@ -1,7 +1,7 @@
 $(function() {
     getUserInfo();
 
-// get the user info to display at the top of the screen
+    // get the user info to display at the top of the screen
     function getUserInfo() {
         $.get("/api/user/profile").then((user) => {
             console.log(user)
@@ -37,4 +37,44 @@ $(function() {
             }
         });
     }
+});
+$(document).ready(function() {
+    $('select').material_select();
+
+    displayShared(PHILOPETS.petId)
+
+
+
+
+
+    function displayShared(id) {
+        $.get(`/api/profile/pet/settings/${id}`)
+            .then(function(user) {
+                for (var i = 0; i < user.length; i++) {
+
+                    var shared = user[i];
+
+                    var newCard = `<div class=“col s6 m4”>
+                                    <div class=“card horizontal”>
+                                        <div class=“card-image”>
+                                            <img src=“${shared.image}“>
+                                        </div>
+                                        <div class=“card-stacked”>
+                                            <div class=“card-content”>
+                                                  <h3>${shared.name}</h3>
+                                                <p>${shared.email}</p>
+                                                <p>${shared.phone}</p>
+                                            </div>                                          
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>`
+
+                    $('#display-pets').append(newCard)
+                }
+            });
+
+
+    };
+
 });
