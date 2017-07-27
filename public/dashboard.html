@@ -9,7 +9,9 @@
                         </div>
                         <div class="card-stacked">
                             <div class="card-content">
-                                <p class="pet-name"></p>
+                                <h5><span  class="pet-name"></span></h5>
+                                <p>Type: <span class="pet-type"></span></p>
+                                <p>Breed: <span class="pet-breed"></span></p>
                                 <p>Birthday: <span class="pet-birthday"></span></p>
                                 <p>My favorite toy is <span class="pet-toy"></span></p>
                             </div>
@@ -33,7 +35,7 @@
                                 <input type="text" id='weight-date' class="datepicker" required/>
                                 <label for="date">Date</label>
                             </div>
-                            <button class="btn waves-effect waves-light inline col s3 deep-orange darken-2" type="submit" name="action">Submit</button>
+                            <button class="btn waves-effect waves-light inline col s3  indigo darken-4" type="submit" name="action">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -63,21 +65,15 @@
     <div class="row">
         <div class="col s12">
             <h3 class="center">My Diet</h3>
+            <button class="waves-effect waves-light btn modal-trigger indigo darken-4" data-target="dietModal">Add Food</button>
         </div>
         <div class="row">
-            <div class="col s12">
-                <button class="waves-effect waves-light btn modal-trigger indigo darken-4" data-target="dietModal">Add Food</button>
-            </div>
+            <h4 class="center">Meals</h4>
+            <div id="meals"></div>
         </div>
         <div class="row">
-            <div class="col s6">
-                <h4 class="center">Meals</h4>
-                <div id="meals"></div>
-            </div>
-            <div class="col s6">
-                <h4 class="center">Treats</h4>
-                <div id="treats"></div>
-            </div>
+            <h4 class="center">Treats</h4>
+            <div id="treats"></div>
         </div>
     </div>
     <div class="row" id='contacts-container'>
@@ -190,7 +186,7 @@
                             <label for="diet_purchase_location">Location Purchased</label>
                         </div>
                     </div>
-                    <button class="btn waves-effect waves-light indigo darken-4" type="submit" name="action">Submit</button>
+                    <button class="btn waves-effect waves-light cyan darken-4" type="submit" name="action">Submit</button>
                 </form>
             </div>
         </div>

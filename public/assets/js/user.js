@@ -22,7 +22,9 @@ $(function() {
                                         <div class="card-stacked">
                                             <div class="card-content">
                                                 <p>${pet.name}</p>
-                                                <p>Birthday:${pet.dob}.</p>
+                                                <p>Type: ${pet.animal_type}</p>
+                                                <p>Breed:${pet.breed}</p>
+                                                <p>Birthday: ${pet.dob}</p>
                                                 <p>I love ${pet.favorite_toy}</p>
                                             </div>
                                             <div class="card-action">

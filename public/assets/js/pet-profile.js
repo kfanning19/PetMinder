@@ -1,5 +1,6 @@
 $(function() {
     loadTab('dashboard');
+    
 
     $('ul.tabs').on('click', 'a', function(event) {
         var tabLink = $(event.currentTarget);
