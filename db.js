@@ -183,9 +183,24 @@ module.exports = function() {
             PetId: 1
         }),
         models.Messages.create({
+            contents: "Cooper managed to 'sit up' today without falling backwards",
+            UserId: 1,
+            PetId: 1
+        }),
+        models.Messages.create({
+            contents: "He needs to get his nails clipped this weekend. Saturday at 9am is usually best.",
+            UserId: 2,
+            PetId: 1
+        }),
+        models.Messages.create({
             contents: "Riley decided to eat the couch again. Cooper helped.",
             UserId: 1,
             PetId: 2
+        }),
+        models.Messages.create({
+            contents: "Riley decided to eat the couch again. Cooper helped.",
+            UserId: 2,
+            PetId: 1
         }),
         models.Messages.create({
             contents: "Cooper tricked Riley into leaving the couch again by pretending he actually wanted to play",
@@ -193,7 +208,7 @@ module.exports = function() {
             PetId: 1
         }),
         models.Messages.create({
-            contents: "Riley decided to defend Cooper again. Both sweet and irritating.",
+            contents: "Riley decided to defend Cooper again. Both sweet and irritating since now we can't go to that dog park anymore.",
             UserId: 2,
             PetId: 2
         }),
