@@ -1,45 +1,93 @@
+/*Color Palette Shortcut
+
+light blue: #d0dfe4
+dark blue/green: #33575b
+dark brown: #2e0a05
+light tan: #ecc78d
+camel: #ad6a1d
+*/
+
+
+
+
 /*Header*/
 
-
-
-
-
-
-/*Side Navigation*/
-nav {
-    height: 50px;
+a.brand-logo {
+  font-size: 50px;
+  padding-left: 0px;
 }
 
+/*Side Navigation*/
 
-
-
+ul#slide-out.side-nav {
+    background-color: #ecc78d;
+}
 
 /*Footer*/
 body {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-      font-family:'Raleway', sans-serif;
-    }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family:'Raleway', sans-serif;
+  }
 
-    main {
-      flex: 1 0 auto;
-    }
+main {
+  flex: 1 0 auto;
+}
 
-    footer.page-footer {
-      margin: 0px;
-      padding: 0px;
-    }
+  footer.page-footer {
+  margin: 0px;
+  padding: 0px;
+}
 
-    div.row {
-      margin: 0px;
-    }
+nav, .page-footer, .footer-copyright, .page-footer .footer-copyright {
+  background-color: #33575b;
+  color: #33575b;
+  box-shadow: none;
+}
 
-    a.brand-logo {
-      font-size: 50px;
-      padding-left: 75px;
-    }
+/*Tabs*/
+.tabs {
+  background-color: #d0dfe4;
 
-    ul#slide-out.side-nav {
-        background-color: #ecc78d;
-    }
+}
+
+.indicator {
+  background-color: #33575b !important;
+
+}
+ li.tab.col.s5 {
+  color: #33575b !important;
+ }
+
+
+
+  .tabs .tab a{
+      color:#33575b;
+      font-size: 2em;
+  } /*color to the text*/
+
+  .tabs .tab a:hover {
+      background-color:#d0dfe4;
+      color:#33575b;
+  } /*Text color on hover*/
+
+  .tabs .tab a.active {
+      background-color:#d0dfe4;
+      color:#33575b;
+  } /*Background and text color when a tab is active*/
+
+  .tabs .indicator {
+      background-color:#33575b;
+  } /*Color of underline*/
+
+
+
+
+
+
+
+
+
+
+

@@ -1,3 +1,12 @@
+/*Color Palette Shortcut
+
+light blue: #d0dfe4
+dark blue/green: #33575b
+dark brown: #2e0a05
+light tan: #ecc78d
+camel: #ad6a1d
+*/
+
 /*Login*/
 html {
    min-height: 100%;   
@@ -20,17 +29,14 @@ html, body {
 }
 
 #login-box {
-	padding: 5%;
+	padding-top: 5%;
+	padding-bottom: 5%;
 	border-radius: 25px;
 	width: 80%;
 	height: 40%;
-/*	background-color: rgba(173, 106, 29, .7);*/	
+
 	background-color: #D0DFE4;
 }
-/*
-label {
-	color: #33575b;
-}*/
 
 .waves-effect.waves {
       background-color: #33575b;
