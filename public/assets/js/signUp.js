@@ -7,7 +7,7 @@ $(document).ready(function() {
   var phone = $("input#signup_phone");
   var password = $("input#signup_password");
   var password2 = $("input#signup_passwordconfirm");
-  var image = $("input#signup_img")
+  var image = $("input#signup_image")
 
 
   // When the form is submitted, we validate there's an email and password entered
