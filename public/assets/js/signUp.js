@@ -7,7 +7,7 @@ $(document).ready(function() {
   var phone = $("input#signup_phone");
   var password = $("input#signup_password");
   var password2 = $("input#signup_passwordconfirm");
-  var image = $("input#signup_img")
+  var image = $("input#signup_image")
 
 
   // When the form is submitted, we validate there's an email and password entered
@@ -30,22 +30,20 @@ $(document).ready(function() {
 
     // If we have an email and password we run the loginUser function and clear the form
     signUpUser(userData.first_name, userData.last_name, userData.email, userData.password, userData.phone, userData.image);
-    firstName.val("");
-    lastName.val("");
-    email.val("");
-    password.val("");
-    phone.val("");
   });
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the user profile
   function signUpUser(first_name, last_name, email, password, phone, img) {
-    $.post("/create/user", {
-      name: name,
+    $.post("/signup", {
+      first_name: first_name,
+      last_name: last_name,
       email: email,
       password: password,
       phone: phone,
       image: img
       // This will redirect them to the login page
+    }).then(()=>{
+      window.location.href = '/'
     })
   }
 

@@ -1,5 +1,12 @@
 #message-board{
 	background-color: #fff;
-	overflow: scroll;
-	height: 800 px;
+	overflow: auto;
+	height: 800px;
+	padding: 22px;
+	margin: 10px;
+}
+#weightChart{
+	height: 320px;
+	width: 100%;
+	margin: 10px;
 }
