@@ -74,9 +74,22 @@ module.exports = function(app) {
     // get Pet Messages
     app.get("/api/profile/pet/messages/:id", function(req, res) {
         models.Messages.findAll({
-            where: { petId: req.params.id },
+            where: { PetId: req.params.id },
             include: [models.Pet, models.User],
             order:[['createdAt', 'DESC']]
+        }).then(function(data) {
+            res.json(data);
+        }).catch((error) => {
+            console.log(error);
+            res.status(500);
+        });
+    });
+        // get Pet Weight
+    app.get("/api/profile/pet/weight/:id", function(req, res) {
+        models.Messages.findAll({
+            where: { PetId: req.params.id },
+            include: [models.Pet, models.User],
+            order:[['date', 'ASC']]
         }).then(function(data) {
             res.json(data);
         }).catch((error) => {

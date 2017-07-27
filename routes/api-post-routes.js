@@ -121,6 +121,16 @@ module.exports = function(app, passport) {
             res.status(500);
         });
     });
+        // add Weight
+    app.post("/add/Weight/", function(req, res) {
+        models.Contacts.create(req.body).then(
+            (data) => {
+                res.json(data);
+            }).catch((error) => {
+            console.log(error);
+            res.status(500);
+        });
+    });
 
     // add new Owner
     app.post("/add/user/:id", function(req, res) {

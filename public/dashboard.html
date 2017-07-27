@@ -17,6 +17,25 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div id="weightChart" style="height: 400px; width: 100%;">
+                </div>
+                <div class="row center">
+                    <form class="col s8" id="weight-form">
+                        <div class="row">
+                            <div class="input-field inline col s8">
+                                <input id="add-weight" type="number" class="validate" required/>
+                                <label for="event">Add a Weight</label>
+                            </div>
+                            <div class="input-field inline col s2">
+                                <input type="text" id='weight-date' class="datepicker" required/>
+                                <label for="date">Date</label>
+                            </div>
+                            <button class="btn waves-effect waves-light inline col s2 cyan darken-4" type="submit" name="action">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="col s6">
             <div id="message-board"></div>
@@ -45,18 +64,18 @@
         </div>
         <div class="row">
             <div class="col s12">
-                <button class="waves-effect waves-light btn modal-trigger indigo darken-4" data-target="dietModal">Add Food</button>
+                <button class="waves-effect waves-light btn modal-trigger blue darken-4" data-target="dietModal">Add Food</button>
             </div>
         </div>
         <div class="row">
-        <div class="col s6">
-            <h4 class="center">Meals</h4>
-            <div id="meals"></div>
-        </div>
-        <div class="col s6">
-            <h4 class="center">Treats</h4>
+            <div class="col s6">
+                <h4 class="center">Meals</h4>
+                <div id="meals"></div>
+            </div>
+            <div class="col s6">
+                <h4 class="center">Treats</h4>
                 <div id="treats"></div>
-        </div>
+            </div>
         </div>
     </div>
     <div class="row" id='contacts-container'>
@@ -174,7 +193,7 @@
             </div>
         </div>
     </div>
-
     <script src="/assets/js/bundle.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src='/assets/js/app.js'></script>
     <script src="/assets/js/dashboard.js"></script>

@@ -4,6 +4,7 @@ $(function() {
     loadDietCards(PHILOPETS.petId);
     loadActivityCards(PHILOPETS.petId);
     initializeMessageBoard();
+    loadWeightChart(PHILOPETS.petId);
     $(document).on("click", ".delete-diet", deleteDiet);
     $(document).on("click", ".delete-contact", deleteContact);
     $(document).on("click", ".delete-activity", deleteActivity);
@@ -226,6 +227,60 @@ $(function() {
             .then(() => {
                 window.location.href = `/profile/pet/${id}`
 
+            })
+    }
+
+    function(id) loadWeightChart {
+        $.get(`/api/profile/pet/weight/${id}`)
+            .then((weight) => {
+                var weightData = []
+
+                for (var i = 0; i < weight.length; i++) {
+                    var lbs = weight[i];
+                    var date = lbs.date
+                    var formattedDate = date.replace(/-/g, ",");
+
+                    var newPoint = { x: newDate(formattedDate), y: lbs.weight };
+                    weightData.push(newPoint);
+                }
+                var chart = new CanvasJS.Chart("weightChart", {
+                    title: {
+                        text: "Weight"
+                    },
+                    animationEnabled: true,
+                    axisY: {
+                        title: "lbs",
+                        valueFormatString: "#0,,.",
+                        suffix: " m"
+                    },
+                    data: [{
+                        toolTipContent: "{y} units",
+                        type: "splineArea",
+                        markerSize: 5,
+                        color: "rgba(54,158,173,.7)",
+                        dataPoints: weightData
+                    }]
+                });
+
+                chart.render();
+            })
+    }
+    $('form#weight-form').on('submit', function(event) {
+        event.preventDefault();
+        var newLBS = $('#add-weight').val().trim();
+        var newDate = $('#weight-date').val().trim();
+
+        addWeight(PHILOPETS.petId, newLBS, newDate)
+    })
+
+    function addWeight(id, lbs, date) {
+        $.post(`/add/Weight/`, {
+                PetId: id,
+                weight: lbs,
+                date: date
+            })
+            .then(() => {
+                window.location.href = `/profile/pet/${id}`
             })
     }
 
