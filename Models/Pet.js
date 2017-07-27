@@ -31,7 +31,8 @@ module.exports = function(sequelize, DataTypes) {
         },
         image: {
             type: DataTypes.STRING,
-            defaultValue: "photo.png"
+            allowNull: false,
+            defaultValue: "http://i.imgur.com/QD0LUrV.jpg"
         }
     });
     Pet.associate = function(models) {

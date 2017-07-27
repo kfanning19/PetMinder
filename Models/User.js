@@ -35,7 +35,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         image: {
             type: DataTypes.STRING,
-            defaultValue: "photo.png"
+            defaultValue: "http://i.imgur.com/Dlqobja.jpg"
         }
     });
     User.associate = function(models) {

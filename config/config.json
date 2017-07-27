@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "ChesterM1!",
+    "password": "painter19",
     "database": "philopetdb",
     "host": "127.0.0.1",
     "dialect": "mysql"
