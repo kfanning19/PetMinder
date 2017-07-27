@@ -250,8 +250,7 @@ $(function() {
                     animationEnabled: true,
                     axisY: {
                         title: "lbs",
-                        valueFormatString: "#0,,.",
-                        suffix: " m"
+                        valueFormatString: "#0,,."
                     },
                     data: [{
                         toolTipContent: "{y} units",
