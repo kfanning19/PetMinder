@@ -60,9 +60,6 @@ module.exports = function(app) {
     });
     // Sign Up
     app.get("/signup", function(req, res) {
-        res.sendFile(path.join(__dirname, "../views/signUp.html"));
-        // res.render("signUp")
-        // res.sendFile(path.join(__dirname, "../views/signUp.html"));
         res.render("signUp")
     })
 
