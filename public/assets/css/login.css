@@ -15,27 +15,27 @@ html {
 }
 
 body {
-	background: url(../../../assets/images/animalsBackground.jpg) no-repeat center bottom;   
+	background: url(../../../assets/images/animalsBackground.jpg) no-repeat center bottom; 
+	background-size: 55%;  
 }
 
 html, body {
 	font-family:'Raleway', sans-serif;
-	max-width: 100%;
+	max-width: 90%;
 	overflow-x: hidden;
+	margin-left: 5%
 }
 
 #login-title {
 	color: #33575b;
 	font-family: 'Ubuntu', sans-serif;
-	font-size: 7rem;
+	font-size: 4rem;
 }
 
 #login-box {
-	padding-top: 5%;
-	padding-bottom: 5%;
-	border-radius: 25px;
-	width: 80%;
-	height: 40%;
+	border-radius: 15px;
+	width: 90%;
+	height: 20%;
 	background-color: #D0DFE4;
 }
 
