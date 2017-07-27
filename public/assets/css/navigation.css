@@ -5,6 +5,7 @@ dark blue/green: #33575b
 dark brown: #2e0a05
 light tan: #ecc78d
 lighter tan: #f8eedc;
+even lighter tan: #fbf5ea;
 camel: #ad6a1d
 */
 
@@ -21,7 +22,7 @@ a.brand-logo {
 /*Side Navigation*/
 
 ul#slide-out.side-nav {
-    background-color: #f8eedc;
+    background-color: #fbf5ea;
 }
 
 div.divider {
