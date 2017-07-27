@@ -45,13 +45,13 @@ module.exports = function(app) {
     });
     // FAQ page
     app.get("/faq", function(req, res) {
-        res.sendFile(path.join(__dirname, "../views/faq.html"));
+        // res.sendFile(path.join(__dirname, "../views/faq.html"));
         res.render('faq')
     });
 
     //About page
     app.get("/about", function(req, res) {
-        res.sendFile(path.join(__dirname, "../views/about.html"));
+        // res.sendFile(path.join(__dirname, "../views/about.html"));
         res.render('about')
     });
     // Forgot Password

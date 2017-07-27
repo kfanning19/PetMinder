@@ -74,52 +74,52 @@ module.exports = function() {
         }),
         models.Activity.create({
             event: "walk",
-            date: "2017-07-11 12:34:12",
+            date: "2017-07-11",
             PetId: 1
         }),
         models.Activity.create({
             event: "walk",
-            date: "2017-07-11 12:34:12",
+            date: "2017-07-11",
             PetId: 2
         }),
         models.Activity.create({
             event: "Sit on Riley",
-            date: "2017-07-12 12:34:12",
+            date: "2017-07-12",
             PetId: 1
         }),
         models.Activity.create({
             event: "Chase a squirrel",
-            date: "2017-07-12 12:34:12",
+            date: "2017-07-12",
             PetId: 2
         }),
         models.Activity.create({
             event: "Shaved Mats",
-            date: "2017-07-11 12:34:12",
+            date: "2017-07-11",
             PetId: 3
         }),
         models.Activity.create({
             event: "Slept in the sun",
-            date: "2017-07-10 12:34:12",
+            date: "2017-07-10",
             PetId: 3
         }),
         models.Activity.create({
             event: "Ate lettuce",
-            date: "2017-07-11 12:34:12",
+            date: "2017-07-11",
             PetId: 4
         }),
         models.Activity.create({
             event: "Explored apartment",
-            date: "2017-07-10 12:34:12",
+            date: "2017-07-10",
             PetId: 4
         }),
         models.Activity.create({
             event: "Learned a new swear word",
-            date: "2017-07-10 12:34:12",
+            date: "2017-07-10",
             PetId: 5
         }),
         models.Activity.create({
             event: "Cleaned cage",
-            date: "2017-07-09 12:34:12",
+            date: "2017-07-09",
             PetId: 5
         }),
         models.Contacts.create({

@@ -2,7 +2,11 @@ $(function() {
     loadPetInformation(PHILOPETS.petId);
     loadContactCards(PHILOPETS.petId);
     loadDietCards(PHILOPETS.petId);
+    loadActivityCards(PHILOPETS.petId);
     initializeMessageBoard();
+    $(document).on("click", ".delete-diet", deleteDiet);
+    $(document).on("click", ".delete-contact", deleteContact);
+    $(document).on("click", ".delete-activity", deleteActivity);
 
     function loadPetInformation(id) {
         $.get(`/api/profile/pet/${id}`)
@@ -13,6 +17,59 @@ $(function() {
                 $('.pet-image').append(`<img src=${pet.image} />`);
             });
     }
+    // functions for Activity
+    function loadActivityCards(id) {
+        $.get(`/api/profile/pet/activity/${PHILOPETS.petId}`)
+            .then((activityData) => {
+                for (var i = 0; i < activityData.length; i++) {
+                    var activity = activityData[i];
+                    var newActivityCard = `<div class="col s12 m6">
+                          <div class="card cyan darken-4">
+                            <div class="card-content white-text">
+                              <span class="card-title">${activity.event}</span>
+                              <p><em>${activity.date}</em></p>
+                            </div>
+                            <div class="card-action white-text">
+                              <a data-id="${activity.id}" class="delete-activity">Delete Activity</a>
+                            </div>
+                          </div>
+                        </div>`
+                    $('#display-activity').append(newActivityCard);
+                }
+            })
+
+    }
+
+    $('form#activity-form').on('submit', function(event) {
+        event.preventDefault();
+        var newEvent = $('#add-event').val().trim();
+        var newDate = $('#add-date').val().trim();
+
+        addActivity(PHILOPETS.petId, newEvent, newDate)
+    })
+
+    function addActivity(id, new_event, date) {
+        $.post(`/add/activity/`, {
+                PetId: id,
+                event: new_event,
+                date: date
+            })
+            .then(() => {
+                window.location.href = `/profile/pet/${id}`
+            })
+    }
+
+    function deleteActivity() {
+        console.log(this)
+        var activityId = $(this).data();
+        $.ajax({
+            method: "DELETE",
+            url: `/api/pet/${PHILOPETS.petId}/activity/${activityId.id}`
+        }).then(() => {
+            window.location.href = `/profile/pet/${PHILOPETS.petId}`
+        })
+    }
+
     // functions for Contacts
     function loadContactCards(id) {
         $.get(`/api/profile/pet/contacts/${id}`)
@@ -21,7 +78,7 @@ $(function() {
                 for (var i = 0; i < contactData.length; i++) {
                     var contact = contactData[i]
                     var newContactCard = `<div class="col s12 m6">
-                          <div class="card cyan darken-4">
+                          <div class="card  grey darken-3">
                             <div class="card-content white-text">
                               <span class="card-title">${contact.service}</span>
                               <p>${contact.name}</p>
@@ -29,9 +86,10 @@ $(function() {
                               <p>${contact.address_2}</p>
                               <p>${contact.city}, ${contact.state} ${contact.zipcode}</p>
                               <p>${contact.phone}</p>
+                              <a href="${contact.website}" target="_blank">Website</a>
                             </div>
                             <div class="card-action white-text">
-                              <a href="${contact.website}" target="_blank">Website</a>
+                              <a data-id="${contact.id}" class="delete-contact">Delete Contact</a>
                             </div>
                           </div>
                         </div>`
@@ -60,7 +118,7 @@ $(function() {
     function addContact(id, name, service, address_1, address_2, city, state, zipcode, phone, website) {
         $.post(`/add/Contacts/`, {
                 name: name,
-                service:service,
+                service: service,
                 address_1: address_1,
                 address_2: address_2,
                 city: city,
@@ -77,6 +135,18 @@ $(function() {
 
     }
 
+    function deleteContact() {
+        console.log(this)
+        var dietId = $(this).data();
+        $.ajax({
+            method: "DELETE",
+            url: `/api/pet/${PHILOPETS.petId}/contacts/${dietId.id}`
+        }).then(() => {
+            window.location.href = `/profile/pet/${PHILOPETS.petId}`
+        })
+    }
+
+
     // Diet Information
     function loadDietCards(id) {
         $.get(`/api/profile/pet/Diet/${id}`)
@@ -87,12 +157,15 @@ $(function() {
                     var diet = food[i];
                     if (diet.treat === false) {
                         var mealCard = `<div class="col s12 m6">
-                                          <div class="card blue-grey darken-1">
+                                          <div class="card indigo darken-4">
                                             <div class="card-content white-text">
                                               <span class="card-title">${diet.name}</span>
                                               <p>Serving Size: ${diet.serving}</p>
                                               <p>Location Stored: ${diet.location}</p>
                                               <p>Purchased At: ${diet.store}</p>
+                                            </div>
+                                            <div class="card-action white-text">
+                                                <a data-id="${diet.id}" class="delete-diet">Delete Item</a>
                                             </div>
                                           </div>
                                         </div>`
@@ -100,14 +173,17 @@ $(function() {
 
                     } else {
                         var treatCard = `<div class="col s12 m6">
-                                          <div class="card light-blue darken-4">
-                                            <div class="card-content white-text">
-                                              <span class="card-title">${diet.name}</span>
-                                              <p>Serving Size: ${diet.serving}</p>
-                                              <p>Location Stored: ${diet.location}</p>
-                                              <p>Purchased At: ${diet.store}</p>
+                                            <div class="card indigo darken-4">
+                                                <div class="card-content white-text">
+                                                    <span class="card-title">${diet.name}</span>
+                                                    <p>Serving Size: ${diet.serving}</p>
+                                                    <p>Location Stored: ${diet.location}</p>
+                                                    <p>Purchased At: ${diet.store}</p>
+                                                </div>
+                                                <div class="card-action white-text">
+                                                    <a data-id="${diet.id}" class="delete-diet">Delete Item</a>
+                                                </div>                                          
                                             </div>
-                                          </div>
                                         </div>`
                         $('#treats').append(treatCard);
                     }
@@ -116,13 +192,22 @@ $(function() {
             })
     }
 
-
+    function deleteDiet() {
+        console.log(this)
+        var dietId = $(this).data();
+        $.ajax({
+            method: "DELETE",
+            url: `/api/pet/${PHILOPETS.petId}/diet/${dietId.id}`
+        }).then(() => {
+            window.location.href = `/profile/pet/${PHILOPETS.petId}`
+        })
+    }
 
     $('form#diet-form').on('submit', function(event) {
         event.preventDefault();
         var brand = $('#diet_brand').val().trim();
         var serving = $('#diet_serving').val().trim();
-        var treat = $('#diet_treat').val().trim();
+        var treat = $('input[name=diet_treat]:checked').val();
         var dietLocation = $('#diet_location').val().trim();
         var dietStore = $('#diet_purchase_location').val().trim();
 

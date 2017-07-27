@@ -1,7 +1,7 @@
 var models = require('../Models')
 module.exports = function(app) {
     // DELETE route for deleting activities
-    app.delete("/api/pet/:petId/activities/:id", function(req, res) {
+    app.delete("/api/pet/:petId/activity/:id", function(req, res) {
         models.Activity.destroy({
             where: {
                 id: req.params.id,
