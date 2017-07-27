@@ -74,7 +74,7 @@ Users can navigate to their pets' profiles by clicked the "View My Profile" link
 ![]()
 
 ### Login Page (Returning User)
-![](  
+![]()
 
 ### User Profile Page
 ![]()
