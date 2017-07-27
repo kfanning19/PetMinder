@@ -196,6 +196,46 @@ module.exports = function() {
             contents: "Riley decided to defend Cooper again. Both sweet and irritating.",
             UserId: 2,
             PetId: 2
+        }),
+        models.Diet.create({
+            name: "Kirkland Kibble",
+            serving: "1.5 cups",
+            treat: false,
+            location: "Under the desk in the laundry room",
+            store: "Costco",
+            PetId: 1
+        }),
+        models.Diet.create({
+            name: "Kirkland Kibble",
+            serving: "1 cup",
+            treat: false,
+            location: "Under the desk in the laundry room",
+            store: "Costco",
+            PetId: 2
+        }),
+        models.Diet.create({
+            name: "DentaStix",
+            serving: "1 piece",
+            treat: true,
+            location: "Top pantry cabinet",
+            store: "Costco",
+            PetId: 1
+        }),
+        models.Diet.create({
+            name: "DentaStix",
+            serving: "1 piece",
+            treat: true,
+            location: "Top pantry cabinet",
+            store: "Costco",
+            PetId: 2
+        }),
+        models.Diet.create({
+            name: "Milkbone",
+            serving: "1 piece",
+            treat: true,
+            location: "Top pantry cabinet",
+            store: "Costco",
+            PetId: 1
         })
     ];
     // console.log(promises);

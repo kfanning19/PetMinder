@@ -22,7 +22,8 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         address_2: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            default: ''
         },
         city: {
             type: DataTypes.STRING,

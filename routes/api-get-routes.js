@@ -38,6 +38,7 @@ module.exports = function(app) {
         models.Activity.findAll({
             where: { petId: req.params.petId },
             include: [models.Pet],
+            order:[['date', 'DESC']]
         }).then(function(data) {
             res.json(data)
         }).catch((error) => {
@@ -61,7 +62,7 @@ module.exports = function(app) {
     // get Pet Diet
     app.get("/api/profile/pet/Diet/:id", function(req, res) {
         models.Diet.findAll({
-            where: { petId: req.params.petId },
+            where: { PetId: req.params.id },
             include: [models.Pet]
         }).then(function(data) {
             res.json(data);
@@ -74,7 +75,8 @@ module.exports = function(app) {
     app.get("/api/profile/pet/messages/:id", function(req, res) {
         models.Messages.findAll({
             where: { petId: req.params.id },
-            include: [models.Pet, models.User]
+            include: [models.Pet, models.User],
+            order:[['createdAt', 'DESC']]
         }).then(function(data) {
             res.json(data);
         }).catch((error) => {

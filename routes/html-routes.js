@@ -19,7 +19,11 @@ module.exports = function(app) {
         if (req.user) {
             res.redirect("/profile/user");
         } else {
+<<<<<<< HEAD
             res.sendFile(path.join(__dirname, "../views/login.html"));
+=======
+            res.sendFile(path.join(__dirname, "../views/login.html"));;
+>>>>>>> master
             // res.render("login")
         }
     });
@@ -46,11 +50,13 @@ module.exports = function(app) {
     // FAQ page
     app.get("/faq", function(req, res) {
         res.sendFile(path.join(__dirname, "../views/faq.html"));
+        res.render('faq')
     });
 
     //About page
     app.get("/about", function(req, res) {
         res.sendFile(path.join(__dirname, "../views/about.html"));
+        res.render('about')
     });
     // Forgot Password
     app.get("/forgot-password", function(req, res) {
@@ -60,6 +66,8 @@ module.exports = function(app) {
     app.get("/signup", function(req, res) {
         res.sendFile(path.join(__dirname, "../views/signUp.html"));
         // res.render("signUp")
+        // res.sendFile(path.join(__dirname, "../views/signUp.html"));
+        res.render("signUp")
     })
 
 };
