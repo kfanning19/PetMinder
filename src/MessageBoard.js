@@ -81,7 +81,7 @@ var MessageBoard = React.createClass({
                 <textarea rows="5" cols="50" value={this.state.contents} onChange={this.handleChange}  id="contents"></textarea>
                 <label htmlFor='contents'>Add a new Message</label>
               </div>
-              <button className="btn waves-effect cyan darken-4 inline col s2" type="submit" name="action">Submit<i className="material-icons right">send</i>
+              <button className="btn waves-effect  grey darken-1 inline col s2" type="submit" name="action">Submit<i className="material-icons right">send</i>
               </button>
             </div>
           </form>

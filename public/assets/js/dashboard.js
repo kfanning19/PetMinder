@@ -158,7 +158,7 @@ $(function() {
                     var diet = food[i];
                     if (diet.treat === false) {
                         var mealCard = `<div class="col s12 m6">
-                                          <div class="card blue darken-4">
+                                          <div class="card indigo darken-4">
                                             <div class="card-content white-text">
                                               <span class="card-title">${diet.name}</span>
                                               <p>Serving Size: ${diet.serving}</p>
@@ -174,7 +174,7 @@ $(function() {
 
                     } else {
                         var treatCard = `<div class="col s12 m6">
-                                            <div class="card blue darken-4">
+                                            <div class="card indigo darken-4">
                                                 <div class="card-content white-text">
                                                     <span class="card-title">${diet.name}</span>
                                                     <p>Serving Size: ${diet.serving}</p>
@@ -254,10 +254,10 @@ $(function() {
                         title: "lbs"
                     },
                     data: [{
-                        toolTipContent: "{y} units",
+                        toolTipContent: "{y} lbs",
                         type: "splineArea",
                         markerSize: 5,
-                        color: "rgba(54,158,173,.7)",
+                        color: "rgba(230, 74, 25,.7)",
                         dataPoints: weightData
                     }]
                 });
