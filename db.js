@@ -238,37 +238,37 @@ module.exports = function() {
             PetId: 1
         }),
         models.Weight.create({
-            weight: "85",
+            weight: 85,
             date: "2017-05-07",
             PetId: 1
         }),
         models.Weight.create({
-            weight: "87",
+            weight: 87,
             date: "2017-05-28",
             PetId: 1
         }),
         models.Weight.create({
-            weight: "90",
+            weight: 90,
             date: "2017-06-01",
             PetId: 1
         }),
         models.Weight.create({
-            weight: "86",
+            weight: 86,
             date: "2017-06-15",
             PetId: 1
         }),
         models.Weight.create({
-            weight: "83",
+            weight: 83,
             date: "2017-06-25",
             PetId: 1
         }),
         models.Weight.create({
-            weight: "85",
+            weight: 85,
             date: "2017-07-04",
             PetId: 1
         }),
         models.Weight.create({
-            weight: "80",
+            weight: 80,
             date: "2017-07-15",
             PetId: 1
         }),

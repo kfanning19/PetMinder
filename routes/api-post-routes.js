@@ -123,7 +123,7 @@ module.exports = function(app, passport) {
     });
         // add Weight
     app.post("/add/Weight/", function(req, res) {
-        models.Contacts.create(req.body).then(
+        models.Weight.create(req.body).then(
             (data) => {
                 res.json(data);
             }).catch((error) => {

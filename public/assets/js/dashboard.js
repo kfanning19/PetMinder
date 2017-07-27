@@ -158,7 +158,7 @@ $(function() {
                     var diet = food[i];
                     if (diet.treat === false) {
                         var mealCard = `<div class="col s12 m6">
-                                          <div class="card indigo darken-4">
+                                          <div class="card blue darken-4">
                                             <div class="card-content white-text">
                                               <span class="card-title">${diet.name}</span>
                                               <p>Serving Size: ${diet.serving}</p>
@@ -174,7 +174,7 @@ $(function() {
 
                     } else {
                         var treatCard = `<div class="col s12 m6">
-                                            <div class="card indigo darken-4">
+                                            <div class="card blue darken-4">
                                                 <div class="card-content white-text">
                                                     <span class="card-title">${diet.name}</span>
                                                     <p>Serving Size: ${diet.serving}</p>
@@ -230,7 +230,7 @@ $(function() {
             })
     }
 
-    function(id) loadWeightChart {
+    function loadWeightChart(id) {
         $.get(`/api/profile/pet/weight/${id}`)
             .then((weight) => {
                 var weightData = []
@@ -238,19 +238,20 @@ $(function() {
                 for (var i = 0; i < weight.length; i++) {
                     var lbs = weight[i];
                     var date = lbs.date
-                    var formattedDate = date.replace(/-/g, ",");
+                    var formattedDate = date.replace(/-/g, ", ");
 
-                    var newPoint = { x: newDate(formattedDate), y: lbs.weight };
+                    var newPoint = { x: new Date(formattedDate), y: lbs.weight };
                     weightData.push(newPoint);
+                    console.log(formattedDate);
                 }
+                console.log(weightData);
                 var chart = new CanvasJS.Chart("weightChart", {
                     title: {
                         text: "Weight"
                     },
                     animationEnabled: true,
                     axisY: {
-                        title: "lbs",
-                        valueFormatString: "#0,,."
+                        title: "lbs"
                     },
                     data: [{
                         toolTipContent: "{y} units",

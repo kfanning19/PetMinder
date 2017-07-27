@@ -86,9 +86,9 @@ module.exports = function(app) {
     });
         // get Pet Weight
     app.get("/api/profile/pet/weight/:id", function(req, res) {
-        models.Messages.findAll({
+        models.Weight.findAll({
             where: { PetId: req.params.id },
-            include: [models.Pet, models.User],
+            include: [models.Pet],
             order:[['date', 'ASC']]
         }).then(function(data) {
             res.json(data);
