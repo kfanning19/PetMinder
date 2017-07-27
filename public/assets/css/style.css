@@ -35,24 +35,30 @@ label {
 	color: #33575b;
 }
 
-.waves-effect.waves {
-  background-color: #33575b;
+.material-icons {
+  color: white;
 }
 
+.waves.waves-effect {
+  background-color: #33575b;
+}
+/*
 a {
     color: #33575b;
     cursor: pointer;
 }
-
+*/
 nav {
     height: 65px;
 }
 
+h1 {
+  color: #ad6a1d !important;
+}
 
 .input-field label {
   color: #33575b;
 }
-
 
 /* label focus color */
 .input-field input:focus + label {
@@ -96,34 +102,5 @@ a. {
 /*p {
   font-size: 2em;
 }*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

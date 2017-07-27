@@ -7,9 +7,12 @@ light tan: #ecc78d
 camel: #ad6a1d
 */
 
+div.card.horizontal {
+	background-color: #ecc78d;
+}
 
-
-
-
+a {
+	color: #2e0a05 !important;
+}
 
 /*Cards*/
