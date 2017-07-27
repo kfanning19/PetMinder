@@ -76,7 +76,7 @@ var MessageBoard = React.createClass({
       <div id="message-container">
         <div className="row">
           <form className="col s12" onSubmit={this.handleSubmit}>
-            <div className="row">
+            <div className="row valign-wrapper">
               <div className="input-field inline col s10">
                 <textarea rows="5" cols="50" value={this.state.contents} onChange={this.handleChange}  id="contents"></textarea>
                 <label htmlFor='contents'>Add a new Message</label>

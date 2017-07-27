@@ -5,153 +5,174 @@
                 <div class="col s12" id="pet-info">
                     <div class="card horizontal">
                         <div class="card-image">
-                            <span class="pet-image"><span>
+                            <span class="pet-image"></span>
                         </div>
                         <div class="card-stacked">
                             <div class="card-content">
                                 <p class="pet-name"></p>
                                 <p>Birthday: <span class="pet-birthday"></span></p>
-                            <p>My favorite toy is <span class="pet-toy"></span></p>
+                                <p>My favorite toy is <span class="pet-toy"></span></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <h3 class="center">My Food</h3>
-            <button class="waves-effect waves-light btn modal-trigger light-blue darken-4" data-target="dietModal">Add Food</button>
-            <h4>Meals</h4>
-            <div id="meals"></div>
-            <br>
-            <h4>Treats</h4>
-            <div id="treats"></div>
+        <div class="col s6">
+            <div id="message-board"></div>
         </div>
     </div>
-    <div class="col s6">
-        <div id="message-board"></div>
-    </div>
-</div>
-<div class="row" id='contacts-container'>
-    <h3 class="center">Contacts</h3>
-    <!-- Modal Trigger -->
-    <button class="waves-effect waves-light btn modal-trigger cyan darken-4" data-target="contactsModal">Add a Contact</button>
     <div class="row">
-        <div id="contact-cards"></div>
-    </div>
-</div>
-<!-- Contacts Modal -->
-<div id="contactsModal" class="modal">
-    <div class="modal-content">
-        <h4>Add a Contact</h4>
-        <div class="row">
-            <form class="col s12" id="contact-form">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="contact_name" type="text" class="validate" required />
-                        <label for="contact_name">Contact Name</label>
-                    </div>
+        <h3 class="center">Activity/Events</h3>
+        <form class="col s12" id="activity-form">
+            <div class="row">
+                <div class="input-field inline col s8">
+                    <input id="add-event" type="text" class="validate" required/>
+                    <label for="event">Add an Activity</label>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="contact_service" type="text" class="validate" required />
-                        <label for="contact_service">Service</label>
-                    </div>
+                <div class="input-field inline col s2">
+                    <input type="text" id='add-date' class="datepicker" />
+                    <label for="date">Date</label>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="contact_address1" type="text" class="validate" required/>
-                        <label for="contact_address1">Address Line 1</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="contact_address2" type="text" class="validate" />
-                        <label for="contact_address2">Address Line 2</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s5">
-                        <input id="contact_city" type="text" class="validate" required />
-                        <label for="contact_city">City</label>
-                    </div>
-                    <div class="input-field col s5">
-                        <input id="contact_state" type="text" class="validate" required />
-                        <label for="contact_state">State</label>
-                    </div>
-                    <div class="input-field col s2">
-                        <input id="contact_zip" type="text" class="validate" required />
-                        <label for="contact_zip">Zipcode</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="contact_phone" type="text" class="validate" required />
-                        <label for="contact_phone">Phone Number</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="contact_URL" type="url" class="validate">
-                        <label for="contact_URL">Website</label>
-                    </div>
-                </div>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <button class="btn waves-effect waves-light inline col s2 cyan darken-4" type="submit" name="action">Submit
                     <i class="material-icons right">send</i>
                 </button>
-            </form>
+            </div>
+        </form>
+        <div id="display-activity"></div>
+    </div>
+    <div class="row">
+        <h3 class="center">My Diet</h3>
+        <button class="left-align waves-effect waves-light btn modal-trigger indigo darken-4" data-target="dietModal">Add Food</button>
+        <div class="col s6">
+            <h4 class="center">Meals</h4>
+            <div id="meals"></div>
+        </div>
+        <div class="col s6">
+            <h4class="center">Treats</h4>
+                <div id="treats"></div>
         </div>
     </div>
-</div>
-<!-- Diet Modal -->
-<div id="dietModal" class="modal">
-    <div class="modal-content">
-        <h4>Add Food</h4>
+    <div class="row" id='contacts-container'>
+        <h3 class="center">Contacts</h3>
+        <!-- Modal Trigger -->
+        <button class="waves-effect waves-light btn modal-trigger  grey darken-3" data-target="contactsModal">Add a Contact</button>
         <div class="row">
-            <form class="col s12" id="diet-form">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="diet_brand" type="text" class="validate" required>
-                        <label for="diet_brand">Brand and/or Name</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="diet_serving" type="text" class="validate" required>
-                        <label for="diet_serving">Serving</label>
-                    </div>
-                    <div class="col s6">
-                        <p>
-                            <input name="group1" type="radio" id="test1" />
-                            <label for="test1">Red</label>
-                        </p>
-                        <p>
-                            <input name="group1" type="radio" id="test2" />
-                            <label for="test2">Yellow</label>
-                        </p>
-                        <label for="diet">Meal or Treat?</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="diet_location" type="text" class="validate">
-                        <label for="diet_location">Location Stored</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="diet_purchase_location" type="text" class="validate">
-                        <label for="diet_purchase_location">Location Purchased</label>
-                    </div>
-                </div>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                    <i class="material-icons right">send</i>
-                </button>
-            </form>
+            <div id="contact-cards"></div>
         </div>
     </div>
-</div>
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
-<script src="/assets/js/bundle.js"></script>
-<script src='/assets/js/app.js'></script>
-<script src="/assets/js/dashboard.js"></script>
+    <!-- Contacts Modal -->
+    <div id="contactsModal" class="modal">
+        <div class="modal-content">
+            <h4>Add a Contact</h4>
+            <div class="row">
+                <form class="col s12" id="contact-form">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="contact_name" type="text" class="validate" required />
+                            <label for="contact_name">Contact Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="contact_service" type="text" class="validate" required />
+                            <label for="contact_service">Service</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="contact_address1" type="text" class="validate" required/>
+                            <label for="contact_address1">Address Line 1</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="contact_address2" type="text" class="validate" />
+                            <label for="contact_address2">Address Line 2</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s5">
+                            <input id="contact_city" type="text" class="validate" required />
+                            <label for="contact_city">City</label>
+                        </div>
+                        <div class="input-field col s5">
+                            <input id="contact_state" type="text" class="validate" required />
+                            <label for="contact_state">State</label>
+                        </div>
+                        <div class="input-field col s2">
+                            <input id="contact_zip" type="text" class="validate" required />
+                            <label for="contact_zip">Zipcode</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="contact_phone" type="text" class="validate" required />
+                            <label for="contact_phone">Phone Number</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="contact_URL" type="url" class="validate">
+                            <label for="contact_URL">Website</label>
+                        </div>
+                    </div>
+                    <button class="btn waves-effect waves-light  grey darken-3" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Diet Modal -->
+    <div id="dietModal" class="modal">
+        <div class="modal-content">
+            <h4>Add Food</h4>
+            <div class="row">
+                <form class="col s12" id="diet-form">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="diet_brand" type="text" class="validate" required>
+                            <label for="diet_brand">Brand and/or Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="diet_serving" type="text" class="validate" required>
+                            <label for="diet_serving">Serving</label>
+                        </div>
+                        <div class="col s6">
+                            <label for="diet_treat">Meal or Treat?</label>
+                            <p>
+                                <input name="diet_treat" value="false" type="radio" id="meal" class="light-blue darken-4" />
+                                <label for="meal">Meal</label>
+                            </p>
+                            <p>
+                                <input name="diet_treat" type="radio" value="true" id="treat" class="light-blue darken-4" />
+                                <label for="treat">Treat</label>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="diet_location" type="text" class="validate">
+                            <label for="diet_location">Location Stored</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="diet_purchase_location" type="text" class="validate">
+                            <label for="diet_purchase_location">Location Purchased</label>
+                        </div>
+                    </div>
+                    <button class="btn waves-effect waves-light light-blue darken-4" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/js/bundle.js"></script>
+    <script src='/assets/js/app.js'></script>
+    <script src="/assets/js/dashboard.js"></script>
