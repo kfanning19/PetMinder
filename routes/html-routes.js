@@ -19,11 +19,7 @@ module.exports = function(app) {
         if (req.user) {
             res.redirect("/profile/user");
         } else {
-<<<<<<< HEAD
             res.sendFile(path.join(__dirname, "../views/login.html"));
-=======
-            res.sendFile(path.join(__dirname, "../views/login.html"));;
->>>>>>> master
             // res.render("login")
         }
     });

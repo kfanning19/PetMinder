@@ -39,3 +39,7 @@ body {
       font-size: 50px;
       padding-left: 75px;
     }
+
+    ul#slide-out.side-nav {
+        background-color: #ecc78d;
+    }

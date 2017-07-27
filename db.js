@@ -14,7 +14,7 @@ module.exports = function() {
             email: "kristentfanning@gmail.com",
             password: password,
             phone: "1232341234",
-            image: "https://ichef.bbci.co.uk/images/ic/480x270/p049tgdb.jpg",
+            image: "http://i.imgur.com/VR2MdO7.jpg",
         }),
         models.User.create({
             first_name: "Susan",
@@ -22,7 +22,7 @@ module.exports = function() {
             email: "sheiniger@gmail.com",
             password: password,
             phone: "1232341234",
-            image: "https://static.pexels.com/photos/33537/cat-animal-cat-portrait-mackerel.jpg"
+            image: "http://i.imgur.com/fRlgNEE.jpg"
         }),
         models.User.create({
             first_name: "Ornella",
@@ -30,7 +30,7 @@ module.exports = function() {
             email: "ornellah@gmail.com",
             password: password,
             phone: "1232341234",
-            image: "https://static.pexels.com/photos/50577/hedgehog-animal-baby-cute-50577.jpeg"
+            image: "http://i.imgur.com/sUrBTAu.jpg"
         }),
         models.Pet.create({
             name: "Cooper",
@@ -38,7 +38,7 @@ module.exports = function() {
             breed: "Chinook",
             dob: "2014-09-24",
             favorite_toy: "rope",
-            image: "https://vetstreet.brightspotcdn.com/dims4/default/b90e614/2147483647/thumbnail/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2Ff8%2Fd9ad10c79311e09b940050568d6ceb%2Ffile%2FChinook-5-645km071411.jpg"
+            image: "http://i.imgur.com/HqdIaqg.png"
         }),
         models.Pet.create({
             name: "Riley",
@@ -46,7 +46,7 @@ module.exports = function() {
             breed: "Ridgeback",
             dob: "2015-11-24",
             favorite_toy: "Cooper's back leg",
-            image: "http://puppytoob.com/wp-content/uploads/2016/10/rhodesian-ridgeback-1.jpg"
+            image: "http://i.imgur.com/ztOSB2z.png"
         }),
         models.Pet.create({
             name: "Daisy",
@@ -54,7 +54,7 @@ module.exports = function() {
             breed: "Maine Coon",
             dob: "1998-12-25",
             favorite_toy: "laser pointer",
-            image: "http://mainecoonadmirer.com/wp-content/uploads/2016/06/Females.jpg"
+            image: "http://i.imgur.com/tXEkIxA.png"
         }),
         models.Pet.create({
             name: "Loki",
@@ -62,7 +62,7 @@ module.exports = function() {
             breed: "French Hop",
             dob: "2014-07-25",
             favorite_toy: "lettuce",
-            image: "https://t2.ea.ltmcdn.com/en/images/3/2/3/img_a_french_lop_rabbit_s_diet_323_paso_0_600.jpg"
+            image: "http://i.imgur.com/EisZdne.jpg"
         }),
         models.Pet.create({
             name: "Pirate",
@@ -70,7 +70,7 @@ module.exports = function() {
             breed: "macaw",
             dob: "2013-05-29",
             favorite_toy: "bells",
-            image: "http://media.istockphoto.com/photos/red-parrot-picture-id105951602?k=6&m=105951602&s=612x612&w=0&h=G6VP0HgcGW4c-CVbGQv5NyIK8TInaI_9DmvXTwMr2rc="
+            image: "http://i.imgur.com/jdaulnj.jpg"
         }),
         models.Activity.create({
             event: "walk",

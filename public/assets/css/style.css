@@ -1,8 +1,17 @@
-/*Login*/
+/*Color Palette Shortcut
+
+light blue: #d0dfe4
+dark blue/green: #33575b
+dark brown: #2e0a05
+light tan: #ecc78d
+camel: #ad6a1d
+*/
+
+
+
 
 html, body {
-/*	font-family: 'Raleway', sans-serif;
-*/	font-family:'Raleway', sans-serif;
+  font-family:'Raleway', sans-serif;
 	background-color: #d0dfe4;
 	max-width: 100%;
 	overflow-x: hidden;
@@ -75,7 +84,7 @@ nav, .page-footer, .footer-copyright, .page-footer .footer-copyright {
 
 /*footer*/
 
-body {
+/*body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -98,25 +107,24 @@ footer.page-footer {
 
 div.row {
   margin: 0px;
-}
+}*/
 
 a.brand-logo {
   font-size: 50px;
   padding-left: 0px;
 }
 
-@media only screen and (max-width: 600px) {
 
-  #title {
-    font-size: 75px;
-  }
+/*
+make this for card links/urls
 
+a. {
+  font-size: 2em;
+}*/
 
-
-
-
-
-
+p {
+  font-size: 2em;
+}
 
 
 
