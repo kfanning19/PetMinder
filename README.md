@@ -8,10 +8,6 @@ PhiloPet is an application created for the use of pet owners and caretakers.  Pe
 
 Track your animals' weight over time, food staples, and the contact information for the pet care professionals in their lives.  PhiloPet allows the user to log activities and events that occur in their pets' lives and utilize a message board in order to communicate with other users with whom a pet's profile is shared.
 
-### Web App Outline
-
-TODO TODO TODO
-
 ## Technologies Used
 
 ### Database Management
